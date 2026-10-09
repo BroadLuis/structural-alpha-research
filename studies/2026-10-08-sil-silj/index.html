@@ -71,6 +71,12 @@ td.pos{background:var(--green)}td.neg{background:var(--red)}
   [data-theme="dark"] .tablewrap tbody td.neg{color:#ffb7bc!important}
 }
 
+
+/* Structural Alpha visual identity */
+.brand-mark{display:inline-block;vertical-align:middle;width:38px;height:38px;object-fit:contain;flex:none;margin-right:9px;filter:drop-shadow(0 0 5px #1bb9e555)}
+.brand-with-icon{display:inline-flex;align-items:center;min-width:0;text-decoration:none;gap:0}
+.hero-banner{display:block;width:100%;height:auto;border-radius:13px;box-shadow:0 12px 30px #0005;border:1px solid #386078;object-fit:cover}
+@media(max-width:650px){.brand-mark{width:31px;height:31px;margin-right:7px}.brand-with-icon{font-size:.82rem!important}.hero-banner{height:180px;object-position:left center}.top{flex-wrap:wrap}}
 </style>
 <script>
 (function(){const key="structural-alpha-theme";let choice;try{choice=localStorage.getItem(key)}catch(e){}
@@ -79,10 +85,10 @@ document.documentElement.dataset.theme=choice==="light"||choice==="dark"?choice:
 document.addEventListener("DOMContentLoaded",()=>{const button=document.getElementById("theme-toggle");
 function sync(){const dark=document.documentElement.dataset.theme==="dark";button.textContent=dark?"☀ Light":"☾ Dark";button.setAttribute("aria-label",dark?"Switch to light mode":"Switch to dark mode");button.setAttribute("aria-pressed",String(dark));}
 sync();button.addEventListener("click",()=>{const next=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=next;try{localStorage.setItem(key,next)}catch(e){}sync();});});})();
-</script></head>
+</script><link rel="icon" type="image/png" href="../../assets/images/Emblema%20de%20pico%20minero%20ne%C3%B3n%20cromado.png"></head>
 <body>
 <header><div class="wrap">
-<nav class="top"><span class="brand">STRUCTURAL ALPHA <span style="font-weight:400">/ Research Archive</span></span><div class="links"><a href="../../index.html">← All studies</a><button class="theme-toggle" id="theme-toggle" type="button">☾ Dark</button></div></nav>
+<nav class="top"><a class="brand brand-with-icon" href="../../index.html" style="color:#fff"><img class="brand-mark" src="../../assets/images/Emblema%20de%20pico%20minero%20ne%C3%B3n%20cromado.png" alt="" width="38" height="38"><span>STRUCTURAL ALPHA <span style="font-weight:400">/ Research Archive</span></span></a><div class="links"><a href="../../index.html">← All studies</a><button class="theme-toggle" id="theme-toggle" type="button">☾ Dark</button></div></nav>
 <div class="hero"><div class="eyebrow">SIL–SILJ · Quantitative market structure · October 8, 2026</div>
 <h1>Silver Miners Deep in Correction Territory. Are the First Signs of Resilience Emerging?</h1>
 <p class="deck">An analysis of 98 SIL–SILJ securities reveals a severe, widespread correction. A tentative change in miners' behavior relative to silver warrants attention, but a sustained reversal remains unconfirmed.</p></div>
