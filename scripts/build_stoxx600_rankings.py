@@ -66,7 +66,7 @@ for row in parsed[2:]:
     for ix in (4,5,6,7,8):
         if isinstance(clean[ix],float):clean[ix]=round(clean[ix],5)
     data.append(clean)
-if len(data)!=610 or len({r[2] for r in data})!=500 or sorted(r[0] for r in data)!=list(range(1,611)):
+if len(data)!=610 or len({r[2] for r in data})!=610 or sorted(r[0] for r in data)!=list(range(1,611)):
     raise SystemExit("Full company dataset validation failed")
 assert sum(isinstance(r[1],int) for r in data)==603
 output.write_text(json.dumps({"columns":expected,"data":data},ensure_ascii=False,separators=(",",":"))+"\n",encoding="utf-8")
