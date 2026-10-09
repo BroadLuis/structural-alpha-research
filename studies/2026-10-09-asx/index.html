@@ -31,8 +31,61 @@ details{margin:18px 0;background:#fff;border:1px solid var(--line);border-radius
 summary{cursor:pointer;font-weight:700}
 .note{font-size:.87rem;color:#667b8b}.foot{border-top:1px solid var(--line);padding-top:18px;margin-top:35px;font-size:.88rem}
 @media(max-width:720px){.kpis{grid-template-columns:repeat(2,1fr)}.panel{padding:17px}.hero{margin-top:30px}header{padding-bottom:52px}}
-</style></head>
-<body><header><div class="wrap"><div class="top"><a href="../../index.html"><b>STRUCTURAL ALPHA</b> / RESEARCH ARCHIVE</a><a href="../../index.html#research">All studies ↗</a></div>
+
+/* Accessible light/dark appearance switch shared across Structural Alpha pages */
+.theme-toggle{font:inherit;font-size:.84rem;white-space:nowrap;color:#e8f3fb;background:#314c66;border:1px solid #7894aa;border-radius:999px;padding:7px 13px;cursor:pointer;transition:background-color .15s}
+.theme-toggle:hover{background:#41647f}.theme-toggle:focus-visible{outline:3px solid #93d6f6;outline-offset:3px}
+[data-theme="dark"]{color-scheme:dark;--ink:#e7edf5;--muted:#afc0d1;--line:#34485d;--bg:#101b2a;--white:#1b2c3e}
+[data-theme="dark"] body{background:var(--bg);color:var(--ink)}
+[data-theme="dark"] .panel,[data-theme="dark"] .topic{background:#1b2c3e;border-color:#34485d}
+[data-theme="dark"] h2,[data-theme="dark"] h3,[data-theme="dark"] strong{color:#e7edf5}
+[data-theme="dark"] a{color:#9bcfeb}
+[data-theme="dark"] .note,[data-theme="dark"] .empty,[data-theme="dark"] .disclaimer{color:#b6c5d2}
+[data-theme="dark"] footer{background:#162435;border-color:#34485d;color:#b6c5d2}
+[data-theme="dark"] .theme-toggle{background:#41617e;color:#fff}
+
+[data-theme="dark"] p{color:#c5d2df}
+[data-theme="dark"] .kpi,[data-theme="dark"] .image-grid figure{background:#25394d!important;border-color:#41566b!important}
+[data-theme="dark"] .kpi span{color:#bdd0dd}
+[data-theme="dark"] .tablewrap{border-color:#41566b}
+[data-theme="dark"] table{background:#1b2c3e}
+[data-theme="dark"] thead th{background:#314e67;color:#f2f6fc}
+[data-theme="dark"] td{border-color:#3b5064;color:#e1eaf2}
+[data-theme="dark"] tbody tr:nth-child(even){background:#22364a}
+[data-theme="dark"] tbody tr:hover{background:#2b4560}
+[data-theme="dark"] td.pos{background:#245549;color:#d9f2e6}
+[data-theme="dark"] td.neg{background:#603a48;color:#ffe1e2}
+[data-theme="dark"] details{background:#1b2c3e;border-color:#41566b}
+[data-theme="dark"] .action.secondary{background:#30465a;color:#e5eff9}
+[data-theme="dark"] .foot{border-color:#405568}
+[data-theme="dark"] header a{color:#d7e8f5}
+
+</style><script>
+(function(){
+  const storageKey="structural-alpha-theme";
+  let choice=null;
+  try{choice=localStorage.getItem(storageKey)}catch(e){}
+  const preferredDark=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const initial=choice==="light"||choice==="dark"?choice:(preferredDark?"dark":"light");
+  document.documentElement.setAttribute("data-theme",initial);
+  function sync(){
+    const dark=document.documentElement.getAttribute("data-theme")==="dark";
+    const button=document.getElementById("theme-toggle");
+    if(button){button.textContent=dark?"☀ Light":"☾ Dark";button.setAttribute("aria-label",dark?"Switch to light mode":"Switch to dark mode");button.setAttribute("aria-pressed",String(dark));}
+  }
+  document.addEventListener("DOMContentLoaded",function(){
+    sync();
+    const button=document.getElementById("theme-toggle");
+    if(button)button.addEventListener("click",function(){
+      const next=document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark";
+      document.documentElement.setAttribute("data-theme",next);
+      try{localStorage.setItem(storageKey,next)}catch(e){}
+      sync();
+    });
+  });
+})();
+</script></head>
+<body><header><div class="wrap"><div class="top"><a href="../../index.html"><b>STRUCTURAL ALPHA</b> / RESEARCH ARCHIVE</a><div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap"><a href="../../index.html#research">All studies ↗</a><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">☾ Dark</button></div></div>
 <div class="hero"><div class="eyebrow">ASX · Weekly research · 9 October 2026</div>
 <h1>ASX Miners: Selling Pressure Is Easing, but the Correction Continues to Spread</h1>
 <p class="deck">An analysis of 90 Australian-listed mining companies across price performance, market breadth, drawdowns, relative volume, and longer-term leadership.</p></div></div></header>
