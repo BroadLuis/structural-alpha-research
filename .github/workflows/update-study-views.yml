@@ -34,5 +34,11 @@ jobs:
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add views.json
             git commit -m "Refresh published study visit counts"
-            git push
+            for attempt in 1 2 3 4; do
+              git pull --rebase origin main
+              if git push origin HEAD:main; then exit 0; fi
+              sleep 2
+            done
+            echo "Unable to publish refreshed counts after retries" >&2
+            exit 1
           fi
