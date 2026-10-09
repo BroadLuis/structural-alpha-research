@@ -70,13 +70,12 @@ sync();button.addEventListener("click",()=>{const next=document.documentElement.
 <p class="meta">Every security from the original scanner workbook is included below, with weekly rank, global rank, price, weekly, four-week, three-month and year-to-date performance. Two securities lack sufficient data for a global ranking; ties are preserved. Rankings are descriptive, not investment recommendations.</p>
 <div class="controls"><label for="rank-sort">Order by</label><select id="rank-sort"><option value="weekly">Weekly rank</option><option value="global">Global rank</option></select><input id="rank-search" type="search" placeholder="Search ticker or company…" aria-label="Search companies"/><span class="result-count" id="rank-count">Loading companies…</span></div>
 <div id="company-table"><p>Loading all 98 companies…</p></div>
-<h3>Download the original study and datasets</h3>
+<h3>Download the original Excel study</h3>
 <div class="links">
 <a class="action" href="assets/Weekly_Analysis_SIL_SILJ_20261007.xlsx" download="Weekly_Analysis_SIL_SILJ_20261007.xlsx">↓ Download complete Excel workbook (.xlsx)</a>
-<button class="action secondary" id="download" type="button" disabled>↓ Download all 98 companies (CSV)</button>
-<a class="action secondary" href="companies.json" download>↓ Download ranking dataset (JSON)</a>
+
 </div>
-<p class="note" style="margin-top:12px">The Excel workbook is the original full scanner export. CSV and JSON provide the online nine-column ranking extract.</p>
+<p class="note" style="margin-top:12px">The original Excel workbook contains the full scanner analysis. All 98 securities remain available in the interactive table above.</p>
 <h3>Original ranking images</h3>
 <p class="meta">The four original Top 35 / Bottom 35 graphics used for the publication can be viewed at full size or downloaded individually. The full 98-security table above remains the primary web ranking.</p>
 <div class="image-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,390px),1fr));gap:18px">
@@ -102,5 +101,5 @@ const tbody=document.createElement("tbody");for(const r of rows){const tr=docume
 function render(){const mode=document.getElementById("rank-sort").value,needle=document.getElementById("rank-search").value.trim().toLowerCase();const rows=source.filter(r=>r[2].toLowerCase().includes(needle)||r[3].toLowerCase().includes(needle));
 rows.sort((a,b)=>mode==="weekly"?a[0]-b[0]:(a[1]===null?Infinity:a[1])-(b[1]===null?Infinity:b[1])||a[0]-b[0]);display(rows)}
 fetch("companies.json").then(r=>{if(!r.ok)throw Error("Data unavailable");return r.json()}).then(obj=>{if(!Array.isArray(obj.data)||obj.data.length!==98)throw Error("Unexpected data");source=obj.data;document.getElementById("rank-sort").addEventListener("change",render);document.getElementById("rank-search").addEventListener("input",render);render();
-const button=document.getElementById("download");button.disabled=false;button.addEventListener("click",()=>{const header=["rank_weekly","rank_global","ticker","name","last_close","return_week_pct","return_4w_pct","return_3m_pct","return_ytd_pct"];const quote=x=>'"'+(x===null?"":String(x)).replace(/"/g,'""')+'"';const csv=[header.map(quote).join(","),...source.map(row=>row.map(quote).join(","))].join("\r\n");const blob=new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="Structural_Alpha_SIL_SILJ_2026-10-07_rankings.csv";document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)});}).catch(()=>{document.getElementById("company-table").textContent="The company data could not be loaded. Please try again later.";document.getElementById("rank-count").textContent="Data unavailable"});
+}).catch(()=>{document.getElementById("company-table").textContent="The company data could not be loaded. Please try again later.";document.getElementById("rank-count").textContent="Data unavailable"});
 </script></body></html>
