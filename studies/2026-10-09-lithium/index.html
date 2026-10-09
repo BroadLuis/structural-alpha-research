@@ -3,6 +3,18 @@
 <meta name="description" content="Structural Alpha quantitative study of 26 lithium-related securities through October 8, 2026. Record drawdowns, zero MA200 breadth, weakening volume and full rankings.">
 <meta name="theme-color" content="#162941">
 <title>LITHIUM: Slower Losses, Deeper Structural Damage | Structural Alpha</title>
+<link rel="canonical" href="https://broadluis.github.io/structural-alpha-research/studies/2026-10-09-lithium/index.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Structural Alpha">
+<meta property="og:title" content="Lithium: Slower Losses, Deeper Structural Damage">
+<meta property="og:description" content="26 lithium-related securities: none above MA200, −61.7% median 52-week drawdown and weak volume participation. Full rankings and Excel study.">
+<meta property="og:url" content="https://broadluis.github.io/structural-alpha-research/studies/2026-10-09-lithium/index.html">
+<meta property="og:image" content="https://broadluis.github.io/structural-alpha-research/assets/images/LBroad%20Structural%20Alpha%20Nuevo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lithium: Slower Losses, Deeper Structural Damage">
+<meta name="twitter:description" content="26 lithium-related securities: none above MA200, −61.7% median 52-week drawdown and weak volume participation. Full rankings and Excel study.">
+<meta name="twitter:image" content="https://broadluis.github.io/structural-alpha-research/assets/images/LBroad%20Structural%20Alpha%20Nuevo.png">
+
 <style>
 :root{color-scheme:light;--bg:#f5f8fa;--panel:#fff;--ink:#1d3348;--muted:#60758a;--line:#d8e2eb;--stripe:#f0f5f8;--link:#1b668e;--green:#d8eae5;--red:#f3d8da;--head:#476d89}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 Inter,"Segoe UI",system-ui,sans-serif}a{color:var(--link)}.wrap{width:min(1120px,calc(100% - 34px));margin:auto}
@@ -65,7 +77,10 @@ document.addEventListener("DOMContentLoaded",()=>{const b=document.getElementByI
 <h1>Lithium: Slower Losses, Deeper Structural Damage</h1>
 <p class="deck">The pace of weekly losses has moderated, but breadth, drawdowns and volume still paint a picture of exceptional weakness. Across 26 lithium-related securities, none currently trades above its 200-day moving average.</p>
 </div></div></header>
-<main class="wrap">
+<main class="wrap"><div class="share-study" style="display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin:15px 0 25px">
+<button id="copy-study-link" type="button" style="padding:9px 14px;background:var(--panel,#fff);border:1px solid var(--line);border-radius:8px;color:var(--ink);font:inherit;cursor:pointer">Copy study link</button>
+<span style="font-size:.85rem;color:var(--muted)">Share this research</span></div>
+
 <section class="panel lead"><h2>Key finding: relief in the weekly decline, not in the market structure</h2>
 <p>The sector's median weekly return improved from <strong>−6.44%</strong> to <strong>−3.26%</strong>, and the proportion of declining securities fell from <strong>92.3%</strong> to <strong>73.1%</strong>. Yet the internal evidence is more troubling: breadth above the 200-day moving average has fallen to <strong>zero</strong>, while the median 52-week drawdown has reached a new low for the 49-observation historical series.</p>
 <div class="kpis">
@@ -121,4 +136,10 @@ function render(){const sort=document.getElementById("rank-sort").value,q=docume
 rows.sort((a,b)=>sort==="company"?a[3].localeCompare(b[3],undefined,{sensitivity:"base"})||a[2].localeCompare(b[2]):sort==="global"?(a[1]??Infinity)-(b[1]??Infinity)||a[0]-b[0]:a[0]-b[0]);display(rows)}
 fetch("companies.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("Ranking data unavailable");return r.json()}).then(({data})=>{if(!Array.isArray(data)||data.length!==26)throw Error("Unexpected company count");source=data;const sel=document.getElementById("rank-sort");const isMobile=()=>window.matchMedia("(max-width:700px)").matches;let lastMobile=isMobile();sel.value=lastMobile?"company":"weekly";
 document.getElementById("rank-sort").addEventListener("change",render);document.getElementById("rank-search").addEventListener("input",render);window.addEventListener("resize",()=>{const m=isMobile();if(m!==lastMobile){lastMobile=m;sel.value=m?"company":"weekly";render()}});render()}).catch(()=>{document.getElementById("company-table").textContent="The complete rankings could not be loaded. Please refresh this page."});
+</script><script>
+document.getElementById("copy-study-link").addEventListener("click",async function(){
+  const link="https://broadluis.github.io/structural-alpha-research/studies/2026-10-09-lithium/index.html";
+  try{await navigator.clipboard.writeText(link);const button=this;button.textContent="Link copied!";setTimeout(()=>{button.textContent="Copy study link"},1800)}
+  catch(e){window.prompt("Copy study link:",link)}
+});
 </script></body></html>
