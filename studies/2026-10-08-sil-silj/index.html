@@ -33,6 +33,44 @@ td.pos{background:var(--green)}td.neg{background:var(--red)}
 [data-theme="dark"]{color-scheme:dark;--bg:#101b2a;--panel:#1b2c3e;--ink:#e5edf6;--muted:#b3c5d4;--line:#354b60;--link:#9dd1f1;--head:#31536e;--stripe:#24374b;--green:#235449;--red:#5b3543}
 [data-theme="dark"] .action{color:white}[data-theme="dark"] .action.secondary{color:#b9e2fa}
 @media(max-width:700px){.panel{padding:20px 17px}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{margin-top:23px}}
+
+/* Mobile rankings: every company becomes a labeled, readable card. Desktop tables remain unchanged. */
+@media (max-width:700px){
+  .tablewrap{overflow:visible;border:0;background:transparent;margin:16px 0}
+  .tablewrap table,.tablewrap tbody,.tablewrap tr,.tablewrap td{display:block;width:100%}
+  .tablewrap thead{display:none}
+  .tablewrap tbody{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+  .tablewrap tbody tr,.tablewrap tbody tr:nth-child(even){
+    display:grid;grid-template-columns:minmax(0,1fr);gap:0;
+    background:var(--panel,#fff);border:1px solid var(--line);border-radius:12px;
+    padding:8px 12px;overflow:hidden;box-shadow:0 2px 8px #091a2709
+  }
+  .tablewrap tbody td,.tablewrap tbody td:nth-child(n){
+    display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+    min-width:0;padding:7px 3px;text-align:right!important;white-space:normal;
+    border-bottom:1px solid var(--line);background:transparent;
+    font-variant-numeric:tabular-nums;overflow-wrap:anywhere
+  }
+  .tablewrap tbody td::before{
+    content:attr(data-label);flex:0 0 auto;color:var(--muted);font-size:.81rem;
+    font-weight:600;text-align:left
+  }
+  .tablewrap tbody td:nth-child(4){
+    order:-2;font-size:1rem;font-weight:750;text-align:right!important;color:var(--ink)
+  }
+  .tablewrap tbody td:nth-child(3){order:-1;font-weight:700;color:var(--ink)}
+  .tablewrap tbody td:nth-child(4)::before{content:"Company"}
+  .tablewrap tbody td:nth-child(3)::before{content:"Ticker"}
+  .tablewrap tbody td:last-child{border-bottom:0}
+  .tablewrap tbody td.pos{color:#167553!important;font-weight:700}
+  .tablewrap tbody td.neg{color:#b24653!important;font-weight:700}
+  [data-theme="dark"] .tablewrap tbody tr,[data-theme="dark"] .tablewrap tbody tr:nth-child(even){
+    background:#1b2c3e;border-color:#41566b
+  }
+  [data-theme="dark"] .tablewrap tbody td.pos{color:#9fe5c9!important}
+  [data-theme="dark"] .tablewrap tbody td.neg{color:#ffb7bc!important}
+}
+
 </style>
 <script>
 (function(){const key="structural-alpha-theme";let choice;try{choice=localStorage.getItem(key)}catch(e){}
@@ -97,7 +135,7 @@ const cols=["Weekly","Global","Ticker","Company","Last close","1W %","4W %","3M 
 function display(rows){const host=document.getElementById("company-table");host.replaceChildren();document.getElementById("rank-count").textContent=rows.length+" / "+source.length+" securities";
 const wrap=document.createElement("div");wrap.className="tablewrap";const table=document.createElement("table");const head=document.createElement("thead"),headrow=document.createElement("tr");
 cols.forEach(c=>{const th=document.createElement("th");th.textContent=c;headrow.append(th)});head.append(headrow);table.append(head);
-const tbody=document.createElement("tbody");for(const r of rows){const tr=document.createElement("tr");r.forEach((v,i)=>{const td=document.createElement("td");td.textContent=v===null?"—":typeof v==="number"&&i>=5?v.toFixed(2):String(v);if(i>=5&&typeof v==="number")td.className=v>0?"pos":v<0?"neg":"";tr.append(td)});tbody.append(tr)}table.append(tbody);wrap.append(table);host.append(wrap)}
+const tbody=document.createElement("tbody");for(const r of rows){const tr=document.createElement("tr");r.forEach((v,i)=>{const td=document.createElement("td");td.textContent=v===null?"—":typeof v==="number"&&i>=5?v.toFixed(2):String(v);td.dataset.label=cols[i];if(i>=5&&typeof v==="number")td.className=v>0?"pos":v<0?"neg":"";tr.append(td)});tbody.append(tr)}table.append(tbody);wrap.append(table);host.append(wrap)}
 function render(){const mode=document.getElementById("rank-sort").value,needle=document.getElementById("rank-search").value.trim().toLowerCase();const rows=source.filter(r=>r[2].toLowerCase().includes(needle)||r[3].toLowerCase().includes(needle));
 rows.sort((a,b)=>mode==="weekly"?a[0]-b[0]:(a[1]===null?Infinity:a[1])-(b[1]===null?Infinity:b[1])||a[0]-b[0]);display(rows)}
 fetch("companies.json").then(r=>{if(!r.ok)throw Error("Data unavailable");return r.json()}).then(obj=>{if(!Array.isArray(obj.data)||obj.data.length!==98)throw Error("Unexpected data");source=obj.data;document.getElementById("rank-sort").addEventListener("change",render);document.getElementById("rank-search").addEventListener("input",render);render();
