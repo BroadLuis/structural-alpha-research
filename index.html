@@ -6,6 +6,18 @@
   <meta name="description" content="Structural Alpha Research Archive — independent, data-driven research into market breadth, relative strength, drawdowns, volume, and market structure.">
   <meta name="theme-color" content="#122138">
   <title>Structural Alpha | Research Archive</title>
+<link rel="canonical" href="https://broadluis.github.io/structural-alpha-research/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Structural Alpha">
+<meta property="og:title" content="Structural Alpha | Independent Quantitative Market Research">
+<meta property="og:description" content="Free independent research into market breadth, relative strength, drawdowns and volume. Browse complete studies and download original Excel workbooks.">
+<meta property="og:url" content="https://broadluis.github.io/structural-alpha-research/">
+<meta property="og:image" content="https://broadluis.github.io/structural-alpha-research/assets/images/LBroad%20Structural%20Alpha%20Nuevo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Structural Alpha | Quantitative Market Research">
+<meta name="twitter:description" content="Independent quantitative studies, complete rankings and original Excel workbooks, freely available.">
+<meta name="twitter:image" content="https://broadluis.github.io/structural-alpha-research/assets/images/LBroad%20Structural%20Alpha%20Nuevo.png">
+
   <style>
     :root{color-scheme:light;--navy:#122138;--navy2:#1a304c;--blue:#487da7;--ink:#192b3d;--muted:#526779;--line:#dce5eb;--bg:#f5f8fa;--white:#fff}
     *{box-sizing:border-box}body{margin:0;font-family:Inter,"Segoe UI",system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--bg);line-height:1.58}
@@ -58,6 +70,25 @@
 .brand-with-icon{display:inline-flex;align-items:center;min-width:0;text-decoration:none;gap:0}
 .hero-banner{display:block;width:100%;height:auto;border-radius:13px;box-shadow:0 12px 30px #0005;border:1px solid #386078;object-fit:cover}
 @media(max-width:650px){.brand-mark{width:31px;height:31px;margin-right:7px}.brand-with-icon{font-size:.82rem!important}.hero-banner{height:180px;object-position:left center}.top{flex-wrap:wrap}}
+
+/* Research library cards and utility controls */
+.archive-toolbar{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin:14px 0 16px}
+.archive-toolbar select{font:inherit;background:var(--white);border:1px solid var(--line);border-radius:9px;color:var(--ink);padding:10px 12px}
+.archive-count{font-size:.86rem;color:var(--muted);margin-left:auto}
+.report-list{padding:12px 18px!important;display:grid;gap:12px;background:transparent!important;border:0!important;box-shadow:none!important}
+.report-card{background:var(--white);border:1px solid var(--line);border-radius:13px;padding:21px 23px;box-shadow:0 6px 17px #1427390d}
+.report-card h3{margin:8px 0;font-size:1.12rem;line-height:1.4}
+.report-card .report-meta{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:.82rem;font-weight:600}
+.report-card p{margin:9px 0 17px;color:var(--muted)}
+.report-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.report-actions a{text-decoration:none;font-weight:650}
+.report-actions .report-read{background:#285f84;color:white;padding:8px 12px;border-radius:8px}
+.report-actions button{border:1px solid var(--line);background:var(--white);color:var(--ink);padding:8px 12px;border-radius:8px;font:inherit;cursor:pointer}
+.report-actions button:hover{background:var(--bg)}
+[data-theme="dark"] .report-card{background:#1b2c3e;border-color:#34485d}
+[data-theme="dark"] .archive-toolbar select,[data-theme="dark"] .report-actions button{color:#e7edf5;background:#21374a;border-color:#53677b}
+[data-theme="dark"] .report-actions .report-read{color:white}
+@media(max-width:540px){.report-list{padding:0!important}.report-card{padding:17px}.archive-count{margin-left:0}}
 </style>
 <script>
 (function(){
@@ -115,7 +146,8 @@
           <option>S&amp;P 500</option><option>STOXX 600</option>
         </select>
       </div>
-      <div class="panel empty" id="results" role="status">No studies have been published yet. The first research package is coming soon.</div>
+      <div class="archive-toolbar"><label for="sort">Sort by</label><select id="sort" aria-label="Sort studies"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="market">Market A–Z</option></select><span id="archive-count" class="archive-count" aria-live="polite">Loading studies…</span></div>
+      <div class="report-list" id="results" role="status">Loading published studies…</div>
     </section>
     <section class="section">
       <h2>Research coverage</h2>
@@ -131,50 +163,44 @@
   </main>
   <footer><div class="wrap">© Structural Alpha · Research Archive · Independent research</div></footer>
   <script>
-    // Report metadata will be placed in the public reports.json file.
-    const input=document.getElementById("search"), filter=document.getElementById("universe"), results=document.getElementById("results");
-    // The most recent published study is included as an offline/cache-safe fallback.
-    // Additional reports are synchronized from reports.json when available.
-    let reports=[{
-      title:"ASX Miners: Selling Pressure Is Easing, but the Correction Continues to Spread",
-      date:"2026-10-09",universe:"ASX",
-      summary:"90 companies analyzed. Market breadth, drawdowns, relative volume and four full ranking tables.",
-      url:"studies/2026-10-09-asx/index.html",
-      download:"studies/2026-10-09-asx/Weekly_Analysis_ASX_20261009.xlsx"
-    },{
-      title:"SIL–SILJ: Silver Miners Deep in Correction Territory. Are the First Signs of Resilience Emerging?",
-      date:"2026-10-08",universe:"SIL–SILJ",
-      summary:"98 securities analyzed. Only 27.8% above MA200, median drawdown −35.8%, with tentative resilience versus silver intraday. Full rankings available.",
-      url:"studies/2026-10-08-sil-silj/index.html",
-      download:"studies/2026-10-08-sil-silj/assets/Weekly_Analysis_SIL_SILJ_20261007.xlsx"
-    },{
-      title:"LITHIUM: Slower Losses, Deeper Structural Damage",
-      date:"2026-10-09",universe:"LITHIUM",
-      summary:"26 securities. Zero above MA200, −61.7% median 52-week drawdown, and very weak volume participation. Full ranking included.",
-      url:"studies/2026-10-09-lithium/index.html",
-      download:"studies/2026-10-09-lithium/assets/Weekly_Analysis_LITHIUM_20261008.xlsx"
-    }];
+    const input=document.getElementById("search"),filter=document.getElementById("universe"),sort=document.getElementById("sort"),results=document.getElementById("results"),count=document.getElementById("archive-count");
+    // Keep a local snapshot so reports remain visible if the catalog request fails.
+    let reports=[
+      {title:"ASX Miners: Selling Pressure Is Easing, but the Correction Continues to Spread",date:"2026-10-09",universe:"ASX",summary:"90 companies analyzed. Just 34.4% trade above the 200-day moving average; median drawdown is −33.6% and median relative volume is 0.73×. View all 90 companies and download the original Excel workbook.",url:"studies/2026-10-09-asx/index.html",download:"studies/2026-10-09-asx/Weekly_Analysis_ASX_20261009.xlsx"},
+      {title:"LITHIUM: Slower Losses, Deeper Structural Damage",date:"2026-10-09",universe:"LITHIUM",summary:"26 securities analyzed through October 8. None above the 200-day moving average, median drawdown −61.7%, and a record-weak 20-session volume balance.",url:"studies/2026-10-09-lithium/index.html",download:"studies/2026-10-09-lithium/assets/Weekly_Analysis_LITHIUM_20261008.xlsx"},
+      {title:"SIL–SILJ: Silver Miners Deep in Correction Territory. Are the First Signs of Resilience Emerging?",date:"2026-10-08",universe:"SIL–SILJ",summary:"98 securities analyzed through October 7: 27.8% above MA200 and median drawdown −35.8%. October 8 intraday resilience remains tentative.",url:"studies/2026-10-08-sil-silj/index.html",download:"studies/2026-10-08-sil-silj/assets/Weekly_Analysis_SIL_SILJ_20261007.xlsx"}
+    ];
+    async function copyLink(url,button){
+      const absolute=new URL(url,document.baseURI).href;
+      try{await navigator.clipboard.writeText(absolute);const before=button.textContent;button.textContent="Copied!";setTimeout(()=>button.textContent=before,1800)}
+      catch(e){window.prompt("Copy study link:",absolute)}
+    }
     function render(){
-      const term=input.value.trim().toLowerCase(), market=filter.value;
-      const filtered=reports.filter(r=>(!market||r.universe===market)&&(!term||[r.title,r.universe,r.date,r.summary].join(" ").toLowerCase().includes(term)));
-      if(!filtered.length){results.textContent=reports.length?"No studies match your search.":"No studies have been published yet. The first research package is coming soon.";return}
+      const q=input.value.trim().toLocaleLowerCase(),market=filter.value;
+      const filtered=reports.filter(r=>(!market||r.universe===market)&&(!q||[r.title,r.universe,r.date,r.summary].join(" ").toLocaleLowerCase().includes(q)));
+      filtered.sort((a,b)=>sort.value==="oldest"?a.date.localeCompare(b.date)||a.universe.localeCompare(b.universe):sort.value==="market"?a.universe.localeCompare(b.universe)||b.date.localeCompare(a.date):b.date.localeCompare(a.date)||a.universe.localeCompare(b.universe));
+      count.textContent=filtered.length+" of "+reports.length+" published "+(reports.length===1?"study":"studies");
       results.replaceChildren();
-      for(const r of filtered){
-        const card=document.createElement("article");card.style.padding="10px 0 20px";
-        const h=document.createElement("h3");h.style.margin="0 0 4px";const a=document.createElement("a");a.textContent=r.title;a.href=r.url;h.append(a);card.append(h);
-        const meta=document.createElement("div");meta.className="note";meta.textContent=r.date+" · "+r.universe;card.append(meta);
-        const p=document.createElement("p");p.textContent=r.summary||"";card.append(p);
-        if(r.download){const dl=document.createElement("a");dl.href=r.download;dl.textContent="Download supporting data ↓";card.append(dl)}
-        results.append(card);
+      if(!filtered.length){const p=document.createElement("p");p.className="note";p.textContent="No studies match your search.";results.append(p);return}
+      for(const item of filtered){
+        const article=document.createElement("article");article.className="report-card";
+        const meta=document.createElement("div");meta.className="report-meta";
+        const m=document.createElement("span");m.textContent=item.universe;const d=document.createElement("time");d.dateTime=item.date;d.textContent=item.date;meta.append(m,d);
+        const title=document.createElement("h3");const link=document.createElement("a");link.href=item.url;link.textContent=item.title;title.append(link);
+        const desc=document.createElement("p");desc.textContent=item.summary||"";
+        const actions=document.createElement("div");actions.className="report-actions";
+        const read=document.createElement("a");read.className="report-read";read.href=item.url;read.textContent="Read full study →";actions.append(read);
+        if(item.download){const excel=document.createElement("a");excel.href=item.download;excel.textContent="Download Excel ↓";excel.setAttribute("download","");actions.append(excel)}
+        const share=document.createElement("button");share.type="button";share.textContent="Copy link";share.setAttribute("aria-label","Copy link to "+item.title);share.addEventListener("click",()=>copyLink(item.url,share));actions.append(share);
+        article.append(meta,title,desc,actions);results.append(article);
       }
     }
-    input.addEventListener("input",render);filter.addEventListener("change",render);
-    // Always render the built-in catalog immediately; network is optional.
+    input.addEventListener("input",render);filter.addEventListener("change",render);sort.addEventListener("change",render);
     render();
-    fetch("reports.json?v=20261009-6", {cache:"no-store"})
-      .then(r=>{if(!r.ok)throw Error("Cannot load report index");return r.json()})
-      .then(data=>{if(Array.isArray(data)&&data.length){reports=data;render();}})
-      .catch(()=>{ /* Keep the built-in catalog visible while offline or during deployment. */ });
+    fetch("reports.json?v=20261009-7",{cache:"no-store"})
+     .then(r=>{if(!r.ok)throw Error("Report index unavailable");return r.json()})
+     .then(data=>{if(Array.isArray(data)&&data.length){reports=data;render()}})
+     .catch(()=>{ /* The built-in snapshot remains visible. */ });
   </script>
 </body>
 </html>
