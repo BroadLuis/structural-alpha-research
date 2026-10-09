@@ -2,6 +2,18 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Independent quantitative analysis of 98 SIL–SILJ securities through October 7, 2026, with a separate October 8 intraday market observation.">
 <title>SIL–SILJ: Silver Miners Deep in Correction Territory | Structural Alpha</title>
+<link rel="canonical" href="https://broadluis.github.io/structural-alpha-research/studies/2026-10-08-sil-silj/index.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Structural Alpha">
+<meta property="og:title" content="SIL–SILJ: Silver Miners Deep in Correction Territory">
+<meta property="og:description" content="98 SIL–SILJ securities: 27.8% above MA200, −35.8% median drawdown and tentative relative resilience. Read the full study and download the Excel workbook.">
+<meta property="og:url" content="https://broadluis.github.io/structural-alpha-research/studies/2026-10-08-sil-silj/index.html">
+<meta property="og:image" content="https://broadluis.github.io/structural-alpha-research/assets/images/LBroad%20Structural%20Alpha%20Nuevo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SIL–SILJ: Silver Miners Deep in Correction Territory">
+<meta name="twitter:description" content="98 SIL–SILJ securities: 27.8% above MA200, −35.8% median drawdown and tentative relative resilience. Read the full study and download the Excel workbook.">
+<meta name="twitter:image" content="https://broadluis.github.io/structural-alpha-research/assets/images/LBroad%20Structural%20Alpha%20Nuevo.png">
+
 <style>
 :root{color-scheme:light;--bg:#f5f8fa;--panel:#fff;--ink:#1c3246;--muted:#5e7283;--line:#d9e3eb;--link:#1d6a95;--head:#486a84;--stripe:#f0f5f8;--green:#d8eae5;--red:#f3d8da}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.7 Inter,"Segoe UI",system-ui,sans-serif}a{color:var(--link)}button,input,select{font:inherit}
@@ -93,7 +105,10 @@ sync();button.addEventListener("click",()=>{const next=document.documentElement.
 <h1>Silver Miners Deep in Correction Territory. Are the First Signs of Resilience Emerging?</h1>
 <p class="deck">An analysis of 98 SIL–SILJ securities reveals a severe, widespread correction. A tentative change in miners' behavior relative to silver warrants attention, but a sustained reversal remains unconfirmed.</p></div>
 </div></header>
-<main class="wrap">
+<main class="wrap"><div class="share-study" style="display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin:15px 0 25px">
+<button id="copy-study-link" type="button" style="padding:9px 14px;background:var(--panel,#fff);border:1px solid var(--line);border-radius:8px;color:var(--ink);font:inherit;cursor:pointer">Copy study link</button>
+<span style="font-size:.85rem;color:var(--muted)">Share this research</span></div>
+
 <section class="panel lead"><h2>The main finding</h2><p>Silver mining stocks have experienced substantial technical deterioration in a remarkably short period. Only 27.8% of the universe trades above its 200-day moving average, and the median drawdown has reached −35.8%. Yet an intraday observation on October 8 suggests a possible change in behavior: miners are posting modest gains while silver declines by approximately 1.7%.</p><p><strong>This is a tentative observation, not a confirmed bottom.</strong> Breadth and volume indicators from the October 7 close do not yet validate a broad-based recovery.</p>
 <div class="kpis"><div class="kpi"><strong>98</strong><span>SIL–SILJ securities analyzed</span></div><div class="kpi"><strong>27.8%</strong><span>Above their 200-day moving average</span></div><div class="kpi"><strong>−35.8%</strong><span>Median 52-week drawdown</span></div><div class="kpi"><strong>96</strong><span>Global-ranking eligible</span></div></div>
 <p class="meta" style="margin-top:15px">Quantitative snapshot: October 7 close · Intraday price observation: October 8, 2026. These are different observation times.</p></section>
@@ -138,4 +153,10 @@ fetch("companies.json").then(r=>{if(!r.ok)throw Error("Data unavailable");return
 window.addEventListener("resize",()=>{const mobile=isMobile();if(mobile!==lastMobile){lastMobile=mobile;selector.value=mobile?"company":"weekly";render();}});
 document.getElementById("rank-sort").addEventListener("change",render);document.getElementById("rank-search").addEventListener("input",render);render();
 }).catch(()=>{document.getElementById("company-table").textContent="The company data could not be loaded. Please try again later.";document.getElementById("rank-count").textContent="Data unavailable"});
+</script><script>
+document.getElementById("copy-study-link").addEventListener("click",async function(){
+  const link="https://broadluis.github.io/structural-alpha-research/studies/2026-10-08-sil-silj/index.html";
+  try{await navigator.clipboard.writeText(link);const button=this;button.textContent="Link copied!";setTimeout(()=>{button.textContent="Copy study link"},1800)}
+  catch(e){window.prompt("Copy study link:",link)}
+});
 </script></body></html>
