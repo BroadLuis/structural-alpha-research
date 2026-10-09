@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Structural Alpha Research Archive — independent, data-driven research into market breadth, relative strength, drawdowns, volume, and market structure.">
+  <meta name="theme-color" content="#122138">
+  <title>Structural Alpha | Research Archive</title>
+  <style>
+    :root{color-scheme:light;--navy:#122138;--navy2:#1a304c;--blue:#487da7;--ink:#192b3d;--muted:#526779;--line:#dce5eb;--bg:#f5f8fa;--white:#fff}
+    *{box-sizing:border-box}body{margin:0;font-family:Inter,"Segoe UI",system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--bg);line-height:1.58}
+    a{color:#1e658f}a:hover{text-decoration-thickness:2px}button,input{font:inherit}
+    .wrap{width:min(1120px,calc(100% - 40px));margin:auto}
+    header{background:linear-gradient(125deg,var(--navy),var(--navy2));color:#fff;padding:25px 0 75px}
+    .top{display:flex;justify-content:space-between;align-items:center;gap:16px}
+    .brand{font-weight:750;letter-spacing:.025em;font-size:1.1rem}.top a{color:#e7f1f8;text-decoration:none;font-size:.91rem}
+    .eyebrow{font-size:.75rem;letter-spacing:.13em;text-transform:uppercase;color:#a5c9df;font-weight:700}
+    h1{font-size:clamp(2.3rem,6vw,4.5rem);line-height:1.1;letter-spacing:-.035em;margin:35px 0 8px}
+    .subtitle{color:#c1d6e6;font-size:clamp(1.15rem,2.8vw,1.6rem);margin:0 0 20px}
+    .intro{max-width:730px;color:#dfebf3;font-size:1.05rem}
+    main{padding:0 0 65px}.panel{background:white;border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 36px #2033480b}
+    .lead{margin-top:-39px;padding:25px 29px;position:relative}
+    h2{font-size:1.45rem;margin:0 0 10px;letter-spacing:-.02em}
+    .lead p,.note{color:var(--muted);margin:5px 0}
+    .section{margin-top:38px}
+    .controls{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0}
+    .controls input,.controls select{background:white;border:1px solid #cdd9e3;border-radius:9px;padding:11px 14px;color:var(--ink)}
+    .controls input{flex:1 1 240px;min-width:0}.controls select{flex:0 1 190px}
+    .empty{padding:26px 28px;color:var(--muted)}
+    .topics{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:22px}
+    .topic{background:#fff;padding:17px;border:1px solid var(--line);border-radius:11px;font-weight:650;font-size:.94rem}
+    .topic small{display:block;color:#687b8b;font-weight:450;font-size:.8rem;margin-top:5px}
+    .disclaimer{font-size:.86rem;color:#5e7080;border-top:1px solid var(--line);padding-top:20px;margin-top:50px}
+    footer{background:#eaf0f4;border-top:1px solid var(--line);padding:23px 0;font-size:.85rem;color:#506578}
+    @media(max-width:540px){header{padding-bottom:63px}.wrap{width:calc(100% - 28px)}.lead{padding:21px}.controls input,.controls select{width:100%;flex-basis:100%}.top{align-items:flex-start}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <nav class="top" aria-label="Site navigation"><span class="brand">STRUCTURAL ALPHA</span><a href="#research">Research archive ↓</a></nav>
+      <p class="eyebrow" style="margin-top:45px">Independent quantitative market research</p>
+      <h1>Structural Alpha</h1>
+      <p class="subtitle">Research Archive</p>
+      <p class="intro">A public library of data-driven studies of market structure, breadth, relative strength, drawdowns, and trading volume. Research documents and supporting files will be available to read and download free of charge.</p>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="panel lead" aria-labelledby="approach">
+      <h2 id="approach">Our approach</h2>
+      <p>We study what is happening beneath index and sector prices: how many securities are participating, where strength and weakness are concentrated, and whether price movements are supported by volume. Conclusions are based on observed data; scenarios are distinguished from confirmed signals.</p>
+      <p class="note">Free access · No subscription required · Supporting materials included where available</p>
+    </section>
+    <section class="section" id="research">
+      <p class="eyebrow" style="color:#477697">Browse</p>
+      <h2>Research library</h2>
+      <p class="note">The archive is being prepared. Reports will appear here once their publication files have been reviewed.</p>
+      <div class="controls">
+        <input id="search" type="search" placeholder="Search reports, topics or dates…" aria-label="Search research archive">
+        <select id="universe" aria-label="Filter by market">
+          <option value="">All markets</option>
+          <option>GDX–GDXJ</option><option>SIL–SILJ</option><option>JUNIOR</option>
+          <option>URANIUM</option><option>ASX</option><option>COPPER</option>
+          <option>JUNIOR COPPER</option><option>LITHIUM</option><option>AGRIBUSINESS</option>
+          <option>S&amp;P 500</option><option>STOXX 600</option>
+        </select>
+      </div>
+      <div class="panel empty" id="results" role="status">No studies have been published yet. The first research package is coming soon.</div>
+    </section>
+    <section class="section">
+      <h2>Research coverage</h2>
+      <div class="topics">
+        <div class="topic">Precious metals miners<small>Gold, silver and junior companies</small></div>
+        <div class="topic">Energy & industrial metals<small>Uranium, copper, lithium</small></div>
+        <div class="topic">Equity markets<small>Broad indexes and market internals</small></div>
+        <div class="topic">Quantitative indicators<small>Breadth, strength, drawdowns, volume</small></div>
+      </div>
+    </section>
+    <p class="disclaimer">For informational and research purposes only. Nothing published here constitutes personalized investment advice. Data may contain omissions or errors; verify original sources before making decisions.</p>
+  </main>
+  <footer><div class="wrap">© Structural Alpha · Research Archive · Independent research</div></footer>
+  <script>
+    // Report metadata will be placed in the public reports.json file.
+    const input=document.getElementById("search"), filter=document.getElementById("universe"), results=document.getElementById("results");
+    let reports=[];
+    function render(){
+      const term=input.value.trim().toLowerCase(), market=filter.value;
+      const filtered=reports.filter(r=>(!market||r.universe===market)&&(!term||[r.title,r.universe,r.date,r.summary].join(" ").toLowerCase().includes(term)));
+      if(!filtered.length){results.textContent=reports.length?"No studies match your search.":"No studies have been published yet. The first research package is coming soon.";return}
+      results.replaceChildren();
+      for(const r of filtered){
+        const card=document.createElement("article");card.style.padding="10px 0 20px";
+        const h=document.createElement("h3");h.style.margin="0 0 4px";const a=document.createElement("a");a.textContent=r.title;a.href=r.url;h.append(a);card.append(h);
+        const meta=document.createElement("div");meta.className="note";meta.textContent=r.date+" · "+r.universe;card.append(meta);
+        const p=document.createElement("p");p.textContent=r.summary||"";card.append(p);
+        if(r.download){const dl=document.createElement("a");dl.href=r.download;dl.textContent="Download complete study ↓";card.append(dl)}
+        results.append(card);
+      }
+    }
+    input.addEventListener("input",render);filter.addEventListener("change",render);
+    fetch("reports.json").then(r=>{if(!r.ok)throw Error("Cannot load report index");return r.json()}).then(r=>{reports=Array.isArray(r)?r:[];render()}).catch(()=>{results.textContent="The report index is temporarily unavailable."});
+  </script>
+</body>
+</html>
