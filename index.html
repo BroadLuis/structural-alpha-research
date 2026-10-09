@@ -82,7 +82,15 @@
   <script>
     // Report metadata will be placed in the public reports.json file.
     const input=document.getElementById("search"), filter=document.getElementById("universe"), results=document.getElementById("results");
-    let reports=[];
+    // The most recent published study is included as an offline/cache-safe fallback.
+    // Additional reports are synchronized from reports.json when available.
+    let reports=[{
+      title:"ASX Miners: Selling Pressure Is Easing, but the Correction Continues to Spread",
+      date:"2026-10-09",universe:"ASX",
+      summary:"90 companies analyzed. Market breadth, drawdowns, relative volume and four full ranking tables.",
+      url:"studies/2026-10-09-asx/index.html",
+      download:"studies/2026-10-09-asx/companies.json"
+    }];
     function render(){
       const term=input.value.trim().toLowerCase(), market=filter.value;
       const filtered=reports.filter(r=>(!market||r.universe===market)&&(!term||[r.title,r.universe,r.date,r.summary].join(" ").toLowerCase().includes(term)));
@@ -98,7 +106,12 @@
       }
     }
     input.addEventListener("input",render);filter.addEventListener("change",render);
-    fetch("reports.json").then(r=>{if(!r.ok)throw Error("Cannot load report index");return r.json()}).then(r=>{reports=Array.isArray(r)?r:[];render()}).catch(()=>{results.textContent="The report index is temporarily unavailable."});
+    // Always render the built-in catalog immediately; network is optional.
+    render();
+    fetch("reports.json?v=20261009-2", {cache:"no-store"})
+      .then(r=>{if(!r.ok)throw Error("Cannot load report index");return r.json()})
+      .then(data=>{if(Array.isArray(data)&&data.length){reports=data;render();}})
+      .catch(()=>{ /* Keep the built-in catalog visible while offline or during deployment. */ });
   </script>
 </body>
 </html>
