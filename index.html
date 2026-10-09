@@ -52,6 +52,12 @@
 [data-theme="dark"] .topic small{color:#b1c2d0}
 [data-theme="dark"] .top a{color:#d7e8f5}
 
+
+/* Structural Alpha visual identity */
+.brand-mark{display:inline-block;vertical-align:middle;width:38px;height:38px;object-fit:contain;flex:none;margin-right:9px;filter:drop-shadow(0 0 5px #1bb9e555)}
+.brand-with-icon{display:inline-flex;align-items:center;min-width:0;text-decoration:none;gap:0}
+.hero-banner{display:block;width:100%;height:auto;border-radius:13px;box-shadow:0 12px 30px #0005;border:1px solid #386078;object-fit:cover}
+@media(max-width:650px){.brand-mark{width:31px;height:31px;margin-right:7px}.brand-with-icon{font-size:.82rem!important}.hero-banner{height:180px;object-position:left center}.top{flex-wrap:wrap}}
 </style>
 <script>
 (function(){
@@ -77,14 +83,15 @@
     });
   });
 })();
-</script></head>
+</script><link rel="icon" type="image/png" href="assets/images/Emblema%20de%20pico%20minero%20ne%C3%B3n%20cromado.png"></head>
 <body>
   <header>
     <div class="wrap">
-      <nav class="top" aria-label="Site navigation"><span class="brand">STRUCTURAL ALPHA</span><div style="display:flex;align-items:center;gap:15px;flex-wrap:wrap"><a href="#research">Research archive ↓</a><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">☾ Dark</button></div></nav>
-      <p class="eyebrow" style="margin-top:45px">Independent quantitative market research</p>
-      <h1>Structural Alpha</h1>
-      <p class="subtitle">Research Archive</p>
+      <nav class="top" aria-label="Site navigation"><a class="brand brand-with-icon" href="index.html" style="color:#fff"><img class="brand-mark" src="assets/images/Emblema%20de%20pico%20minero%20ne%C3%B3n%20cromado.png" alt="" width="38" height="38">STRUCTURAL ALPHA</a><div style="display:flex;align-items:center;gap:15px;flex-wrap:wrap"><a href="#research">Research archive ↓</a><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">☾ Dark</button></div></nav>
+      <div style="margin-top:26px"><img class="hero-banner" src="assets/images/LBroad%20Structural%20Alpha%20Nuevo.png" alt="Structural Alpha — Quantitative Research Terminal: Relative Strength, Regime Detection, Systematic Signals" width="2048" height="682" fetchpriority="high"></div>
+      <p class="eyebrow" style="margin-top:22px">Independent quantitative market research</p>
+      <h1 style="margin-top:12px;font-size:clamp(1.75rem,3.5vw,2.75rem)">Structural Alpha Research Archive</h1>
+      
       <p class="intro">A public library of data-driven studies of market structure, breadth, relative strength, drawdowns, and trading volume. Research documents and supporting files will be available to read and download free of charge.</p>
     </div>
   </header>
