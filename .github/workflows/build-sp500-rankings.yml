@@ -1,0 +1,33 @@
+name: Build S&P 500 rankings from original Excel
+
+on:
+  push:
+    paths:
+      - "studies/2026-10-08-sp500/assets/*.xlsx"
+      - "scripts/build_sp500_rankings.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-sp500-rankings
+  cancel-in-progress: false
+
+jobs:
+  rankings:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Build complete rankings from Excel
+        run: python3 scripts/build_sp500_rankings.py
+      - name: Commit internal ranking data
+        run: |
+          if ! git diff --quiet -- studies/2026-10-08-sp500/companies.json; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add studies/2026-10-08-sp500/companies.json
+            git commit -m "Refresh 500 S&P 500 rankings from original Excel"
+            git push
+          fi
