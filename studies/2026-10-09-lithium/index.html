@@ -46,15 +46,21 @@ td.pos{background:var(--green)}td.neg{background:var(--red)}
 .tablewrap tbody td.pos{color:#187c59;font-weight:700}.tablewrap tbody td.neg{color:#b34553;font-weight:700}
 [data-theme="dark"] .tablewrap tbody td.pos{color:#a8eed1}[data-theme="dark"] .tablewrap tbody td.neg{color:#ffb9bd}
 }
+
+/* Structural Alpha visual identity */
+.brand-mark{display:inline-block;vertical-align:middle;width:38px;height:38px;object-fit:contain;flex:none;margin-right:9px;filter:drop-shadow(0 0 5px #1bb9e555)}
+.brand-with-icon{display:inline-flex;align-items:center;min-width:0;text-decoration:none;gap:0}
+.hero-banner{display:block;width:100%;height:auto;border-radius:13px;box-shadow:0 12px 30px #0005;border:1px solid #386078;object-fit:cover}
+@media(max-width:650px){.brand-mark{width:31px;height:31px;margin-right:7px}.brand-with-icon{font-size:.82rem!important}.hero-banner{height:180px;object-position:left center}.top{flex-wrap:wrap}}
 </style>
 <script>
 (function(){const key="structural-alpha-theme";let theme;try{theme=localStorage.getItem(key)}catch(e){}
 const dark=window.matchMedia&&matchMedia("(prefers-color-scheme:dark)").matches;
 document.documentElement.dataset.theme=theme==="light"||theme==="dark"?theme:(dark?"dark":"light");
 document.addEventListener("DOMContentLoaded",()=>{const b=document.getElementById("theme-toggle");function refresh(){let d=document.documentElement.dataset.theme==="dark";b.textContent=d?"☀ Light":"☾ Dark";b.setAttribute("aria-label",d?"Switch to light mode":"Switch to dark mode");b.setAttribute("aria-pressed",String(d))}refresh();b.addEventListener("click",()=>{let next=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=next;try{localStorage.setItem(key,next)}catch(e){}refresh()})})})();
-</script></head>
+</script><link rel="icon" type="image/png" href="../../assets/images/Emblema%20de%20pico%20minero%20ne%C3%B3n%20cromado.png"></head>
 <body>
-<header><div class="wrap"><nav class="top"><span class="brand">STRUCTURAL ALPHA <span style="font-weight:400">/ Research Archive</span></span><div class="top-links"><a href="../../index.html">← All studies</a><button class="theme-toggle" id="theme-toggle" type="button">☾ Dark</button></div></nav>
+<header><div class="wrap"><nav class="top"><a class="brand brand-with-icon" href="../../index.html" style="color:#fff"><img class="brand-mark" src="../../assets/images/Emblema%20de%20pico%20minero%20ne%C3%B3n%20cromado.png" alt="" width="38" height="38"><span>STRUCTURAL ALPHA <span style="font-weight:400">/ Research Archive</span></span></a><div class="top-links"><a href="../../index.html">← All studies</a><button class="theme-toggle" id="theme-toggle" type="button">☾ Dark</button></div></nav>
 <div class="hero"><div class="eyebrow">LITHIUM · Quantitative market structure · October 9, 2026</div>
 <h1>Lithium: Slower Losses, Deeper Structural Damage</h1>
 <p class="deck">The pace of weekly losses has moderated, but breadth, drawdowns and volume still paint a picture of exceptional weakness. Across 26 lithium-related securities, none currently trades above its 200-day moving average.</p>
