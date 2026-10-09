@@ -4,8 +4,6 @@ on:
   push:
     paths:
       - "studies/2026-10-09-stoxx600/assets/*.xlsx"
-      - "scripts/build_stoxx600_rankings.py"
-      - ".github/workflows/build-stoxx600-rankings.yml"
   workflow_dispatch:
 
 permissions:
@@ -29,6 +27,6 @@ jobs:
           if ! git diff --cached --quiet; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git commit -m "Refresh 500 STOXX 600 rankings from original Excel"
+            git commit -m "Refresh 610 STOXX 600 rankings from original Excel"
             git push
           fi
