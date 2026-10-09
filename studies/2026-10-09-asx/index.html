@@ -118,8 +118,7 @@ summary{cursor:pointer;font-weight:700}
 <p class="meta">The complete 90-company universe appears below, ordered by weekly performance. All nine published ranking columns are included, with the longer-term global ranking shown alongside the weekly ranking.</p>
 <div class="links">
 <a class="action" href="Weekly_Analysis_ASX_20261009.xlsx" download="Weekly_Analysis_ASX_20261009.xlsx">⬇ Download complete Excel workbook (.xlsx)</a>
-<button class="action secondary" id="download" type="button">Download all 90 companies (CSV) ↓</button>
-<a class="action secondary" href="companies.json" download>Download ranking data (JSON)</a>
+
 </div>
 <div id="all"><p>Loading all 90 companies…</p></div>
 <h3>Original publication images</h3>
@@ -135,7 +134,7 @@ summary{cursor:pointer;font-weight:700}
 <section class="panel"><h2>Methodology and limitations</h2>
 <p>Weekly returns, four-week returns, three-month returns and year-to-date figures come from the supplied scanner workbook for the period October 2–9, 2026. Weekly ranks cover all 90 analyzed names; the global ranking applies only to the <strong>84 securities</strong> meeting the full-history eligibility requirements for eight return windows (one week, four weeks, three, six, nine, twelve, fifteen and eighteen months). The global score is the simple mean of the eight component ranks for eligible companies, followed by a ranking of those mean scores; lower ranks are preferred. Equal ranking numbers can occur because of ties.</p>
 <p>Drawdowns are based on closing prices. The 52-week measure requires sufficient observation history. Relative-volume comparisons use valid volume histories; differences in coverage can change the cross-sectional sample. Data may be affected by corporate actions, missing observations and vendor adjustments. Rankings are descriptive, not buy or sell recommendations.</p>
-<p class="note"><strong>Data availability:</strong> The original scanner Excel workbook and all four Top/Bottom 25 PNG ranking images are available for download above. A separate simplified nine-column dataset is provided in CSV/JSON form.</p>
+<p class="note"><strong>Data availability:</strong> Download the original complete Excel workbook above. The four original ranking images can also be downloaded individually. The interactive 90-company table remains available directly on this page.</p>
 </section>
 <p class="note" style="font-size:.84rem;margin:20px 0">Study page views: <img src="https://hits.sh/broadluis.github.io/structural-alpha-research/studies/2026-10-09-asx/index.html.svg?style=flat-square&amp;label=views&amp;color=7295ae&amp;labelColor=435a71" alt="ASX study page view counter" loading="lazy" style="vertical-align:middle;height:20px"></p>
 <p class="foot">Structural Alpha · Independent quantitative research · For information only; not investment advice. <a href="../../index.html">Return to research archive</a></p>
@@ -146,6 +145,6 @@ function table(rows){const outer=document.createElement("div");outer.className="
 fetch("companies.json").then(r=>{if(!r.ok)throw Error("Rankings unavailable");return r.json()}).then(({data})=>{
 const sorted=[...data].sort((a,b)=>a[0]-b[0]);
 document.getElementById("all").replaceChildren(table(sorted));
-document.getElementById("download").onclick=()=>{const header=["rank_weekly","rank_global","ticker","name","last_close","return_week_pct","return_4w_pct","return_3m_pct","return_ytd_pct"];const escape=x=>{let s=x===null?"":String(x);return '"'+s.replace(/"/g,'""')+'"'};const csv=[header.map(escape).join(","),...data.map(r=>r.map(escape).join(","))].join("\r\n");const blob=new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"}),url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="Structural_Alpha_ASX_2026-10-09_rankings.csv";document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)};
+
 }).catch(()=>{document.getElementById("all").textContent="The 90-company table could not be loaded. Please refresh the page."});
 </script></body></html>
