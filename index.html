@@ -164,6 +164,7 @@
   <footer><div class="wrap">© Structural Alpha · Research Archive · Independent research</div></footer>
   <script>
     const input=document.getElementById("search"),filter=document.getElementById("universe"),sort=document.getElementById("sort"),results=document.getElementById("results"),count=document.getElementById("archive-count");
+    let viewCounts={};
     // Keep a local snapshot so reports remain visible if the catalog request fails.
     let reports=[
       {title:"ASX Miners: Selling Pressure Is Easing, but the Correction Continues to Spread",date:"2026-10-09",universe:"ASX",summary:"90 companies analyzed. Just 34.4% trade above the 200-day moving average; median drawdown is −33.6% and median relative volume is 0.73×. View all 90 companies and download the original Excel workbook.",url:"studies/2026-10-09-asx/index.html",download:"studies/2026-10-09-asx/Weekly_Analysis_ASX_20261009.xlsx"},
@@ -196,7 +197,8 @@
         const studyPath=item.url.replace(/^\/+/, "");
         views.href="https://hits.sh/broadluis.github.io/structural-alpha-research/"+studyPath.replace(/\.html$/, ".html/");
         views.target="_blank";views.rel="noopener noreferrer";
-        views.textContent="👁 Views ↗";
+        const count=viewCounts[item.url];
+        views.textContent=Number.isSafeInteger(count)?("👁 "+count.toLocaleString("en-US")+" views ↗"):"👁 Views ↗";
         views.title="View page-view statistics for this study";
         actions.append(views);
         article.append(meta,title,desc,actions);results.append(article);
@@ -204,6 +206,10 @@
     }
     input.addEventListener("input",render);filter.addEventListener("change",render);sort.addEventListener("change",render);
     render();
+    fetch("views.json",{cache:"no-store"})
+     .then(r=>{if(!r.ok)throw Error("Views snapshot unavailable");return r.json()})
+     .then(data=>{if(data&&data.counts&&typeof data.counts==="object"){viewCounts=data.counts;render()}})
+     .catch(()=>{ /* Read-only statistics are optional. */ });
     fetch("reports.json?v=20261009-7",{cache:"no-store"})
      .then(r=>{if(!r.ok)throw Error("Report index unavailable");return r.json()})
      .then(data=>{if(Array.isArray(data)&&data.length){reports=data;render()}})
