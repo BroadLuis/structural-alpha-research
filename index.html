@@ -93,7 +93,7 @@
         const h=document.createElement("h3");h.style.margin="0 0 4px";const a=document.createElement("a");a.textContent=r.title;a.href=r.url;h.append(a);card.append(h);
         const meta=document.createElement("div");meta.className="note";meta.textContent=r.date+" · "+r.universe;card.append(meta);
         const p=document.createElement("p");p.textContent=r.summary||"";card.append(p);
-        if(r.download){const dl=document.createElement("a");dl.href=r.download;dl.textContent="Download complete study ↓";card.append(dl)}
+        if(r.download){const dl=document.createElement("a");dl.href=r.download;dl.textContent="Download supporting data ↓";card.append(dl)}
         results.append(card);
       }
     }
