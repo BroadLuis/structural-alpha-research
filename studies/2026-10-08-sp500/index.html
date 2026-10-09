@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Quantitative review of all 500 S&P 500 constituents through October 7, 2026. Just 44.3% above MA200 despite new index highs.">
+<meta name="theme-color" content="#162941">
+<title>S&P 500: New All-Time Highs, but Market Strength Remains Highly Concentrated | Structural Alpha</title>
+<link rel="canonical" href="https://broadluis.github.io/structural-alpha-research/studies/2026-10-08-sp500/index.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Structural Alpha">
+<meta property="og:title" content="S&P 500: Slower Losses, Deeper Structural Damage">
+<meta property="og:description" content="26 lithium-related securities: none above MA200, −61.7% median 52-week drawdown and weak volume participation. Full rankings and Excel study.">
+<meta property="og:url" content="https://broadluis.github.io/structural-alpha-research/studies/2026-10-08-sp500/index.html">
+<meta property="og:image" content="https://broadluis.github.io/structural-alpha-research/assets/images/LBroad%20Structural%20Alpha%20Nuevo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="S&P 500: Slower Losses, Deeper Structural Damage">
+<meta name="twitter:description" content="26 lithium-related securities: none above MA200, −61.7% median 52-week drawdown and weak volume participation. Full rankings and Excel study.">
+<meta name="twitter:image" content="https://broadluis.github.io/structural-alpha-research/assets/images/LBroad%20Structural%20Alpha%20Nuevo.png">
+
+<style>
+:root{color-scheme:light;--bg:#f5f8fa;--panel:#fff;--ink:#1d3348;--muted:#60758a;--line:#d8e2eb;--stripe:#f0f5f8;--link:#1b668e;--green:#d8eae5;--red:#f3d8da;--head:#476d89}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 Inter,"Segoe UI",system-ui,sans-serif}a{color:var(--link)}.wrap{width:min(1120px,calc(100% - 34px));margin:auto}
+header{background:linear-gradient(125deg,#13243b,#213e5b);color:white;padding:22px 0 66px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}.brand{font-weight:800;letter-spacing:.035em;font-size:.97rem}.top-links{display:flex;align-items:center;gap:17px;flex-wrap:wrap}.top a{color:#d7eafa;text-decoration:none;font-size:.91rem}
+.theme-toggle{font:inherit;font-size:.86rem;cursor:pointer;color:#e9f5fc;background:#33516b;border:1px solid #829eb6;border-radius:24px;padding:6px 13px}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #90cdf1;outline-offset:2px}
+.hero{margin-top:39px;max-width:970px}.eyebrow{text-transform:uppercase;letter-spacing:.13em;font-size:.77rem;font-weight:750;color:#a6cae1}
+h1{font-size:clamp(2.05rem,5.1vw,3.65rem);letter-spacing:-.037em;line-height:1.13;margin:14px 0 16px}
+.deck{font-size:1.15rem;color:#d5e5f1;max-width:940px}main{padding-bottom:65px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:27px 30px;margin:23px 0}
+.lead{position:relative;margin-top:-35px;box-shadow:0 12px 30px #20334811}
+h2{font-size:1.5rem;letter-spacing:-.025em;line-height:1.3;margin:4px 0 14px}h3{font-size:1.12rem;margin:22px 0 10px}
+p{margin:10px 0 15px}.meta,.note{color:var(--muted);font-size:.91rem}.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:22px 0}
+.kpi{background:var(--stripe);border:1px solid var(--line);border-radius:10px;padding:15px}
+.kpi strong{display:block;font-size:1.76rem;line-height:1.2}.kpi span{display:block;font-size:.83rem;color:var(--muted);margin-top:5px}
+.action{display:inline-block;padding:11px 16px;border-radius:9px;background:#2b6288;color:white;text-decoration:none;font-weight:700}
+.controls{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin:16px 0}
+.controls input,.controls select{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:9px;padding:10px 12px;font:inherit}
+.controls input{min-width:0;flex:1 1 200px}.result-count{font-size:.89rem;color:var(--muted)}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;margin:16px 0}
+table{width:100%;border-collapse:collapse;white-space:nowrap;font-variant-numeric:tabular-nums;font-size:.85rem}
+thead th{background:var(--head);color:#fff;text-align:right;padding:11px 9px}
+td{padding:9px;border-bottom:1px solid var(--line);text-align:right}
+th:nth-child(3),th:nth-child(4),td:nth-child(3),td:nth-child(4){text-align:left}
+tbody tr:nth-child(even){background:var(--stripe)}
+td.pos{background:var(--green)}td.neg{background:var(--red)}
+.foot{border-top:1px solid var(--line);margin-top:28px;padding-top:20px;font-size:.89rem;color:var(--muted)}
+[data-theme="dark"]{color-scheme:dark;--bg:#101b2a;--panel:#1b2c3e;--ink:#e6eef5;--muted:#b4c4d3;--line:#374b60;--stripe:#23374b;--link:#a3d7f2;--head:#31536e;--green:#225247;--red:#5d3642}
+[data-theme="dark"] td.pos{color:#c6f0de}[data-theme="dark"] td.neg{color:#ffced1}
+@media(max-width:700px){
+.panel{padding:19px 16px}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{margin-top:28px}
+.tablewrap{overflow:visible;border:0;background:transparent}
+.tablewrap table,.tablewrap tbody,.tablewrap tr,.tablewrap td{display:block;width:100%}
+.tablewrap thead{display:none}.tablewrap tbody{display:grid;grid-template-columns:minmax(0,1fr);gap:13px}
+.tablewrap tbody tr,.tablewrap tbody tr:nth-child(even){display:grid;grid-template-columns:minmax(0,1fr);gap:0;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:8px 12px;overflow:hidden}
+.tablewrap tbody td,.tablewrap tbody td:nth-child(n){display:flex;justify-content:space-between;align-items:baseline;gap:12px;min-width:0;padding:7px 3px;text-align:right!important;white-space:normal;border-bottom:1px solid var(--line);background:transparent;overflow-wrap:anywhere}
+.tablewrap tbody td:before{content:attr(data-label);color:var(--muted);font-size:.82rem;font-weight:600;text-align:left;flex:0 0 auto}
+.tablewrap tbody td:nth-child(4){order:-2;font-size:1rem;font-weight:750}.tablewrap tbody td:nth-child(3){order:-1;font-weight:700}
+.tablewrap tbody td:last-child{border-bottom:0}
+.tablewrap tbody td.pos{color:#187c59;font-weight:700}.tablewrap tbody td.neg{color:#b34553;font-weight:700}
+[data-theme="dark"] .tablewrap tbody td.pos{color:#a8eed1}[data-theme="dark"] .tablewrap tbody td.neg{color:#ffb9bd}
+}
+
+/* Structural Alpha visual identity */
+.brand-mark{display:inline-block;vertical-align:middle;width:38px;height:38px;object-fit:contain;flex:none;margin-right:9px;filter:drop-shadow(0 0 5px #1bb9e555)}
+.brand-with-icon{display:inline-flex;align-items:center;min-width:0;text-decoration:none;gap:0}
+.hero-banner{display:block;width:100%;height:auto;border-radius:13px;box-shadow:0 12px 30px #0005;border:1px solid #386078;object-fit:cover}
+@media(max-width:650px){.brand-mark{width:31px;height:31px;margin-right:7px}.brand-with-icon{font-size:.82rem!important}.hero-banner{height:180px;object-position:left center}.top{flex-wrap:wrap}}
+</style>
+<script>
+(function(){const key="structural-alpha-theme";let theme;try{theme=localStorage.getItem(key)}catch(e){}
+const dark=window.matchMedia&&matchMedia("(prefers-color-scheme:dark)").matches;
+document.documentElement.dataset.theme=theme==="light"||theme==="dark"?theme:(dark?"dark":"light");
+document.addEventListener("DOMContentLoaded",()=>{const b=document.getElementById("theme-toggle");function refresh(){let d=document.documentElement.dataset.theme==="dark";b.textContent=d?"☀ Light":"☾ Dark";b.setAttribute("aria-label",d?"Switch to light mode":"Switch to dark mode");b.setAttribute("aria-pressed",String(d))}refresh();b.addEventListener("click",()=>{let next=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=next;try{localStorage.setItem(key,next)}catch(e){}refresh()})})})();
+</script><link rel="icon" type="image/png" href="../../assets/images/Emblema%20de%20pico%20minero%20ne%C3%B3n%20cromado.png"></head>
+<body>
+<header><div class="wrap"><nav class="top"><a class="brand brand-with-icon" href="../../index.html" style="color:#fff"><img class="brand-mark" src="../../assets/images/Emblema%20de%20pico%20minero%20ne%C3%B3n%20cromado.png" alt="" width="38" height="38"><span>Structural Alpha <span style="font-weight:400">/ Research Archive</span></span></a><div class="top-links"><a href="../../index.html">← All studies</a><button class="theme-toggle" id="theme-toggle" type="button">☾ Dark</button></div></nav>
+<div class="hero"><div class="eyebrow">S&amp;P 500 · Quantitative market structure · October 8, 2026</div>
+<h1>S&amp;P 500: New All-Time Highs, but Market Strength Remains Highly Concentrated</h1>
+<p class="deck">The index reached a new high, but fewer than half its constituents are above their 200-day moving averages and three quarters remain more than 10% below their individual 52-week closing highs.</p></div></div></div></header>
+<main class="wrap"><div class="share-study" style="display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin:15px 0 25px">
+<button id="copy-study-link" type="button" style="padding:9px 14px;background:var(--panel,#fff);border:1px solid var(--line);border-radius:8px;color:var(--ink);font:inherit;cursor:pointer">Copy study link</button>
+<span style="font-size:.85rem;color:var(--muted)">Share this research</span></div>
+
+<section class="panel lead"><h2>New index highs, narrow market participation</h2>
+<p>Between October 2 and the October 7 close, the S&amp;P 500 gained <strong>1.02%</strong>, while the median return across 500 component stocks was just <strong>0.21%</strong>. The index's advance remains concentrated in selected leaders rather than evenly distributed across the market.</p>
+<div class="kpis"><div class="kpi"><strong>44.3%</strong><span>Above their 200-day moving averages</span></div><div class="kpi"><strong>75.7%</strong><span>Over 10% below 52-week closing highs</span></div><div class="kpi"><strong>21.6%</strong><span>Outperformed the index over four weeks</span></div><div class="kpi"><strong>−13.03%</strong><span>Median 20-session signed volume balance</span></div></div>
+<p class="meta">500 securities studied · Snapshot: October 7, 2026 · Valid observations: 499 for MA200 and volume; 497 for 52-week drawdowns.</p></section>
+<section class="panel"><h2>1. Participation is improving, but remains weak</h2>
+<p>Only <strong>44.3%</strong> of stocks are above the 200-day moving average, compared with <strong>41.3%</strong> on October 2. This is a welcome short-term improvement, yet breadth stood at <strong>55.5%</strong> four weeks earlier. The latest recovery has not reversed the broader deterioration.</p>
+<h2>2. Most stocks are far below their own peaks</h2>
+<p>Among the 497 stocks with valid drawdown data, <strong>75.7%</strong> are more than 10% below their 52-week closing highs, <strong>39.2%</strong> are more than 20% below, and <strong>19.3%</strong> are more than 30% below. The median 52-week drawdown is approximately <strong>−16.0%</strong>. These statistics contrast sharply with the index reaching new highs.</p>
+<h2>3. Volume conditions remain negative</h2>
+<p>The median signed 20-session volume balance has improved from <strong>−20.53%</strong> on October 2 to <strong>−13.03%</strong> on October 7. Only <strong>29.7%</strong> of eligible stocks have a positive balance. Median relative trading volume is about <strong>0.95×</strong> normal levels, with just 12 of 499 eligible securities recording both a five-session gain and relative volume of at least 1.5×.</p>
+<p>That is an improvement from recent weakness, but it does not yet demonstrate broad or sustained accumulation.</p>
+<h2>4. Leadership is concentrated in selected technology and power stocks</h2>
+<p>Notable weekly advances included PTC (+34.4%), Autodesk (+10.9%) and Broadcom (+6.0%), alongside positive performance in major technology names. Power-related companies were particularly strong: <strong>Vistra (+19.1%), Constellation Energy (+16.4%) and NRG Energy (+14.1%)</strong>.</p>
+<p>AI development and data-center electricity demand are plausible market themes associated with parts of this leadership. The scanner documents prices and trading patterns; it does not establish the underlying cause of individual moves.</p>
+<h2>5. The typical stock still lags the benchmark</h2>
+<p>Only <strong>21.6%</strong> of constituents beat the S&amp;P 500 over four weeks. The median stock underperformed the benchmark by approximately <strong>5.45 percentage points</strong> over that period. New index highs therefore do not describe the experience of most component stocks.</p>
+<h2>6. What would signal broader strength?</h2>
+<p>A sustained increase in constituents above MA200, fewer deep drawdowns, more positive 20-session volume balances and a larger share beating the benchmark would provide stronger confirmation. Breadth divergences can persist for extended periods and do not, by themselves, predict an imminent decline.</p>
+<p><strong>Bottom line:</strong> the S&amp;P 500 is making new highs while much of its underlying market remains in correction. The latest internal improvement is real but still narrow; a convincing recovery requires wider participation.</p></section>
+<section class="panel" id="rankings"><h2>Complete S&amp;P 500 Ranking — All 500 Securities</h2>
+<p class="meta">Weekly rank, global rank, closing price and one-week, four-week, three-month and year-to-date performance for all 500 stocks. Global ranks are available for 497 names. Desktop defaults to weekly ranking; mobile defaults to alphabetical company cards.</p>
+<div id="excel-area" style="margin:22px 0"><p class="note">The original Excel download and the interactive 500-stock table will be enabled after the source workbook has been uploaded and processed automatically.</p></div>
+<div class="controls"><label for="rank-sort">Order by</label><select id="rank-sort"><option value="weekly">Weekly rank</option><option value="global">Global rank</option><option value="company">Company A–Z</option></select><input id="rank-search" type="search" aria-label="Search company name or ticker" placeholder="Search ticker or company…"><span class="result-count" id="rank-count">Awaiting workbook…</span></div>
+<div id="company-table"><p class="note">Upload and processing of the original Excel will activate the full classification.</p></div></section>
+<section class="panel"><h2>Methodology and limitations</h2>
+<p>Independent quantitative research based on the original Structural Alpha scanner Excel and the constituent-level and weekly summary histories supplied for the October 2–7, 2026 observation period. The historical sample contains 49 weekly observations from November 2025 through October 2026.</p>
+<p>MA200 breadth applies to eligible stocks with valid 200-session averages. Drawdowns are relative to each stock's highest <em>closing price</em> in the preceding 52 weeks, not its intraday high. The signed 20-session volume balance is a quantitative indicator rather than direct proof of institutional flows.</p>
+<p>Corporate actions, changes in constituents, price adjustments, missing observations and differing market histories can influence results. The scanner's classifications and rankings are descriptive, not personalized investment advice.</p></section>
+<p class="note" style="margin:25px 0">Study page views: <img src="https://hits.sh/broadluis.github.io/structural-alpha-research/studies/2026-10-08-sp500/index.html.svg?style=flat-square&amp;label=views&amp;color=7295ae&amp;labelColor=435a71" alt="S&P 500 study page view counter" loading="lazy" style="vertical-align:middle;height:20px"></p>
+<p class="foot">Structural Alpha · Independent quantitative research · For information only; not investment advice. <a href="../../index.html">Return to research archive</a></p>
+</main>
+<script>
+const cols=["Weekly","Global","Ticker","Company","Last close","1W %","4W %","3M %","YTD %"];let source=[];
+function display(rows){
+const host=document.getElementById("company-table");host.replaceChildren();document.getElementById("rank-count").textContent=rows.length+" / "+source.length+" securities";
+const wrap=document.createElement("div");wrap.className="tablewrap";const table=document.createElement("table"),thead=document.createElement("thead"),trh=document.createElement("tr");cols.forEach(c=>{const th=document.createElement("th");th.textContent=c;trh.append(th)});thead.append(trh);table.append(thead);const tbody=document.createElement("tbody");
+for(const r of rows){const tr=document.createElement("tr");r.forEach((v,i)=>{const td=document.createElement("td");td.textContent=v===null?"—":typeof v==="number"&&i>=5?v.toFixed(2):String(v);td.dataset.label=cols[i];if(i>=5&&typeof v==="number")td.className=v>0?"pos":v<0?"neg":"";tr.append(td)});tbody.append(tr)}table.append(tbody);wrap.append(table);host.append(wrap)
+}
+function render(){const sort=document.getElementById("rank-sort").value,q=document.getElementById("rank-search").value.trim().toLowerCase();let rows=source.filter(r=>r[2].toLowerCase().includes(q)||r[3].toLowerCase().includes(q));
+rows.sort((a,b)=>sort==="company"?a[3].localeCompare(b[3],undefined,{sensitivity:"base"})||a[2].localeCompare(b[2]):sort==="global"?(a[1]??Infinity)-(b[1]??Infinity)||a[0]-b[0]:a[0]-b[0]);display(rows)}
+fetch("companies.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("Ranking data unavailable");return r.json()}).then(({data})=>{if(!Array.isArray(data)||data.length!==500)throw Error("Unexpected company count");source=data;const sel=document.getElementById("rank-sort");const isMobile=()=>window.matchMedia("(max-width:700px)").matches;let lastMobile=isMobile();sel.value=lastMobile?"company":"weekly";
+document.getElementById("rank-sort").addEventListener("change",render);document.getElementById("rank-search").addEventListener("input",render);window.addEventListener("resize",()=>{const m=isMobile();if(m!==lastMobile){lastMobile=m;sel.value=m?"company":"weekly";render()}});render()}).catch(()=>{document.getElementById("company-table").textContent="The complete rankings will appear once the original Excel has been uploaded and processed."});
+</script><script>
+document.getElementById("copy-study-link").addEventListener("click",async function(){
+  const link="https://broadluis.github.io/structural-alpha-research/studies/2026-10-08-sp500/index.html";
+  try{await navigator.clipboard.writeText(link);const button=this;button.textContent="Link copied!";setTimeout(()=>{button.textContent="Copy study link"},1800)}
+  catch(e){window.prompt("Copy study link:",link)}
+});
+</script></body></html>
