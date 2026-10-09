@@ -1,0 +1,1 @@
+# Source workbook\n\nUpload **Weekly_Analysis_SP500_20261007.xlsx** into this folder. The source Excel is the only downloadable data file. The workflow generates the internal 500-company ranking for the web.\n
