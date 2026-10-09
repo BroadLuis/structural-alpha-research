@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Structural Alpha quantitative study of 26 lithium-related securities through October 8, 2026. Record drawdowns, zero MA200 breadth, weakening volume and full rankings.">
+<meta name="theme-color" content="#162941">
+<title>LITHIUM: Slower Losses, Deeper Structural Damage | Structural Alpha</title>
+<style>
+:root{color-scheme:light;--bg:#f5f8fa;--panel:#fff;--ink:#1d3348;--muted:#60758a;--line:#d8e2eb;--stripe:#f0f5f8;--link:#1b668e;--green:#d8eae5;--red:#f3d8da;--head:#476d89}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 Inter,"Segoe UI",system-ui,sans-serif}a{color:var(--link)}.wrap{width:min(1120px,calc(100% - 34px));margin:auto}
+header{background:linear-gradient(125deg,#13243b,#213e5b);color:white;padding:22px 0 66px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}.brand{font-weight:800;letter-spacing:.035em;font-size:.97rem}.top-links{display:flex;align-items:center;gap:17px;flex-wrap:wrap}.top a{color:#d7eafa;text-decoration:none;font-size:.91rem}
+.theme-toggle{font:inherit;font-size:.86rem;cursor:pointer;color:#e9f5fc;background:#33516b;border:1px solid #829eb6;border-radius:24px;padding:6px 13px}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #90cdf1;outline-offset:2px}
+.hero{margin-top:39px;max-width:970px}.eyebrow{text-transform:uppercase;letter-spacing:.13em;font-size:.77rem;font-weight:750;color:#a6cae1}
+h1{font-size:clamp(2.05rem,5.1vw,3.65rem);letter-spacing:-.037em;line-height:1.13;margin:14px 0 16px}
+.deck{font-size:1.15rem;color:#d5e5f1;max-width:940px}main{padding-bottom:65px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:27px 30px;margin:23px 0}
+.lead{position:relative;margin-top:-35px;box-shadow:0 12px 30px #20334811}
+h2{font-size:1.5rem;letter-spacing:-.025em;line-height:1.3;margin:4px 0 14px}h3{font-size:1.12rem;margin:22px 0 10px}
+p{margin:10px 0 15px}.meta,.note{color:var(--muted);font-size:.91rem}.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:22px 0}
+.kpi{background:var(--stripe);border:1px solid var(--line);border-radius:10px;padding:15px}
+.kpi strong{display:block;font-size:1.76rem;line-height:1.2}.kpi span{display:block;font-size:.83rem;color:var(--muted);margin-top:5px}
+.action{display:inline-block;padding:11px 16px;border-radius:9px;background:#2b6288;color:white;text-decoration:none;font-weight:700}
+.controls{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin:16px 0}
+.controls input,.controls select{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:9px;padding:10px 12px;font:inherit}
+.controls input{min-width:0;flex:1 1 200px}.result-count{font-size:.89rem;color:var(--muted)}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;margin:16px 0}
+table{width:100%;border-collapse:collapse;white-space:nowrap;font-variant-numeric:tabular-nums;font-size:.85rem}
+thead th{background:var(--head);color:#fff;text-align:right;padding:11px 9px}
+td{padding:9px;border-bottom:1px solid var(--line);text-align:right}
+th:nth-child(3),th:nth-child(4),td:nth-child(3),td:nth-child(4){text-align:left}
+tbody tr:nth-child(even){background:var(--stripe)}
+td.pos{background:var(--green)}td.neg{background:var(--red)}
+.foot{border-top:1px solid var(--line);margin-top:28px;padding-top:20px;font-size:.89rem;color:var(--muted)}
+[data-theme="dark"]{color-scheme:dark;--bg:#101b2a;--panel:#1b2c3e;--ink:#e6eef5;--muted:#b4c4d3;--line:#374b60;--stripe:#23374b;--link:#a3d7f2;--head:#31536e;--green:#225247;--red:#5d3642}
+[data-theme="dark"] td.pos{color:#c6f0de}[data-theme="dark"] td.neg{color:#ffced1}
+@media(max-width:700px){
+.panel{padding:19px 16px}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{margin-top:28px}
+.tablewrap{overflow:visible;border:0;background:transparent}
+.tablewrap table,.tablewrap tbody,.tablewrap tr,.tablewrap td{display:block;width:100%}
+.tablewrap thead{display:none}.tablewrap tbody{display:grid;grid-template-columns:minmax(0,1fr);gap:13px}
+.tablewrap tbody tr,.tablewrap tbody tr:nth-child(even){display:grid;grid-template-columns:minmax(0,1fr);gap:0;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:8px 12px;overflow:hidden}
+.tablewrap tbody td,.tablewrap tbody td:nth-child(n){display:flex;justify-content:space-between;align-items:baseline;gap:12px;min-width:0;padding:7px 3px;text-align:right!important;white-space:normal;border-bottom:1px solid var(--line);background:transparent;overflow-wrap:anywhere}
+.tablewrap tbody td:before{content:attr(data-label);color:var(--muted);font-size:.82rem;font-weight:600;text-align:left;flex:0 0 auto}
+.tablewrap tbody td:nth-child(4){order:-2;font-size:1rem;font-weight:750}.tablewrap tbody td:nth-child(3){order:-1;font-weight:700}
+.tablewrap tbody td:last-child{border-bottom:0}
+.tablewrap tbody td.pos{color:#187c59;font-weight:700}.tablewrap tbody td.neg{color:#b34553;font-weight:700}
+[data-theme="dark"] .tablewrap tbody td.pos{color:#a8eed1}[data-theme="dark"] .tablewrap tbody td.neg{color:#ffb9bd}
+}
+</style>
+<script>
+(function(){const key="structural-alpha-theme";let theme;try{theme=localStorage.getItem(key)}catch(e){}
+const dark=window.matchMedia&&matchMedia("(prefers-color-scheme:dark)").matches;
+document.documentElement.dataset.theme=theme==="light"||theme==="dark"?theme:(dark?"dark":"light");
+document.addEventListener("DOMContentLoaded",()=>{const b=document.getElementById("theme-toggle");function refresh(){let d=document.documentElement.dataset.theme==="dark";b.textContent=d?"☀ Light":"☾ Dark";b.setAttribute("aria-label",d?"Switch to light mode":"Switch to dark mode");b.setAttribute("aria-pressed",String(d))}refresh();b.addEventListener("click",()=>{let next=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=next;try{localStorage.setItem(key,next)}catch(e){}refresh()})})})();
+</script></head>
+<body>
+<header><div class="wrap"><nav class="top"><span class="brand">STRUCTURAL ALPHA <span style="font-weight:400">/ Research Archive</span></span><div class="top-links"><a href="../../index.html">← All studies</a><button class="theme-toggle" id="theme-toggle" type="button">☾ Dark</button></div></nav>
+<div class="hero"><div class="eyebrow">LITHIUM · Quantitative market structure · October 9, 2026</div>
+<h1>Lithium: Slower Losses, Deeper Structural Damage</h1>
+<p class="deck">The pace of weekly losses has moderated, but breadth, drawdowns and volume still paint a picture of exceptional weakness. Across 26 lithium-related securities, none currently trades above its 200-day moving average.</p>
+</div></div></header>
+<main class="wrap">
+<section class="panel lead"><h2>Key finding: relief in the weekly decline, not in the market structure</h2>
+<p>The sector's median weekly return improved from <strong>−6.44%</strong> to <strong>−3.26%</strong>, and the proportion of declining securities fell from <strong>92.3%</strong> to <strong>73.1%</strong>. Yet the internal evidence is more troubling: breadth above the 200-day moving average has fallen to <strong>zero</strong>, while the median 52-week drawdown has reached a new low for the 49-observation historical series.</p>
+<div class="kpis">
+<div class="kpi"><strong>0 / 26</strong><span>Above the 200-day moving average</span></div>
+<div class="kpi"><strong>−61.7%</strong><span>Median drawdown from 52-week closing highs</span></div>
+<div class="kpi"><strong>−3.26%</strong><span>Median return this week</span></div>
+<div class="kpi"><strong>0.80×</strong><span>Median relative trading volume</span></div>
+</div>
+<p class="meta">Observation window: October 2–8, 2026 · 26 securities · Historical comparison: 49 weekly snapshots, November 2025–October 2026.</p>
+</section>
+<section class="panel"><h2>1. Market breadth has reached an extreme</h2>
+<p>All 26 securities in the current scanner universe are below their 200-day moving averages. A week earlier, one security remained above this long-term reference, while four weeks before the current observation the figure was three. The four-week change is therefore <strong>−11.5 percentage points</strong>.</p>
+<p>This matters because the improvement in weekly returns has not translated into stabilization of the longer-term price structure. Extreme breadth readings can eventually precede reversals, but an oversold market is not necessarily one that has already found a bottom.</p>
+<h2>2. The drawdown picture is even weaker</h2>
+<p>The median distance from the 52-week closing high is now <strong>−61.7%</strong>, the lowest reading in the 49 available weekly observations. A week earlier it was −60.4%. In the current universe, <strong>25 of 26 securities (96.2%)</strong> trade more than 30% below their 52-week closing highs; <strong>21 (80.8%)</strong> are more than 40% below, and <strong>17 (65.4%)</strong> are more than 50% below.</p>
+<p>Measured from the highest close in each security's available price history, the median drawdown is even deeper at <strong>−83.2%</strong>, with 22 of 26 securities more than 50% below that reference. These are available-history closing highs, not necessarily lifetime all-time highs.</p>
+<h2>3. Volume offers little evidence of accumulation</h2>
+<p>The median relative volume, comparing the latest five sessions with the preceding 60-session reference, declined from <strong>1.04×</strong> last week to <strong>0.80×</strong>. Only two securities show relative volume of at least 1.5×, and both declined over their respective five-session comparison windows.</p>
+<p>Meanwhile, the median 20-session signed volume balance is <strong>−36.07%</strong>, the weakest reading in the full 49-snapshot sample. Just <strong>5 of 26 securities (19.2%)</strong> have a positive volume balance. This is not the volume pattern we would normally look for to confirm broad, sustained buying interest.</p>
+<h2>4. The sector continues to lag the wider market</h2>
+<p>Over the latest weekly interval, only four of 26 securities gained, three were unchanged, and 19 declined. The median return was −3.26%, compared with a <strong>+0.55%</strong> weekly return for the S&amp;P 500 benchmark used by the scanner.</p>
+<p>Over four weeks, <strong>only one of 26 securities</strong> outperformed the S&amp;P 500. None outperformed that benchmark on a year-to-date basis in this snapshot. The current weakness is therefore not simply an isolated weekly setback; it reflects a wider relative-performance problem.</p>
+<h2>5. A few exceptions do not change the overall picture</h2>
+<p>Sigma Lithium (+5.17%), Delta Lithium (+3.03%) and American Lithium (+2.50%) led the weekly ranking. At the other end, Vulcan Energy Resources (−13.93%), European Metals Holdings (−13.89%) and Core Lithium (−10.17%) suffered the largest weekly declines.</p>
+<p>These differences between individual companies may become more meaningful if relative leadership begins to persist. For now, however, isolated gains are taking place within an exceptionally weak market structure, rather than a broad-based sector recovery.</p>
+<h2>6. What would constitute a credible change?</h2>
+<p>The next evidence to watch is straightforward: an increase in the number of securities reclaiming their 200-day moving averages, a sustained improvement in the median drawdown and 20-session volume balance, and a rising share of companies outperforming the benchmark. Higher trading activity accompanying advances, rather than declines, would also strengthen the case.</p>
+<p><strong>Bottom line:</strong> lithium-related securities are no longer falling as rapidly as they did in the preceding week, but the market's underlying condition has continued to deteriorate. The indicators support a diagnosis of persistent weakness, not yet a confirmed recovery. A rebound remains possible; the data has not established that it is underway.</p>
+</section>
+<section class="panel" id="rankings"><h2>All 26 LITHIUM Securities — Complete Weekly Ranking</h2>
+<p class="meta">All securities analyzed by the scanner are listed here, with weekly and global ranks, last close, and returns over one week, four weeks, three months and year to date. The desktop view defaults to weekly rank; mobile company cards default to alphabetical order.</p>
+<div id="excel-area" style="margin:22px 0"><p class="note">The original Excel workbook will be available here once its upload to the study folder is complete. The full 26-security classification is already available below.</p></div>
+<div class="controls"><label for="rank-sort">Order by</label><select id="rank-sort"><option value="weekly">Weekly rank</option><option value="global">Global rank</option><option value="company">Company A–Z</option></select>
+<input id="rank-search" type="search" aria-label="Search companies by name or ticker" placeholder="Search ticker or company…"><span class="result-count" id="rank-count">Loading securities…</span></div>
+<div id="company-table"><p>Loading full rankings…</p></div>
+</section>
+<section class="panel"><h2>Methodology and limitations</h2>
+<p>Data are drawn from the Structural Alpha Weekly Analysis scanner for October 2–8, 2026, together with its weekly summary and company-history datasets. The 49-observation summary history covers November 7, 2025 through October 8, 2026. Comparisons are relative to the scanner's fixed 26-security universe.</p>
+<p>The universe is scanner-defined and contains lithium-related companies and at least one thematic ETF, together with companies that may have material operations outside lithium. It should not be interpreted as a pure-play lithium producer index. The study does not establish whether price weakness is driven by commodity fundamentals, company-specific events or broader risk appetite.</p>
+<p>52-week drawdowns use available closing-price highs within that rolling period; available-history drawdowns use the highest observed close for each security in its own available time series. Relative volume is calculated from five recent sessions against a preceding 60-session reference. The 20-session signed volume balance is a quantitative participation indicator, not a direct measure of institutional flows.</p>
+<p>Rankings are descriptive and not buy or sell recommendations. Prices may be affected by corporate actions, unequal trading histories, missing values and market-calendar differences. The historical extremes described here apply to the available 49 snapshots, not to the entire history of lithium equities.</p></section>
+<p class="note" style="margin:25px 0">Study page views: <img src="https://hits.sh/broadluis.github.io/structural-alpha-research/studies/2026-10-09-lithium/index.html.svg?style=flat-square&amp;label=views&amp;color=7295ae&amp;labelColor=435a71" alt="Lithium study page view counter" loading="lazy" style="vertical-align:middle;height:20px"></p>
+<p class="foot">Structural Alpha · Independent quantitative research · For information only; not investment advice. <a href="../../index.html">Return to research archive</a></p>
+</main>
+<script>
+const cols=["Weekly","Global","Ticker","Company","Last close","1W %","4W %","3M %","YTD %"];let source=[];
+function display(rows){
+const host=document.getElementById("company-table");host.replaceChildren();document.getElementById("rank-count").textContent=rows.length+" / "+source.length+" securities";
+const wrap=document.createElement("div");wrap.className="tablewrap";const table=document.createElement("table"),thead=document.createElement("thead"),trh=document.createElement("tr");cols.forEach(c=>{const th=document.createElement("th");th.textContent=c;trh.append(th)});thead.append(trh);table.append(thead);const tbody=document.createElement("tbody");
+for(const r of rows){const tr=document.createElement("tr");r.forEach((v,i)=>{const td=document.createElement("td");td.textContent=v===null?"—":typeof v==="number"&&i>=5?v.toFixed(2):String(v);td.dataset.label=cols[i];if(i>=5&&typeof v==="number")td.className=v>0?"pos":v<0?"neg":"";tr.append(td)});tbody.append(tr)}table.append(tbody);wrap.append(table);host.append(wrap)
+}
+function render(){const sort=document.getElementById("rank-sort").value,q=document.getElementById("rank-search").value.trim().toLowerCase();let rows=source.filter(r=>r[2].toLowerCase().includes(q)||r[3].toLowerCase().includes(q));
+rows.sort((a,b)=>sort==="company"?a[3].localeCompare(b[3],undefined,{sensitivity:"base"})||a[2].localeCompare(b[2]):sort==="global"?(a[1]??Infinity)-(b[1]??Infinity)||a[0]-b[0]:a[0]-b[0]);display(rows)}
+fetch("companies.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("Ranking data unavailable");return r.json()}).then(({data})=>{if(!Array.isArray(data)||data.length!==26)throw Error("Unexpected company count");source=data;const sel=document.getElementById("rank-sort");const isMobile=()=>window.matchMedia("(max-width:700px)").matches;let lastMobile=isMobile();sel.value=lastMobile?"company":"weekly";
+document.getElementById("rank-sort").addEventListener("change",render);document.getElementById("rank-search").addEventListener("input",render);window.addEventListener("resize",()=>{const m=isMobile();if(m!==lastMobile){lastMobile=m;sel.value=m?"company":"weekly";render()}});render()}).catch(()=>{document.getElementById("company-table").textContent="The complete rankings could not be loaded. Please refresh this page."});
+</script></body></html>
