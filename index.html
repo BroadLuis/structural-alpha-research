@@ -134,6 +134,12 @@
       summary:"90 companies analyzed. Market breadth, drawdowns, relative volume and four full ranking tables.",
       url:"studies/2026-10-09-asx/index.html",
       download:"studies/2026-10-09-asx/Weekly_Analysis_ASX_20261009.xlsx"
+    },{
+      title:"SIL–SILJ: Silver Miners Deep in Correction Territory. Are the First Signs of Resilience Emerging?",
+      date:"2026-10-08",universe:"SIL–SILJ",
+      summary:"98 securities analyzed. Only 27.8% above MA200, median drawdown −35.8%, with tentative resilience versus silver intraday. Full rankings available.",
+      url:"studies/2026-10-08-sil-silj/index.html",
+      download:"studies/2026-10-08-sil-silj/companies.json"
     }];
     function render(){
       const term=input.value.trim().toLowerCase(), market=filter.value;
@@ -152,7 +158,7 @@
     input.addEventListener("input",render);filter.addEventListener("change",render);
     // Always render the built-in catalog immediately; network is optional.
     render();
-    fetch("reports.json?v=20261009-2", {cache:"no-store"})
+    fetch("reports.json?v=20261009-3", {cache:"no-store"})
       .then(r=>{if(!r.ok)throw Error("Cannot load report index");return r.json()})
       .then(data=>{if(Array.isArray(data)&&data.length){reports=data;render();}})
       .catch(()=>{ /* Keep the built-in catalog visible while offline or during deployment. */ });
