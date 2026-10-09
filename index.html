@@ -141,6 +141,11 @@
       summary:"98 securities analyzed. Only 27.8% above MA200, median drawdown −35.8%, with tentative resilience versus silver intraday. Full rankings available.",
       url:"studies/2026-10-08-sil-silj/index.html",
       download:"studies/2026-10-08-sil-silj/assets/Weekly_Analysis_SIL_SILJ_20261007.xlsx"
+    },{
+      title:"LITHIUM: Slower Losses, Deeper Structural Damage",
+      date:"2026-10-09",universe:"LITHIUM",
+      summary:"26 securities. Zero above MA200, −61.7% median 52-week drawdown, and very weak volume participation. Full ranking included.",
+      url:"studies/2026-10-09-lithium/index.html"
     }];
     function render(){
       const term=input.value.trim().toLowerCase(), market=filter.value;
@@ -159,7 +164,7 @@
     input.addEventListener("input",render);filter.addEventListener("change",render);
     // Always render the built-in catalog immediately; network is optional.
     render();
-    fetch("reports.json?v=20261009-4", {cache:"no-store"})
+    fetch("reports.json?v=20261009-5", {cache:"no-store"})
       .then(r=>{if(!r.ok)throw Error("Cannot load report index");return r.json()})
       .then(data=>{if(Array.isArray(data)&&data.length){reports=data;render();}})
       .catch(()=>{ /* Keep the built-in catalog visible while offline or during deployment. */ });
