@@ -192,6 +192,13 @@
         const read=document.createElement("a");read.className="report-read";read.href=item.url;read.textContent="Read full study →";actions.append(read);
         if(item.download){const excel=document.createElement("a");excel.href=item.download;excel.textContent="Download Excel ↓";excel.setAttribute("download","");actions.append(excel)}
         const share=document.createElement("button");share.type="button";share.textContent="Copy link";share.setAttribute("aria-label","Copy link to "+item.title);share.addEventListener("click",()=>copyLink(item.url,share));actions.append(share);
+        const views=document.createElement("a");
+        const studyPath=item.url.replace(/^\/+/, "");
+        views.href="https://hits.sh/broadluis.github.io/structural-alpha-research/"+studyPath.replace(/\.html$/, ".html/");
+        views.target="_blank";views.rel="noopener noreferrer";
+        views.textContent="👁 Views ↗";
+        views.title="View page-view statistics for this study";
+        actions.append(views);
         article.append(meta,title,desc,actions);results.append(article);
       }
     }
