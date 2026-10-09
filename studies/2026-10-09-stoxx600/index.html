@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="STOXX 600 scanner research, October 9, 2026: 610 securities, 52.2% above MA200, 63.8% more than 10% below 52-week highs. Full study and rankings.">
+<meta name="theme-color" content="#162941">
+<title>STOXX 600: Breadth Improves, but the Recovery Remains Fragile | Structural Alpha</title>
+<link rel="canonical" href="https://broadluis.github.io/structural-alpha-research/studies/2026-10-09-stoxx600/index.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Structural Alpha">
+<meta property="og:title" content="STOXX 600: Breadth Improves, but the Recovery Remains Fragile">
+<meta property="og:description" content="610-security STOXX 600 scanner: improved weekly participation, 52.2% above MA200, 63.8% more than 10% below 52-week closing highs.">
+<meta property="og:url" content="https://broadluis.github.io/structural-alpha-research/studies/2026-10-09-stoxx600/index.html">
+<meta property="og:image" content="https://broadluis.github.io/structural-alpha-research/assets/images/LBroad%20Structural%20Alpha%20Nuevo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="STOXX 600: Breadth Improves, but the Recovery Remains Fragile">
+<meta name="twitter:description" content="Weekly STOXX 600 quantitative breadth, drawdowns, and volume study. 610-security rankings and original Excel.">
+<meta name="twitter:image" content="https://broadluis.github.io/structural-alpha-research/assets/images/LBroad%20Structural%20Alpha%20Nuevo.png">
+
+<style>
+:root{color-scheme:light;--bg:#f5f8fa;--panel:#fff;--ink:#1d3348;--muted:#60758a;--line:#d8e2eb;--stripe:#f0f5f8;--link:#1b668e;--green:#d8eae5;--red:#f3d8da;--head:#476d89}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 Inter,"Segoe UI",system-ui,sans-serif}a{color:var(--link)}.wrap{width:min(1120px,calc(100% - 34px));margin:auto}
+header{background:linear-gradient(125deg,#13243b,#213e5b);color:white;padding:22px 0 66px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}.brand{font-weight:800;letter-spacing:.035em;font-size:.97rem}.top-links{display:flex;align-items:center;gap:17px;flex-wrap:wrap}.top a{color:#d7eafa;text-decoration:none;font-size:.91rem}
+.theme-toggle{font:inherit;font-size:.86rem;cursor:pointer;color:#e9f5fc;background:#33516b;border:1px solid #829eb6;border-radius:24px;padding:6px 13px}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #90cdf1;outline-offset:2px}
+.hero{margin-top:39px;max-width:970px}.eyebrow{text-transform:uppercase;letter-spacing:.13em;font-size:.77rem;font-weight:750;color:#a6cae1}
+h1{font-size:clamp(2.05rem,5.1vw,3.65rem);letter-spacing:-.037em;line-height:1.13;margin:14px 0 16px}
+.deck{font-size:1.15rem;color:#d5e5f1;max-width:940px}main{padding-bottom:65px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:27px 30px;margin:23px 0}
+.lead{position:relative;margin-top:-35px;box-shadow:0 12px 30px #20334811}
+h2{font-size:1.5rem;letter-spacing:-.025em;line-height:1.3;margin:4px 0 14px}h3{font-size:1.12rem;margin:22px 0 10px}
+p{margin:10px 0 15px}.meta,.note{color:var(--muted);font-size:.91rem}.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:22px 0}
+.kpi{background:var(--stripe);border:1px solid var(--line);border-radius:10px;padding:15px}
+.kpi strong{display:block;font-size:1.76rem;line-height:1.2}.kpi span{display:block;font-size:.83rem;color:var(--muted);margin-top:5px}
+.action{display:inline-block;padding:11px 16px;border-radius:9px;background:#2b6288;color:white;text-decoration:none;font-weight:700}
+.controls{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin:16px 0}
+.controls input,.controls select{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:9px;padding:10px 12px;font:inherit}
+.controls input{min-width:0;flex:1 1 200px}.result-count{font-size:.89rem;color:var(--muted)}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;margin:16px 0}
+table{width:100%;border-collapse:collapse;white-space:nowrap;font-variant-numeric:tabular-nums;font-size:.85rem}
+thead th{background:var(--head);color:#fff;text-align:right;padding:11px 9px}
+td{padding:9px;border-bottom:1px solid var(--line);text-align:right}
+th:nth-child(3),th:nth-child(4),td:nth-child(3),td:nth-child(4){text-align:left}
+tbody tr:nth-child(even){background:var(--stripe)}
+td.pos{background:var(--green)}td.neg{background:var(--red)}
+.foot{border-top:1px solid var(--line);margin-top:28px;padding-top:20px;font-size:.89rem;color:var(--muted)}
+[data-theme="dark"]{color-scheme:dark;--bg:#101b2a;--panel:#1b2c3e;--ink:#e6eef5;--muted:#b4c4d3;--line:#374b60;--stripe:#23374b;--link:#a3d7f2;--head:#31536e;--green:#225247;--red:#5d3642}
+[data-theme="dark"] td.pos{color:#c6f0de}[data-theme="dark"] td.neg{color:#ffced1}
+@media(max-width:700px){
+.panel{padding:19px 16px}.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{margin-top:28px}
+.tablewrap{overflow:visible;border:0;background:transparent}
+.tablewrap table,.tablewrap tbody,.tablewrap tr,.tablewrap td{display:block;width:100%}
+.tablewrap thead{display:none}.tablewrap tbody{display:grid;grid-template-columns:minmax(0,1fr);gap:13px}
+.tablewrap tbody tr,.tablewrap tbody tr:nth-child(even){display:grid;grid-template-columns:minmax(0,1fr);gap:0;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:8px 12px;overflow:hidden}
+.tablewrap tbody td,.tablewrap tbody td:nth-child(n){display:flex;justify-content:space-between;align-items:baseline;gap:12px;min-width:0;padding:7px 3px;text-align:right!important;white-space:normal;border-bottom:1px solid var(--line);background:transparent;overflow-wrap:anywhere}
+.tablewrap tbody td:before{content:attr(data-label);color:var(--muted);font-size:.82rem;font-weight:600;text-align:left;flex:0 0 auto}
+.tablewrap tbody td:nth-child(4){order:-2;font-size:1rem;font-weight:750}.tablewrap tbody td:nth-child(3){order:-1;font-weight:700}
+.tablewrap tbody td:last-child{border-bottom:0}
+.tablewrap tbody td.pos{color:#187c59;font-weight:700}.tablewrap tbody td.neg{color:#b34553;font-weight:700}
+[data-theme="dark"] .tablewrap tbody td.pos{color:#a8eed1}[data-theme="dark"] .tablewrap tbody td.neg{color:#ffb9bd}
+}
+
+/* Structural Alpha visual identity */
+.brand-mark{display:inline-block;vertical-align:middle;width:38px;height:38px;object-fit:contain;flex:none;margin-right:9px;filter:drop-shadow(0 0 5px #1bb9e555)}
+.brand-with-icon{display:inline-flex;align-items:center;min-width:0;text-decoration:none;gap:0}
+.hero-banner{display:block;width:100%;height:auto;border-radius:13px;box-shadow:0 12px 30px #0005;border:1px solid #386078;object-fit:cover}
+@media(max-width:650px){.brand-mark{width:31px;height:31px;margin-right:7px}.brand-with-icon{font-size:.82rem!important}.hero-banner{height:180px;object-position:left center}.top{flex-wrap:wrap}}
+</style>
+<script>
+(function(){const key="structural-alpha-theme";let theme;try{theme=localStorage.getItem(key)}catch(e){}
+const dark=window.matchMedia&&matchMedia("(prefers-color-scheme:dark)").matches;
+document.documentElement.dataset.theme=theme==="light"||theme==="dark"?theme:(dark?"dark":"light");
+document.addEventListener("DOMContentLoaded",()=>{const b=document.getElementById("theme-toggle");function refresh(){let d=document.documentElement.dataset.theme==="dark";b.textContent=d?"☀ Light":"☾ Dark";b.setAttribute("aria-label",d?"Switch to light mode":"Switch to dark mode");b.setAttribute("aria-pressed",String(d))}refresh();b.addEventListener("click",()=>{let next=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=next;try{localStorage.setItem(key,next)}catch(e){}refresh()})})})();
+</script><link rel="icon" type="image/png" href="../../assets/images/Emblema%20de%20pico%20minero%20ne%C3%B3n%20cromado.png"></head>
+<body>
+<header><div class="wrap"><nav class="top"><a class="brand brand-with-icon" href="../../index.html" style="color:#fff"><img class="brand-mark" src="../../assets/images/Emblema%20de%20pico%20minero%20ne%C3%B3n%20cromado.png" alt="" width="38" height="38"><span>Structural Alpha <span style="font-weight:400">/ Research Archive</span></span></a><div class="top-links"><a href="../../index.html">← All studies</a><button class="theme-toggle" id="theme-toggle" type="button">☾ Dark</button></div></nav>
+<div class="hero"><div class="eyebrow">STOXX 600 · Quantitative market structure · October 9, 2026</div><h1>STOXX 600: Breadth Improves, but the Recovery Remains Fragile</h1><p class="deck">A more balanced week and improving volume breadth provide relief, but long-term participation remains below its level four weeks ago and nearly two thirds of the tracked securities are more than 10% below their 52-week closing highs.</p></div></div></header>
+<main class="wrap"><div class="share-study" style="display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin:15px 0 25px">
+<button id="copy-study-link" type="button" style="padding:9px 14px;background:var(--panel,#fff);border:1px solid var(--line);border-radius:8px;color:var(--ink);font:inherit;cursor:pointer">Copy study link</button>
+<span style="font-size:.85rem;color:var(--muted)">Share this research</span></div>
+
+<section class="panel lead"><h2>Stabilization, not yet broad-based strength</h2>
+<p>The 610-security scanner universe finished the October 2–9 period almost unchanged at the typical-stock level: median weekly return <strong>0.00%</strong>, versus <strong>−1.55%</strong> the preceding week. The number of advancing stocks rose to <strong>304 of 610</strong>, from a market dominated by declines the previous week. However, this week's stabilization has not yet repaired the damage to longer-term participation.</p>
+<div class="kpis"><div class="kpi"><strong>52.2%</strong><span>Above MA200 (318 of 609 valid observations)</span></div><div class="kpi"><strong>63.8%</strong><span>More than 10% below 52-week closing highs</span></div><div class="kpi"><strong>−10.38%</strong><span>Median 20-session signed volume balance</span></div><div class="kpi"><strong>34.6%</strong><span>Positive signed volume balance</span></div></div>
+<p class="meta">Scanner universe: 610 securities · Weekly window: October 2–9, 2026 · The supplied workbook does not establish that all 610 are index members at a single point in time.</p></section>
+<section class="panel"><h2>1. The selling pressure has moderated</h2>
+<p>The average weekly return was just <strong>+0.04%</strong> and the median was flat. <strong>304</strong> securities advanced, <strong>301</strong> declined and <strong>5</strong> were unchanged. This is a marked improvement from the prior week's median decline of <strong>1.55%</strong> and its 72.1% share of declining stocks. It indicates stabilization across the scanner universe rather than a decisive rebound.</p>
+<h2>2. Trend participation has improved since last week—but weakened over four weeks</h2>
+<p><strong>318 of 609</strong> eligible securities (52.2%) trade above their 200-day moving average, compared with 304 of 609 (49.9%) at the previous snapshot. On a 607-security common sample, however, MA200 breadth fell from <strong>55.7%</strong> four weeks earlier to <strong>52.1%</strong>, a deterioration of 3.6 percentage points. The short-term gain does not yet overturn that wider trend.</p>
+<h2>3. A large part of the market is still in drawdown</h2>
+<p>Among <strong>608</strong> securities with valid 52-week data, <strong>388 (63.8%)</strong> are more than 10% below their own highest closing price of the period. Another <strong>207 (34.0%)</strong> sit more than 20% below their 52-week closing high; <strong>88 (14.5%)</strong> are down more than 30%. The median 52-week drawdown is <strong>−13.9%</strong>, nearly unchanged week on week. The breadth of 10%-plus drawdowns actually rose from 61.3% a week earlier, despite the steadier weekly returns.</p>
+<h2>4. Volume-balance breadth is recovering from weak levels</h2>
+<p>The median signed 20-session volume balance improved from <strong>−17.59%</strong> to <strong>−10.38%</strong>. The percentage of securities with a positive balance rose from <strong>24.1%</strong> to <strong>34.6%</strong> (211 of 610). That improvement is meaningful, but most readings remain negative.</p>
+<p>Median five-session relative volume fell from <strong>1.03×</strong> to <strong>0.96×</strong>. Only <strong>39 of 610</strong> securities (6.4%) traded at 1.5× or more of their reference volume, down from 62 the preceding week. High-volume selling decliners fell from 47 to 20; high-volume gainers rose from 15 to 19. Pressure is easing, but widespread high-conviction buying is not yet visible.</p>
+<h2>5. Leadership is selective</h2>
+<p>The largest weekly movers included <strong>Bridgepoint Group (+21.2%)</strong>, <strong>ALK-Abelló (+12.8%)</strong>, <strong>Amplifon (+11.3%)</strong> and <strong>Frontline (+11.0%)</strong>. These are company-specific examples from the scanner's weekly ranking, not evidence of a uniform advance across any one sector. The complete 610-security ranking below makes the dispersion visible.</p>
+<h2>6. What would improve the structural picture?</h2>
+<p>A more persuasive turn would require sustained growth in the proportion of securities above MA200, a decline in the share sitting far below 52-week closing highs, and broader participation in positive volume balances. The current week provides early relief, but the historical and trend measures do not yet confirm a durable recovery.</p>
+<p><strong>Bottom line:</strong> the STOXX 600 scanner has moved from broad weekly selling to near-balanced participation. Nonetheless, longer-term breadth remains damaged, substantial drawdowns persist and buying volume has not become pervasive. Stabilization is visible; structural confirmation is still missing.</p></section>
+<section class="panel" id="rankings"><h2>Complete STOXX 600 Scanner Ranking — 610 Securities</h2>
+<p class="meta">Full scanner-defined universe with weekly rank, global rank, ticker, name, last close, 1W, 4W, 3M and YTD returns. Global ranks are available for 603 securities. On desktop the table opens in weekly-rank order; on mobile each security appears as a labeled card ordered by company name.</p>
+<div id="excel-area" style="margin:22px 0"><p class="note">Once the original Excel workbook is uploaded, the Download Excel button and the interactive ranking will be activated.</p></div>
+<div class="controls"><label for="rank-sort">Order by</label><select id="rank-sort"><option value="weekly">Weekly rank</option><option value="global">Global rank</option><option value="company">Company A–Z</option></select><input id="rank-search" type="search" aria-label="Search ticker or company" placeholder="Search ticker or company…"><span class="result-count" id="rank-count">Awaiting workbook…</span></div>
+<div id="company-table"><p class="note">The complete ranking will appear after the original Excel is uploaded and processed.</p></div></section>
+<section class="panel"><h2>Methodology and limitations</h2>
+<p>All metrics are derived from the Structural Alpha Weekly Analysis STOXX600 scanner workbook and its two supplied histories, with the latest snapshot dated <strong>October 9, 2026</strong>. The weekly summary archive spans 49 observations from November 2025 to October 2026. Some measurements have fewer than 610 eligible observations, as indicated by their denominators. The 52-week drawdown uses the highest observed <em>closing price</em> over 52 weeks rather than an intraday high.</p>
+<p><strong>Benchmark caution:</strong> the source scanner identifies its comparison benchmark as <strong>STOXX 600</strong>, even though the universe is labeled STOXX600. Consequently, benchmark-relative figures are excluded from the interpretation: they should not be mistaken for performance relative to a European STOXX 600 index. The sample has 610 scanner securities rather than precisely 600 constituents, and should not be treated as an independently verified point-in-time index membership list.</p>
+<p>Volume balance is a price/volume-derived indicator, not verified institutional flows. Company returns can be affected by corporate actions, currency differences, varying histories and data-provider conventions. This study describes market structure; it does not provide personalized investment advice.</p></section>
+<p class="note" style="margin:25px 0">Study page views: <img src="https://hits.sh/broadluis.github.io/structural-alpha-research/studies/2026-10-09-stoxx600/index.html.svg?style=flat-square&amp;label=views&amp;color=7295ae&amp;labelColor=435a71" alt="STOXX 600 study page view counter" loading="lazy" style="vertical-align:middle;height:20px"></p>
+<p class="foot">Structural Alpha · Independent quantitative research · For information only; not investment advice. <a href="../../index.html">Return to research archive</a></p>
+</main>
+<script>
+const cols=["Weekly","Global","Ticker","Company","Last close","1W %","4W %","3M %","YTD %"];let source=[];
+function display(rows){
+const host=document.getElementById("company-table");host.replaceChildren();document.getElementById("rank-count").textContent=rows.length+" / "+source.length+" securities";
+const wrap=document.createElement("div");wrap.className="tablewrap";const table=document.createElement("table"),thead=document.createElement("thead"),trh=document.createElement("tr");cols.forEach(c=>{const th=document.createElement("th");th.textContent=c;trh.append(th)});thead.append(trh);table.append(thead);const tbody=document.createElement("tbody");
+for(const r of rows){const tr=document.createElement("tr");r.forEach((v,i)=>{const td=document.createElement("td");td.textContent=v===null?"—":typeof v==="number"&&i>=5?v.toFixed(2):String(v);td.dataset.label=cols[i];if(i>=5&&typeof v==="number")td.className=v>0?"pos":v<0?"neg":"";tr.append(td)});tbody.append(tr)}table.append(tbody);wrap.append(table);host.append(wrap)
+}
+function render(){const sort=document.getElementById("rank-sort").value,q=document.getElementById("rank-search").value.trim().toLowerCase();let rows=source.filter(r=>r[2].toLowerCase().includes(q)||r[3].toLowerCase().includes(q));
+rows.sort((a,b)=>sort==="company"?a[3].localeCompare(b[3],undefined,{sensitivity:"base"})||a[2].localeCompare(b[2]):sort==="global"?(a[1]??Infinity)-(b[1]??Infinity)||a[0]-b[0]:a[0]-b[0]);display(rows)}
+fetch("companies.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw Error("Ranking data unavailable");return r.json()}).then(({data})=>{if(!Array.isArray(data)||data.length!==610)throw Error("Unexpected company count");source=data;const sel=document.getElementById("rank-sort");const isMobile=()=>window.matchMedia("(max-width:700px)").matches;let lastMobile=isMobile();sel.value=lastMobile?"company":"weekly";
+document.getElementById("rank-sort").addEventListener("change",render);document.getElementById("rank-search").addEventListener("input",render);window.addEventListener("resize",()=>{const m=isMobile();if(m!==lastMobile){lastMobile=m;sel.value=m?"company":"weekly";render()}});render()}).catch(()=>{document.getElementById("company-table").textContent="The complete rankings will appear once the original Excel has been uploaded and processed."});
+</script><script>
+document.getElementById("copy-study-link").addEventListener("click",async function(){
+  const link="https://broadluis.github.io/structural-alpha-research/studies/2026-10-09-stoxx600/index.html";
+  try{await navigator.clipboard.writeText(link);const button=this;button.textContent="Link copied!";setTimeout(()=>{button.textContent="Copy study link"},1800)}
+  catch(e){window.prompt("Copy study link:",link)}
+});
+</script></body></html>
