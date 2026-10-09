@@ -6,5 +6,13 @@
     "summary": "90 companies analyzed. Breadth continues to deteriorate, with 34.4% above the 200-day MA, median drawdown at −33.6%, and median relative volume of 0.73×. Four interactive rankings and downloadable company data.",
     "url": "studies/2026-10-09-asx/index.html",
     "download": "studies/2026-10-09-asx/Weekly_Analysis_ASX_20261009.xlsx"
+  },
+  {
+    "title": "SIL–SILJ: Silver Miners Deep in Correction Territory. Are the First Signs of Resilience Emerging?",
+    "date": "2026-10-08",
+    "universe": "SIL–SILJ",
+    "summary": "98 securities analyzed through October 7: 27.8% above MA200 and median drawdown −35.8%. October 8 intraday resilience remains tentative. Complete 98-security ranking available online.",
+    "url": "studies/2026-10-08-sil-silj/index.html",
+    "download": "studies/2026-10-08-sil-silj/companies.json"
   }
 ]
