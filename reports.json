@@ -16,6 +16,13 @@
     "download": "studies/2026-10-09-lithium/assets/Weekly_Analysis_LITHIUM_20261008.xlsx"
   },
   {
+    "title": "STOXX 600: Breadth Improves, but the Recovery Remains Fragile",
+    "date": "2026-10-09",
+    "universe": "STOXX 600",
+    "summary": "610 securities studied through October 9. MA200 breadth recovers to 52.2%, but 63.8% remain more than 10% below their 52-week closing highs. Volume balance improves, yet participation is still fragile.",
+    "url": "studies/2026-10-09-stoxx600/index.html"
+  },
+  {
     "title": "S&P 500: New All-Time Highs, but Market Strength Remains Highly Concentrated",
     "date": "2026-10-08",
     "universe": "S&P 500",
