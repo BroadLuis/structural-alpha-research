@@ -33,12 +33,55 @@
     .disclaimer{font-size:.86rem;color:#5e7080;border-top:1px solid var(--line);padding-top:20px;margin-top:50px}
     footer{background:#eaf0f4;border-top:1px solid var(--line);padding:23px 0;font-size:.85rem;color:#506578}
     @media(max-width:540px){header{padding-bottom:63px}.wrap{width:calc(100% - 28px)}.lead{padding:21px}.controls input,.controls select{width:100%;flex-basis:100%}.top{align-items:flex-start}}
-  </style>
-</head>
+  
+/* Accessible light/dark appearance switch shared across Structural Alpha pages */
+.theme-toggle{font:inherit;font-size:.84rem;white-space:nowrap;color:#e8f3fb;background:#314c66;border:1px solid #7894aa;border-radius:999px;padding:7px 13px;cursor:pointer;transition:background-color .15s}
+.theme-toggle:hover{background:#41647f}.theme-toggle:focus-visible{outline:3px solid #93d6f6;outline-offset:3px}
+[data-theme="dark"]{color-scheme:dark;--ink:#e7edf5;--muted:#afc0d1;--line:#34485d;--bg:#101b2a;--white:#1b2c3e}
+[data-theme="dark"] body{background:var(--bg);color:var(--ink)}
+[data-theme="dark"] .panel,[data-theme="dark"] .topic{background:#1b2c3e;border-color:#34485d}
+[data-theme="dark"] h2,[data-theme="dark"] h3,[data-theme="dark"] strong{color:#e7edf5}
+[data-theme="dark"] a{color:#9bcfeb}
+[data-theme="dark"] .note,[data-theme="dark"] .empty,[data-theme="dark"] .disclaimer{color:#b6c5d2}
+[data-theme="dark"] footer{background:#162435;border-color:#34485d;color:#b6c5d2}
+[data-theme="dark"] .theme-toggle{background:#41617e;color:#fff}
+
+[data-theme="dark"] .lead p{color:#bdcad6}
+[data-theme="dark"] .controls input,[data-theme="dark"] .controls select{color:#e7edf5;background:#21374a;border-color:#5b7084}
+[data-theme="dark"] .controls input::placeholder{color:#a9bdca}
+[data-theme="dark"] .topic small{color:#b1c2d0}
+[data-theme="dark"] .top a{color:#d7e8f5}
+
+</style>
+<script>
+(function(){
+  const storageKey="structural-alpha-theme";
+  let choice=null;
+  try{choice=localStorage.getItem(storageKey)}catch(e){}
+  const preferredDark=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const initial=choice==="light"||choice==="dark"?choice:(preferredDark?"dark":"light");
+  document.documentElement.setAttribute("data-theme",initial);
+  function sync(){
+    const dark=document.documentElement.getAttribute("data-theme")==="dark";
+    const button=document.getElementById("theme-toggle");
+    if(button){button.textContent=dark?"☀ Light":"☾ Dark";button.setAttribute("aria-label",dark?"Switch to light mode":"Switch to dark mode");button.setAttribute("aria-pressed",String(dark));}
+  }
+  document.addEventListener("DOMContentLoaded",function(){
+    sync();
+    const button=document.getElementById("theme-toggle");
+    if(button)button.addEventListener("click",function(){
+      const next=document.documentElement.getAttribute("data-theme")==="dark"?"light":"dark";
+      document.documentElement.setAttribute("data-theme",next);
+      try{localStorage.setItem(storageKey,next)}catch(e){}
+      sync();
+    });
+  });
+})();
+</script></head>
 <body>
   <header>
     <div class="wrap">
-      <nav class="top" aria-label="Site navigation"><span class="brand">STRUCTURAL ALPHA</span><a href="#research">Research archive ↓</a></nav>
+      <nav class="top" aria-label="Site navigation"><span class="brand">STRUCTURAL ALPHA</span><div style="display:flex;align-items:center;gap:15px;flex-wrap:wrap"><a href="#research">Research archive ↓</a><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">☾ Dark</button></div></nav>
       <p class="eyebrow" style="margin-top:45px">Independent quantitative market research</p>
       <h1>Structural Alpha</h1>
       <p class="subtitle">Research Archive</p>
