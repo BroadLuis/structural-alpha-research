@@ -1,6 +1,11 @@
 name: Update study view counts
 
 on:
+  push:
+    paths:
+      - ".github/workflows/update-study-views.yml"
+      - "scripts/update_views.py"
+      - "reports.json"
   schedule:
     - cron: "17 * * * *"
   workflow_dispatch:
