@@ -153,12 +153,16 @@ summary{cursor:pointer;font-weight:700}
 <p>Some future leaders may already be separating from the field. Identifying those companies requires studying both weekly momentum and the longer-term ranking rather than treating every deeply corrected stock as equally attractive.</p>
 </section>
 <section class="panel" id="rankings"><h2>All 90 ASX Companies — Full Weekly Ranking</h2>
-<p class="meta">The complete 90-company universe appears below, ordered by weekly performance. All nine published ranking columns are included, with the longer-term global ranking shown alongside the weekly ranking.</p>
+<p class="meta">The complete 90-company universe appears below, ordered by weekly ranking on desktop and alphabetically by company on mobile. All nine published ranking columns are included, with the longer-term global ranking shown alongside the weekly ranking.</p>
 <div class="links">
 <a class="action" href="Weekly_Analysis_ASX_20261009.xlsx" download="Weekly_Analysis_ASX_20261009.xlsx">⬇ Download complete Excel workbook (.xlsx)</a>
 
 </div>
-<div id="all"><p>Loading all 90 companies…</p></div>
+<div class="rank-controls" style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin:17px 0">
+<label for="rank-sort">Order by</label><select id="rank-sort" style="font:inherit;padding:9px;border-radius:8px;color:var(--ink);background:var(--bg);border:1px solid var(--line)"><option value="weekly">Weekly rank</option><option value="global">Global rank</option><option value="company">Company A–Z</option></select>
+<input id="rank-search" type="search" placeholder="Search ticker or company…" aria-label="Search companies" style="font:inherit;min-width:0;flex:1 1 205px;padding:9px;border:1px solid var(--line);border-radius:8px;color:var(--ink);background:var(--bg)">
+<span class="meta" id="rank-count">Loading companies…</span>
+</div><div id="all"><p>Loading all 90 companies…</p></div>
 <h3>Original publication images</h3>
 <p class="meta">The four high-resolution PNG ranking charts are available below. Click an image to open it full-size, or use the download link beneath it.</p>
 <div class="image-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,350px),1fr));gap:18px">
@@ -181,8 +185,17 @@ summary{cursor:pointer;font-weight:700}
 const cols=["Weekly","Global","Ticker","Company","Last close","1W %","4W %","3M %","YTD %"];
 function table(rows){const outer=document.createElement("div");outer.className="tablewrap";const t=document.createElement("table"),h=document.createElement("thead"),r=document.createElement("tr");cols.forEach(c=>{const th=document.createElement("th");th.textContent=c;r.append(th)});h.append(r);t.append(h);const body=document.createElement("tbody");rows.forEach(a=>{const tr=document.createElement("tr");a.forEach((v,j)=>{const td=document.createElement("td");td.textContent=v===null?"—":typeof v==="number"&&j>=5?v.toFixed(2):v;td.dataset.label=cols[j];if(j>=5&&typeof v==="number")td.className=v>0?"pos":v<0?"neg":"";tr.append(td)});body.append(tr)});t.append(body);outer.append(t);return outer}
 fetch("companies.json").then(r=>{if(!r.ok)throw Error("Rankings unavailable");return r.json()}).then(({data})=>{
-const sorted=[...data].sort((a,b)=>a[0]-b[0]);
-document.getElementById("all").replaceChildren(table(sorted));
+const selector=document.getElementById("rank-sort"),search=document.getElementById("rank-search");
+const alphabetical=(a,b)=>a[3].localeCompare(b[3],undefined,{sensitivity:"base"})||a[2].localeCompare(b[2]);
+const isMobile=()=>window.matchMedia("(max-width:700px)").matches;
+let lastMobile=isMobile();selector.value=lastMobile?"company":"weekly";
+function render(){const q=search.value.trim().toLocaleLowerCase(),rows=data.filter(a=>a[2].toLocaleLowerCase().includes(q)||a[3].toLocaleLowerCase().includes(q));
+rows.sort((a,b)=>selector.value==="company"?alphabetical(a,b):selector.value==="global"?(a[1]??Infinity)-(b[1]??Infinity)||a[0]-b[0]:a[0]-b[0]);
+document.getElementById("rank-count").textContent=rows.length+" / "+data.length+" companies";
+document.getElementById("all").replaceChildren(table(rows));}
+selector.addEventListener("change",render);search.addEventListener("input",render);
+window.addEventListener("resize",()=>{const mobile=isMobile();if(mobile!==lastMobile){lastMobile=mobile;selector.value=mobile?"company":"weekly";render();}});
+render();
 
 }).catch(()=>{document.getElementById("all").textContent="The 90-company table could not be loaded. Please refresh the page."});
 </script></body></html>
