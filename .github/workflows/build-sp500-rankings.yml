@@ -5,6 +5,7 @@ on:
     paths:
       - "studies/2026-10-08-sp500/assets/*.xlsx"
       - "scripts/build_sp500_rankings.py"
+      - ".github/workflows/build-sp500-rankings.yml"
   workflow_dispatch:
 
 permissions:
@@ -24,10 +25,10 @@ jobs:
         run: python3 scripts/build_sp500_rankings.py
       - name: Commit internal ranking data
         run: |
-          if ! git diff --quiet -- studies/2026-10-08-sp500/companies.json; then
+          git add studies/2026-10-08-sp500/companies.json
+          if ! git diff --cached --quiet; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add studies/2026-10-08-sp500/companies.json
             git commit -m "Refresh 500 S&P 500 rankings from original Excel"
             git push
           fi
