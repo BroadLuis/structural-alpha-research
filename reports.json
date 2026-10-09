@@ -20,7 +20,8 @@
     "date": "2026-10-08",
     "universe": "S&P 500",
     "summary": "500 constituent stocks studied through October 7. Only 44.3% above the 200-day average, 75.7% more than 10% below their 52-week closing highs, and just 21.6% outperforming over four weeks. The index's new highs mask concentrated leadership.",
-    "url": "studies/2026-10-08-sp500/index.html"
+    "url": "studies/2026-10-08-sp500/index.html",
+    "download": "studies/2026-10-08-sp500/assets/Weekly_Analysis_SP500_20261007.xlsx"
   },
   {
     "title": "SIL–SILJ: Silver Miners Deep in Correction Territory. Are the First Signs of Resilience Emerging?",
