@@ -1,4 +1,8 @@
 {
-  "updated_at": null,
-  "counts": {}
+  "updated_at": "2026-10-09T17:49:05+00:00",
+  "counts": {
+    "studies/2026-10-09-asx/index.html": 39,
+    "studies/2026-10-09-lithium/index.html": 12,
+    "studies/2026-10-08-sil-silj/index.html": 16
+  }
 }
