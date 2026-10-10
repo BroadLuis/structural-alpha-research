@@ -243,54 +243,77 @@ tbody tr:hover{background:#f0e9dc}
     // Keep a local snapshot so reports remain visible if the catalog request fails.
     // BEGIN GENERATED REPORT SNAPSHOT — keep synchronized with reports.json
     let reports=[
-      {
+    {
+        "title": "ENERGY | Strong Relative Performance, but Market Breadth Has Yet to Recover",
+        "date": "2026-10-11",
+        "universe": "ENERGY",
+        "summary": "169 energy securities: 77.5% advanced this week and 61.5% remain above MA200, but long-term breadth has lost nearly 15 percentage points in four weeks. Full ranking and Excel workbook.",
+        "url": "studies/2026-10-11-energy/index.html",
+        "download": "studies/2026-10-11-energy/assets/Weekly_Analysis_ENERGY_20261009.xlsx"
+    },
+    {
+        "title": "JUNIOR MINERS: Selling Pressure Eases, but Structural Damage Deepens",
+        "date": "2026-10-11",
+        "universe": "JUNIOR",
+        "summary": "483 junior mining securities through October 9: only 30.3% above MA200, median 52-week drawdown −40.9%, and tentative improvement in high-volume advances. Complete sortable ranking and original Excel workbook.",
+        "url": "studies/2026-10-11-junior/index.html",
+        "download": "studies/2026-10-11-junior/assets/Weekly_Analysis_JUNIOR_20261009.xlsx"
+    },
+    {
+        "title": "GDX–GDXJ: Selling Pressure Eases, but Market Breadth Keeps Deteriorating",
+        "date": "2026-10-10",
+        "universe": "GDX–GDXJ",
+        "summary": "150 mining securities analyzed through October 9. Only 36.9% above MA200; 42.6% down over 30% from 52-week highs. Selling pressure eases, but volume confirmation remains elusive.",
+        "url": "studies/2026-10-10-gdx-gdxj/index.html"
+    },
+    {
         "title": "GLOBAL MARKET STRUCTURE: Widespread Weakness, Uneven Resilience",
         "date": "2026-10-10",
         "universe": "GLOBAL",
         "summary": "First cross-market study of 12 universes: breadth weakened across the board, but structural damage is highly uneven. ENERGY leads MA200 participation while URANIUM and LITHIUM remain deeply impaired. Includes three labeled charts and cross-market volume analysis.",
         "url": "studies/2026-10-10-global/index.html"
-      },
-      {
+    },
+    {
         "title": "ASX Miners: Selling Pressure Is Easing, but the Correction Continues to Spread",
         "date": "2026-10-09",
         "universe": "ASX",
         "summary": "90 companies analyzed. Just 34.4% trade above the 200-day moving average; median drawdown is −33.6% and median relative volume is 0.73×. View all 90 companies and download the original Excel workbook.",
         "url": "studies/2026-10-09-asx/index.html",
         "download": "studies/2026-10-09-asx/Weekly_Analysis_ASX_20261009.xlsx"
-      },
-      {
+    },
+    {
         "title": "LITHIUM: Slower Losses, Deeper Structural Damage",
         "date": "2026-10-09",
         "universe": "LITHIUM",
         "summary": "26 securities analyzed through October 8. None above the 200-day moving average, median 52-week drawdown −61.7%, and a record-weak 20-session volume balance. Weekly losses ease, but no broad recovery is confirmed.",
         "url": "studies/2026-10-09-lithium/index.html",
         "download": "studies/2026-10-09-lithium/assets/Weekly_Analysis_LITHIUM_20261008.xlsx"
-      },
-      {
+    },
+    {
         "title": "STOXX 600: Breadth Improves, but the Recovery Remains Fragile",
         "date": "2026-10-09",
         "universe": "STOXX 600",
         "summary": "610 securities studied through October 9. MA200 breadth recovers to 52.2%, but 63.8% remain more than 10% below their 52-week closing highs. Volume balance improves, yet participation is still fragile.",
         "url": "studies/2026-10-09-stoxx600/index.html",
         "download": "studies/2026-10-09-stoxx600/assets/Weekly_Analysis_STOXX600_20261009.xlsx"
-      },
-      {
+    },
+    {
         "title": "S&P 500: New All-Time Highs, but Market Strength Remains Highly Concentrated",
         "date": "2026-10-08",
         "universe": "S&P 500",
         "summary": "500 constituent stocks studied through October 7. Only 44.3% above the 200-day average, 75.7% more than 10% below their 52-week closing highs, and just 21.6% outperforming over four weeks. The index's new highs mask concentrated leadership.",
         "url": "studies/2026-10-08-sp500/index.html",
         "download": "studies/2026-10-08-sp500/assets/Weekly_Analysis_SP500_20261007.xlsx"
-      },
-      {
+    },
+    {
         "title": "SIL–SILJ: Silver Miners Deep in Correction Territory. Are the First Signs of Resilience Emerging?",
         "date": "2026-10-08",
         "universe": "SIL–SILJ",
         "summary": "98 securities analyzed through October 7: 27.8% above MA200 and median drawdown −35.8%. October 8 intraday resilience remains tentative. Complete 98-security ranking available online.",
         "url": "studies/2026-10-08-sil-silj/index.html",
         "download": "studies/2026-10-08-sil-silj/assets/Weekly_Analysis_SIL_SILJ_20261007.xlsx"
-      }
-    ];
+    }
+];
     // END GENERATED REPORT SNAPSHOT
     async function copyLink(url,button){
       const absolute=new URL(url,document.baseURI).href;
