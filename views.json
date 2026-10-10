@@ -1,13 +1,13 @@
 {
-  "updated_at": "2026-10-10T13:21:41+00:00",
+  "updated_at": "2026-10-10T13:36:09+00:00",
   "counts": {
-    "studies/2026-10-09-asx/index.html": 43,
+    "studies/2026-10-09-asx/index.html": 44,
     "studies/2026-10-09-lithium/index.html": 13,
     "studies/2026-10-08-sil-silj/index.html": 18,
     "studies/2026-10-08-sp500/index.html": 8,
     "studies/2026-10-09-stoxx600/index.html": 2,
     "studies/2026-10-10-global/index.html": 9,
-    "studies/2026-10-10-gdx-gdxj/index.html": 3,
+    "studies/2026-10-10-gdx-gdxj/index.html": 11,
     "studies/2026-10-11-junior/index.html": 3,
     "studies/2026-10-11-energy/index.html": 1
   }
