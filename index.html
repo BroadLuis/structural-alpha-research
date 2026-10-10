@@ -299,7 +299,7 @@ tbody tr:hover{background:#f0e9dc}
     }
     function render(){
       const q=input.value.trim().toLocaleLowerCase(),market=filter.value;
-      const filtered=reports.filter(r=>(r.url!=="studies/2026-10-10-gdx-gdxj/index.html"||Date.now()>=Date.parse("2026-10-10T13:30:00Z"))&&(r.url!=="studies/2026-10-11-junior/index.html"||Date.now()>=Date.parse("2026-10-11T08:25:00Z"))&&(r.url!=="studies/2026-10-11-energy/index.html"||Date.now()>=Date.parse("2026-10-11T13:25:00Z"))&&(!market||r.universe===market)&&(!q||[r.title,r.universe,r.date,r.summary].join(" ").toLocaleLowerCase().includes(q)));
+      const filtered=reports.filter(r=>(r.url!=="studies/2026-10-10-gdx-gdxj/index.html"||Date.now()>=Date.parse("2026-10-10T13:25:00Z"))&&(r.url!=="studies/2026-10-11-junior/index.html"||Date.now()>=Date.parse("2026-10-11T08:25:00Z"))&&(r.url!=="studies/2026-10-11-energy/index.html"||Date.now()>=Date.parse("2026-10-11T13:25:00Z"))&&(!market||r.universe===market)&&(!q||[r.title,r.universe,r.date,r.summary].join(" ").toLocaleLowerCase().includes(q)));
       filtered.sort((a,b)=>sort.value==="oldest"?a.date.localeCompare(b.date)||a.universe.localeCompare(b.universe):sort.value==="market"?a.universe.localeCompare(b.universe)||b.date.localeCompare(a.date):b.date.localeCompare(a.date)||a.universe.localeCompare(b.universe));
       count.textContent=filtered.length+" of "+reports.length+" published "+(reports.length===1?"study":"studies");
       results.replaceChildren();
@@ -329,7 +329,7 @@ tbody tr:hover{background:#f0e9dc}
     render();
     if(Date.now()<Date.parse("2026-10-11T13:25:00Z"))setTimeout(render,Date.parse("2026-10-11T13:25:00Z")-Date.now()+1000);
     if(Date.now()<Date.parse("2026-10-11T08:25:00Z"))setTimeout(render,Date.parse("2026-10-11T08:25:00Z")-Date.now()+1000);
-    if(Date.now()<Date.parse("2026-10-10T13:30:00Z"))setTimeout(render,Date.parse("2026-10-10T13:30:00Z")-Date.now()+1000);
+    if(Date.now()<Date.parse("2026-10-10T13:25:00Z"))setTimeout(render,Date.parse("2026-10-10T13:25:00Z")-Date.now()+1000);
     fetch("views.json",{cache:"no-store"})
      .then(r=>{if(!r.ok)throw Error("Views snapshot unavailable");return r.json()})
      .then(data=>{if(data&&data.counts&&typeof data.counts==="object"){viewCounts=data.counts;render()}})
