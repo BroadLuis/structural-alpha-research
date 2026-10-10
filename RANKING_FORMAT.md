@@ -10,3 +10,16 @@ The ASX study (`studies/2026-10-09-asx/index.html`) is the canonical reference f
 6. Keep workbook, JSON data (when applicable), and HTML references synchronized; test all rows load before announcing completion.
 7. Never replace an existing working table with an unverified implementation. Use `assets/structural-alpha-ranking.css` for shared ranking presentation.
 8. Before publishing, run `python scripts/validate_research.py`; ensure `reports.json` matches the generated snapshot in `index.html`.
+
+
+## Mandatory analytics on every new page
+
+Every new HTML page in Structural Alpha Research (homepage, studies, and supporting pages) MUST include exactly once, inside `<head>`, the following Cloudflare Web Analytics beacon:
+
+```html
+<!-- Cloudflare Web Analytics -->
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"7337e081de4249b9bc3b0afc3b1d2e88"}'></script>
+<!-- End Cloudflare Web Analytics -->
+```
+
+Preserve the existing study-specific hits.sh page-view counter at the bottom of each study. Before publication verify the beacon exists exactly once, the individual counter is present, and neither rankings nor charts have been altered.
