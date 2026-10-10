@@ -114,7 +114,8 @@ tbody tr:hover{background:#f0e9dc}
 const dark=window.matchMedia&&matchMedia("(prefers-color-scheme:dark)").matches;
 document.documentElement.dataset.theme=theme==="light"||theme==="dark"?theme:(dark?"dark":"light");
 document.addEventListener("DOMContentLoaded",()=>{const b=document.getElementById("theme-toggle");function refresh(){let d=document.documentElement.dataset.theme==="dark";b.textContent=d?"☀ Light":"☾ Dark";b.setAttribute("aria-label",d?"Switch to light mode":"Switch to dark mode");b.setAttribute("aria-pressed",String(d))}refresh();b.addEventListener("click",()=>{let next=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=next;try{localStorage.setItem(key,next)}catch(e){}refresh()})})})();
-</script><link rel="icon" type="image/png" href="../../assets/images/Emblema%20de%20pico%20minero%20ne%C3%B3n%20cromado.png"></head>
+</script><link rel="icon" type="image/png" href="../../assets/images/Emblema%20de%20pico%20minero%20ne%C3%B3n%20cromado.png"><!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"7337e081de4249b9bc3b0afc3b1d2e88"}'></script><!-- End Cloudflare Web Analytics -->
+</head>
 <body>
 <header><div class="wrap"><nav class="top"><a class="brand brand-with-icon" href="../../index.html" style="color:#fff"><img class="brand-mark" src="../../assets/images/Emblema%20de%20pico%20minero%20ne%C3%B3n%20cromado.png" alt="" width="38" height="38"><span>Structural Alpha <span style="font-weight:400">/ Research Archive</span></span></a><div class="top-links"><a href="../../index.html">← All studies</a><button class="theme-toggle" id="theme-toggle" type="button">☾ Dark</button></div></nav>
 <div class="hero"><div class="eyebrow">LITHIUM · Quantitative market structure · October 9, 2026</div>
