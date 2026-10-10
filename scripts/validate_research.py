@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 errors = []
 catalog = json.loads((ROOT / "reports.json").read_text(encoding="utf-8"))
 html = (ROOT / "index.html").read_text(encoding="utf-8")
-match = re.search(r'// BEGIN GENERATED REPORT SNAPSHOT\s*let reports=(\[.*?\]);\s*// END GENERATED REPORT SNAPSHOT', html, re.S)
+match = re.search(r'// BEGIN GENERATED REPORT SNAPSHOT[^\n]*\n\s*let reports=(\[.*?\]);\s*// END GENERATED REPORT SNAPSHOT', html, re.S)
 if not match:
     errors.append("Home-page fallback snapshot markers missing.")
 else:
