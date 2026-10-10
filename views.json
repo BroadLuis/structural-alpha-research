@@ -1,15 +1,15 @@
 {
-  "updated_at": "2026-10-10T17:36:27+00:00",
+  "updated_at": "2026-10-10T18:16:06+00:00",
   "counts": {
     "studies/2026-10-09-asx/index.html": 45,
     "studies/2026-10-09-lithium/index.html": 14,
     "studies/2026-10-08-sil-silj/index.html": 20,
     "studies/2026-10-08-sp500/index.html": 8,
     "studies/2026-10-09-stoxx600/index.html": 2,
-    "studies/2026-10-10-global/index.html": 21,
-    "studies/2026-10-10-gdx-gdxj/index.html": 24,
+    "studies/2026-10-10-global/index.html": 23,
+    "studies/2026-10-10-gdx-gdxj/index.html": 25,
     "studies/2026-10-11-junior/index.html": 3,
     "studies/2026-10-11-energy/index.html": 1,
-    "studies/2026-10-10-junior-copper/index.html": 3
+    "studies/2026-10-10-junior-copper/index.html": 5
   }
 }
