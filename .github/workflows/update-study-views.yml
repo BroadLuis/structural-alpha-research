@@ -6,6 +6,8 @@ on:
       - ".github/workflows/update-study-views.yml"
       - "scripts/update_views.py"
       - "reports.json"
+      - "index.html"
+      - "studies/**/index.html"
   schedule:
     - cron: "17 * * * *"
   workflow_dispatch:
