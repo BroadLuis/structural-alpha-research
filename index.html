@@ -316,7 +316,7 @@ tbody tr:hover{background:#f0e9dc}
         const share=document.createElement("button");share.type="button";share.textContent="Copy link";share.setAttribute("aria-label","Copy link to "+item.title);share.addEventListener("click",()=>copyLink(item.url,share));actions.append(share);
         const views=document.createElement("a");
         const studyPath=item.url.replace(/^\/+/, "");
-        views.href="https://hits.sh/broadluis.github.io/structural-alpha-research/"+studyPath.replace(/\.html$/, ".html/");
+        views.href="https://hits.sh/broadluis.github.io/structural-alpha-research/"+studyPath;
         views.target="_blank";views.rel="noopener noreferrer";
         const count=viewCounts[item.url];
         views.textContent=Number.isSafeInteger(count)?("👁 "+count.toLocaleString("en-US")+" views ↗"):"👁 Views ↗";
