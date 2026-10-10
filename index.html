@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Structural Alpha Research Archive — independent, data-driven research into market breadth, relative strength, drawdowns, volume, and market structure.">
-  <meta name="theme-color" content="#122138">
+  <meta name="theme-color" content="#102b4e">
   <title>Structural Alpha | Research Archive</title>
 <link rel="canonical" href="https://broadluis.github.io/structural-alpha-research/">
 <meta property="og:type" content="website">
@@ -19,9 +19,9 @@
 <meta name="twitter:image" content="https://broadluis.github.io/structural-alpha-research/assets/images/LBroad%20Structural%20Alpha%20Nuevo.png">
 
   <style>
-    :root{color-scheme:light;--navy:#122138;--navy2:#1a304c;--blue:#487da7;--ink:#192b3d;--muted:#526779;--line:#dce5eb;--bg:#f5f8fa;--white:#fff}
+    :root{color-scheme:light;--navy:#102b4e;--navy2:#17476b;--blue:#347fa7;--ink:#172d49;--muted:#526779;--line:#dce5eb;--bg:#f0f5fa;--white:#fff}
     *{box-sizing:border-box}body{margin:0;font-family:Inter,"Segoe UI",system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--bg);line-height:1.58}
-    a{color:#1e658f}a:hover{text-decoration-thickness:2px}button,input{font:inherit}
+    a{color:#236b94}a:hover{text-decoration-thickness:2px}button,input{font:inherit}
     .wrap{width:min(1120px,calc(100% - 40px));margin:auto}
     header{background:linear-gradient(125deg,var(--navy),var(--navy2));color:#fff;padding:25px 0 75px}
     .top{display:flex;justify-content:space-between;align-items:center;gap:16px}
@@ -43,23 +43,23 @@
     .topic{background:#fff;padding:17px;border:1px solid var(--line);border-radius:11px;font-weight:650;font-size:.94rem}
     .topic small{display:block;color:#687b8b;font-weight:450;font-size:.8rem;margin-top:5px}
     .disclaimer{font-size:.86rem;color:#5e7080;border-top:1px solid var(--line);padding-top:20px;margin-top:50px}
-    footer{background:#eaf0f4;border-top:1px solid var(--line);padding:23px 0;font-size:.85rem;color:#506578}
+    footer{background:#e3edf5;border-top:1px solid var(--line);padding:23px 0;font-size:.85rem;color:#506578}
     @media(max-width:540px){header{padding-bottom:63px}.wrap{width:calc(100% - 28px)}.lead{padding:21px}.controls input,.controls select{width:100%;flex-basis:100%}.top{align-items:flex-start}}
   
 /* Accessible light/dark appearance switch shared across Structural Alpha pages */
-.theme-toggle{font:inherit;font-size:.84rem;white-space:nowrap;color:#e8f3fb;background:#314c66;border:1px solid #7894aa;border-radius:999px;padding:7px 13px;cursor:pointer;transition:background-color .15s}
-.theme-toggle:hover{background:#41647f}.theme-toggle:focus-visible{outline:3px solid #93d6f6;outline-offset:3px}
-[data-theme="dark"]{color-scheme:dark;--ink:#e7edf5;--muted:#afc0d1;--line:#34485d;--bg:#101b2a;--white:#1b2c3e}
+.theme-toggle{font:inherit;font-size:.84rem;white-space:nowrap;color:#e8f3fb;background:#245273;border:1px solid #7894aa;border-radius:999px;padding:7px 13px;cursor:pointer;transition:background-color .15s}
+.theme-toggle:hover{background:#306d91}.theme-toggle:focus-visible{outline:3px solid #93d6f6;outline-offset:3px}
+[data-theme="dark"]{color-scheme:dark;--ink:#e7edf5;--muted:#afc0d1;--line:#34485d;--bg:#0b1c30;--white:#142c44}
 [data-theme="dark"] body{background:var(--bg);color:var(--ink)}
-[data-theme="dark"] .panel,[data-theme="dark"] .topic{background:#1b2c3e;border-color:#34485d}
+[data-theme="dark"] .panel,[data-theme="dark"] .topic{background:#142c44;border-color:#34485d}
 [data-theme="dark"] h2,[data-theme="dark"] h3,[data-theme="dark"] strong{color:#e7edf5}
 [data-theme="dark"] a{color:#9bcfeb}
 [data-theme="dark"] .note,[data-theme="dark"] .empty,[data-theme="dark"] .disclaimer{color:#b6c5d2}
-[data-theme="dark"] footer{background:#162435;border-color:#34485d;color:#b6c5d2}
-[data-theme="dark"] .theme-toggle{background:#41617e;color:#fff}
+[data-theme="dark"] footer{background:#10253b;border-color:#34485d;color:#b6c5d2}
+[data-theme="dark"] .theme-toggle{background:#306d91;color:#fff}
 
 [data-theme="dark"] .lead p{color:#bdcad6}
-[data-theme="dark"] .controls input,[data-theme="dark"] .controls select{color:#e7edf5;background:#21374a;border-color:#5b7084}
+[data-theme="dark"] .controls input,[data-theme="dark"] .controls select{color:#e7edf5;background:#1b3a54;border-color:#5b7084}
 [data-theme="dark"] .controls input::placeholder{color:#a9bdca}
 [data-theme="dark"] .topic small{color:#b1c2d0}
 [data-theme="dark"] .top a{color:#d7e8f5}
@@ -68,7 +68,7 @@
 /* Structural Alpha visual identity */
 .brand-mark{display:inline-block;vertical-align:middle;width:38px;height:38px;object-fit:contain;flex:none;margin-right:9px;filter:drop-shadow(0 0 5px #1bb9e555)}
 .brand-with-icon{display:inline-flex;align-items:center;min-width:0;text-decoration:none;gap:0}
-.hero-banner{display:block;width:100%;height:auto;border-radius:13px;box-shadow:0 12px 30px #0005;border:1px solid #386078;object-fit:cover}
+.hero-banner{display:block;width:100%;height:auto;border-radius:13px;box-shadow:0 12px 30px #0005;border:1px solid #347fa7;object-fit:cover}
 @media(max-width:650px){.brand-mark{width:31px;height:31px;margin-right:7px}.brand-with-icon{font-size:.82rem!important}.hero-banner{height:180px;object-position:left center}.top{flex-wrap:wrap}}
 
 /* Research library cards and utility controls */
@@ -82,11 +82,11 @@
 .report-card p{margin:9px 0 17px;color:var(--muted)}
 .report-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .report-actions a{text-decoration:none;font-weight:650}
-.report-actions .report-read{background:#285f84;color:white;padding:8px 12px;border-radius:8px}
+.report-actions .report-read{background:#21668d;color:white;padding:8px 12px;border-radius:8px}
 .report-actions button{border:1px solid var(--line);background:var(--white);color:var(--ink);padding:8px 12px;border-radius:8px;font:inherit;cursor:pointer}
 .report-actions button:hover{background:var(--bg)}
-[data-theme="dark"] .report-card{background:#1b2c3e;border-color:#34485d}
-[data-theme="dark"] .archive-toolbar select,[data-theme="dark"] .report-actions button{color:#e7edf5;background:#21374a;border-color:#53677b}
+[data-theme="dark"] .report-card{background:#142c44;border-color:#34485d}
+[data-theme="dark"] .archive-toolbar select,[data-theme="dark"] .report-actions button{color:#e7edf5;background:#1b3a54;border-color:#53677b}
 [data-theme="dark"] .report-actions .report-read{color:white}
 @media(max-width:540px){.report-list{padding:0!important}.report-card{padding:17px}.archive-count{margin-left:0}}
 </style>
@@ -132,7 +132,7 @@
       <p class="note">Free access · No subscription required · Supporting materials included where available</p>
     </section>
     <section class="section" id="research">
-      <p class="eyebrow" style="color:#477697">Browse</p>
+      <p class="eyebrow" style="color:#347fa7">Browse</p>
       <h2>Research library</h2>
       <p class="note">Browse published research by market, or select GLOBAL for studies covering multiple markets.</p>
       <div class="controls">
