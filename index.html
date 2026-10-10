@@ -169,6 +169,13 @@
     // BEGIN GENERATED REPORT SNAPSHOT — keep synchronized with reports.json
     let reports=[
       {
+        "title": "GLOBAL MARKET STRUCTURE: Widespread Weakness, Uneven Resilience",
+        "date": "2026-10-10",
+        "universe": "GLOBAL",
+        "summary": "First cross-market study of 12 universes: breadth weakened across the board, but structural damage is highly uneven. ENERGY leads MA200 participation while URANIUM and LITHIUM remain deeply impaired. Charts and cross-market volume analysis included; original workbook pending.",
+        "url": "studies/2026-10-10-global/index.html"
+      },
+      {
         "title": "ASX Miners: Selling Pressure Is Easing, but the Correction Continues to Spread",
         "date": "2026-10-09",
         "universe": "ASX",
@@ -249,7 +256,7 @@
      .then(r=>{if(!r.ok)throw Error("Views snapshot unavailable");return r.json()})
      .then(data=>{if(data&&data.counts&&typeof data.counts==="object"){viewCounts=data.counts;render()}})
      .catch(()=>{ /* Read-only statistics are optional. */ });
-    fetch("reports.json?v=20261009-11",{cache:"no-store"})
+    fetch("reports.json?v=20261010-global",{cache:"no-store"})
      .then(r=>{if(!r.ok)throw Error("Report index unavailable");return r.json()})
      .then(data=>{if(Array.isArray(data)&&data.length){reports=data;render()}})
      .catch(()=>{ /* The built-in snapshot remains visible. */ });
