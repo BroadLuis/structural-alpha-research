@@ -164,6 +164,20 @@ tbody tr:hover{background:#f0e9dc}
 [data-theme="dark"] .topic small{color:#c6b8a2}
 [data-theme="dark"] .top a{color:#eee1cc}
 
+
+/* Featured studies and quick market navigation */
+.featured-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:16px}
+.featured-card{background:var(--white);border:1px solid var(--line);border-radius:13px;padding:19px;min-width:0}
+.featured-card .featured-meta{font-size:.79rem;color:var(--muted);font-weight:650}
+.featured-card h3{font-size:1.02rem;line-height:1.4;margin:9px 0}
+.featured-card p{font-size:.89rem;color:var(--muted);margin:8px 0 14px}
+.featured-card a{font-weight:700}
+.market-shortcuts{display:flex;flex-wrap:wrap;gap:9px;margin:13px 0 5px}
+.market-shortcuts button{background:var(--white);color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:8px 13px;cursor:pointer;font:inherit;font-size:.87rem}
+.market-shortcuts button:hover,.market-shortcuts button:focus-visible{border-color:var(--accent);outline-offset:2px}
+[data-theme="dark"] .featured-card,[data-theme="dark"] .market-shortcuts button{background:#142c44;border-color:#34485d;color:#e7edf5}
+[data-theme="dark"] .featured-card p,[data-theme="dark"] .featured-meta{color:#b6c5d2}
+@media(max-width:780px){.featured-grid{grid-template-columns:1fr}}
 </style>
 <script>
 (function(){
@@ -207,10 +221,17 @@ tbody tr:hover{background:#f0e9dc}
       <p>We study what is happening beneath index and sector prices: how many securities are participating, where strength and weakness are concentrated, and whether price movements are supported by volume. Conclusions are based on observed data; scenarios are distinguished from confirmed signals.</p>
       <p class="note">Free access · No subscription required · Supporting materials included where available</p>
     </section>
+    <section class="section" id="latest-research" aria-labelledby="latest-heading">
+      <p class="eyebrow">Recently published</p>
+      <h2 id="latest-heading">Latest research</h2>
+      <p class="note">The three most recent studies, with direct access to the complete research.</p>
+      <div id="featured-studies" class="featured-grid" aria-live="polite"></div>
+    </section>
     <section class="section" id="research">
       <p class="eyebrow" style="color:#347fa7">Browse</p>
       <h2>Research library</h2>
       <p class="note">Browse published research by market, or select GLOBAL for studies covering multiple markets.</p>
+      <nav class="market-shortcuts" aria-label="Explore research by market"><button type="button" data-market="GDX–GDXJ">Gold miners</button><button type="button" data-market="SIL–SILJ">Silver miners</button><button type="button" data-market="JUNIOR">Junior miners</button><button type="button" data-market="ENERGY">Energy</button><button type="button" data-market="GLOBAL">Global overview</button><button type="button" data-market="">All studies</button></nav>
       <div class="controls">
         <input id="search" type="search" placeholder="Search reports, topics or dates…" aria-label="Search research archive">
         <select id="universe" aria-label="Filter by market">
@@ -328,6 +349,22 @@ tbody tr:hover{background:#f0e9dc}
       try{await navigator.clipboard.writeText(absolute);const before=button.textContent;button.textContent="Copied!";setTimeout(()=>button.textContent=before,1800)}
       catch(e){window.prompt("Copy study link:",absolute)}
     }
+    const featured=document.getElementById("featured-studies");
+    function renderFeatured(){
+      const latest=[...reports].sort((a,b)=>b.date.localeCompare(a.date)||a.title.localeCompare(b.title)).slice(0,3);
+      featured.replaceChildren();
+      for(const item of latest){
+        const card=document.createElement("article");card.className="featured-card";
+        const meta=document.createElement("div");meta.className="featured-meta";meta.textContent=item.universe+" · "+item.date;
+        const heading=document.createElement("h3"),link=document.createElement("a");link.href=item.url;link.textContent=item.title;heading.append(link);
+        const description=document.createElement("p");description.textContent=item.summary||"";
+        const read=document.createElement("a");read.href=item.url;read.textContent="Read study →";
+        card.append(meta,heading,description,read);featured.append(card);
+      }
+    }
+    document.querySelectorAll(".market-shortcuts button").forEach(button=>button.addEventListener("click",()=>{
+      filter.value=button.dataset.market;input.value="";render();document.getElementById("research").scrollIntoView({behavior:"smooth",block:"start"});
+    }));
     function render(){
       const q=input.value.trim().toLocaleLowerCase(),market=filter.value;
       const filtered=reports.filter(r=>(r.url!=="studies/2026-10-10-gdx-gdxj/index.html"||Date.now()>=Date.parse("2026-10-10T13:25:00Z"))&&(r.url!=="studies/2026-10-11-junior/index.html"||Date.now()>=Date.parse("2026-10-11T08:25:00Z"))&&(r.url!=="studies/2026-10-11-energy/index.html"||Date.now()>=Date.parse("2026-10-11T13:25:00Z"))&&(!market||r.universe===market)&&(!q||[r.title,r.universe,r.date,r.summary].join(" ").toLocaleLowerCase().includes(q)));
@@ -349,7 +386,7 @@ tbody tr:hover{background:#f0e9dc}
       }
     }
     input.addEventListener("input",render);filter.addEventListener("change",render);sort.addEventListener("change",render);
-    render();
+    render();renderFeatured();
     if(Date.now()<Date.parse("2026-10-11T13:25:00Z"))setTimeout(render,Date.parse("2026-10-11T13:25:00Z")-Date.now()+1000);
     if(Date.now()<Date.parse("2026-10-11T08:25:00Z"))setTimeout(render,Date.parse("2026-10-11T08:25:00Z")-Date.now()+1000);
     if(Date.now()<Date.parse("2026-10-10T13:25:00Z"))setTimeout(render,Date.parse("2026-10-10T13:25:00Z")-Date.now()+1000);
@@ -359,7 +396,7 @@ tbody tr:hover{background:#f0e9dc}
      .catch(()=>{ /* Read-only statistics are optional. */ });
     fetch("reports.json?v=20261010-global",{cache:"no-store"})
      .then(r=>{if(!r.ok)throw Error("Report index unavailable");return r.json()})
-     .then(data=>{if(Array.isArray(data)&&data.length){reports=data;render()}})
+     .then(data=>{if(Array.isArray(data)&&data.length){reports=data;render();renderFeatured()}})
      .catch(()=>{ /* The built-in snapshot remains visible. */ });
   </script>
 <div style="max-width:1100px;margin:24px auto;padding:12px 20px;text-align:center;font:13px/1.5 system-ui,sans-serif"><a href="legal.html" style="color:inherit;text-decoration:underline">Legal Notice</a> · <a href="privacy.html" style="color:inherit;text-decoration:underline">Privacy &amp; Cookies</a> · Free research · No subscription required</div>
