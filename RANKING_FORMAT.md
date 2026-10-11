@@ -123,3 +123,13 @@ El estudio ASX (`studies/2026-10-09-asx/index.html`) es la referencia canónica 
 - Si se detecta una nueva necesidad general, actualizar primero estas normas y aplicar la mejora a los artículos afectados cuando proceda.
 - No afirmar que un requisito está automatizado si solo se revisa manualmente.
 - Conservar las instrucciones editoriales del `README.md` como documentación complementaria; ante una diferencia, revisar y armonizar ambos documentos antes de publicar.
+
+
+## Transparencia metodológica y protección de métodos propios
+
+- Mantener una página pública `methodology.html` que explique la finalidad, interpretación y limitaciones de amplitud, drawdown, volumen relativo y rankings.
+- Cada artículo debe enlazar a la guía pública, sin sustituir las notas específicas necesarias para interpretar sus cifras, denominadores, horizontes temporales y fuentes.
+- No publicar fórmulas propietarias, ponderaciones, parámetros internos, filtros de clasificación, algoritmos de ranking ni reglas de trading.
+- Los indicadores convencionales pueden describirse con el detalle necesario para evitar interpretaciones engañosas; la transparencia no debe sacrificarse para ocultar el significado de los datos publicados.
+- Revisar los Excel y otros archivos descargables antes de publicarlos: no deben contener por descuido hojas internas, fórmulas protegidas, reglas o modelos propietarios. No retirar información ya publicada sin revisión expresa.
+- Distinguir entre observaciones cuantitativas, interpretación y escenarios. No presentar un ranking como recomendación personalizada ni afirmar que la metodología es imposible de reconstruir.
