@@ -24,13 +24,13 @@ new_york = ZoneInfo("America/New_York")
 def escape(value):
     return str(value).replace("|", "&#124;").replace("\n", " ")
 
-def row(item):
+def row(item, published):
     instant, url, report = item
     es, us = instant.astimezone(madrid), instant.astimezone(new_york)
     return (
         f"| {es.strftime('%a, %d %b %Y')} | {es.strftime('%H:%M')} "
         f"| {us.strftime('%I:%M %p')} ET | {escape(report['universe'])} "
-        f"| [{escape(report['title'])}]({url}) |"
+        f"| [{escape(report['title'])}]({url}) |" if published else f"| {escape(report['title'])} |"
     )
 
 items = []
@@ -43,21 +43,21 @@ items.sort(key=lambda x: x[0])
 upcoming = [item for item in items if item[0] > now]
 released = [item for item in items if item[0] <= now]
 header = "| Release date | Madrid time | New York time | Study | Article |\n|---|---|---|---|---|"
-def table(items):
-    return header + "\n" + ("\n".join(map(row, items)) if items else "| — | — | — | No scheduled studies | — |")
+def table(items, published):
+    return header + "\n" + ("\n".join(row(item, published) for item in items) if items else "| — | — | — | No scheduled studies | — |")
 content = f"""# Structural Alpha Research — Publication Schedule
 
 This schedule is **generated automatically** from the `publicationTimes` block in [`index.html`](index.html) and the study metadata in [`reports.json`](reports.json). Do not edit the tables manually.
 
-Times are shown in **Madrid** and **New York (ET)**, with daylight-saving changes applied for each release date.
+Times are shown in **Madrid** and **New York (ET)**, with daylight-saving changes applied for each release date. **Upcoming studies display titles without clickable article links; links appear in the earlier-releases table after publication.**
 
 ## Upcoming releases
 
-{table(upcoming)}
+{table(upcoming, False)}
 
 ## Earlier scheduled releases
 
-{table(released)}
+{table(released, True)}
 
 ## How scheduling works
 
