@@ -1,0 +1,50 @@
+name: Update publication schedule
+
+on:
+  schedule:
+    - cron: '7 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-publication-schedule
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Refresh publication calendar
+        run: python scripts/update_publication_schedule.py
+      - name: Commit only if calendar changed
+        run: |
+          if git diff --quiet -- PUBLICATION_SCHEDULE.md; then
+            echo "No publication status change; no commit needed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            git reset --hard origin/main
+            python scripts/update_publication_schedule.py
+            if git diff --quiet -- PUBLICATION_SCHEDULE.md; then
+              echo "Schedule already updated."
+              exit 0
+            fi
+            git add PUBLICATION_SCHEDULE.md
+            git commit -m "Refresh upcoming and released research studies"
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 3
+          done
+          echo "Could not publish schedule after retries" >&2
+          exit 1
