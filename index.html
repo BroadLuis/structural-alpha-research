@@ -350,8 +350,16 @@ tbody tr:hover{background:#f0e9dc}
       catch(e){window.prompt("Copy study link:",absolute)}
     }
     const featured=document.getElementById("featured-studies");
+    // Scheduled publication times (UTC). Shared by the archive and Latest research.
+    const publicationTimes={
+      "studies/2026-10-10-gdx-gdxj/index.html":"2026-10-10T13:25:00Z",
+      "studies/2026-10-11-junior/index.html":"2026-10-11T08:25:00Z",
+      "studies/2026-10-11-energy/index.html":"2026-10-11T13:25:00Z"
+    };
+    function isPublished(report){const release=publicationTimes[report.url];return !release||Date.now()>=Date.parse(release)}
+    function refreshPublishedStudies(){render();renderFeatured()}
     function renderFeatured(){
-      const latest=[...reports].sort((a,b)=>b.date.localeCompare(a.date)||a.title.localeCompare(b.title)).slice(0,3);
+      const latest=reports.filter(isPublished).sort((a,b)=>b.date.localeCompare(a.date)||a.title.localeCompare(b.title)).slice(0,3);
       featured.replaceChildren();
       for(const item of latest){
         const card=document.createElement("article");card.className="featured-card";
@@ -367,9 +375,9 @@ tbody tr:hover{background:#f0e9dc}
     }));
     function render(){
       const q=input.value.trim().toLocaleLowerCase(),market=filter.value;
-      const filtered=reports.filter(r=>(r.url!=="studies/2026-10-10-gdx-gdxj/index.html"||Date.now()>=Date.parse("2026-10-10T13:25:00Z"))&&(r.url!=="studies/2026-10-11-junior/index.html"||Date.now()>=Date.parse("2026-10-11T08:25:00Z"))&&(r.url!=="studies/2026-10-11-energy/index.html"||Date.now()>=Date.parse("2026-10-11T13:25:00Z"))&&(!market||(market==="JUNIOR_GROUP"?["JUNIOR","JUNIOR COPPER"].includes(r.universe):r.universe===market))&&(!q||[r.title,r.universe,r.date,r.summary].join(" ").toLocaleLowerCase().includes(q)));
+      const filtered=reports.filter(r=>isPublished(r)&&(!market||(market==="JUNIOR_GROUP"?["JUNIOR","JUNIOR COPPER"].includes(r.universe):r.universe===market))&&(!q||[r.title,r.universe,r.date,r.summary].join(" ").toLocaleLowerCase().includes(q)));
       filtered.sort((a,b)=>sort.value==="oldest"?a.date.localeCompare(b.date)||a.universe.localeCompare(b.universe):sort.value==="market"?a.universe.localeCompare(b.universe)||b.date.localeCompare(a.date):b.date.localeCompare(a.date)||a.universe.localeCompare(b.universe));
-      count.textContent=filtered.length+" of "+reports.length+" published "+(reports.length===1?"study":"studies");
+      count.textContent=filtered.length+" of "+reports.filter(isPublished).length+" published "+(reports.filter(isPublished).length===1?"study":"studies");
       results.replaceChildren();
       if(!filtered.length){const p=document.createElement("p");p.className="note";p.textContent="No studies match your search.";results.append(p);return}
       for(const item of filtered){
@@ -387,9 +395,10 @@ tbody tr:hover{background:#f0e9dc}
     }
     input.addEventListener("input",render);filter.addEventListener("change",render);sort.addEventListener("change",render);
     render();renderFeatured();
-    if(Date.now()<Date.parse("2026-10-11T13:25:00Z"))setTimeout(render,Date.parse("2026-10-11T13:25:00Z")-Date.now()+1000);
-    if(Date.now()<Date.parse("2026-10-11T08:25:00Z"))setTimeout(render,Date.parse("2026-10-11T08:25:00Z")-Date.now()+1000);
-    if(Date.now()<Date.parse("2026-10-10T13:25:00Z"))setTimeout(render,Date.parse("2026-10-10T13:25:00Z")-Date.now()+1000);
+    for(const release of Object.values(publicationTimes)){
+      const delay=Date.parse(release)-Date.now();
+      if(delay>0)setTimeout(refreshPublishedStudies,delay+1000);
+    }
     fetch("views.json",{cache:"no-store"})
      .then(r=>{if(!r.ok)throw Error("Views snapshot unavailable");return r.json()})
      .then(data=>{if(data&&data.counts&&typeof data.counts==="object"){viewCounts=data.counts;render()}})
