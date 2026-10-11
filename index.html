@@ -178,6 +178,22 @@ tbody tr:hover{background:#f0e9dc}
 [data-theme="dark"] .featured-card,[data-theme="dark"] .market-shortcuts button{background:#142c44;border-color:#34485d;color:#e7edf5}
 [data-theme="dark"] .featured-card p,[data-theme="dark"] .featured-meta{color:#b6c5d2}
 @media(max-width:780px){.featured-grid{grid-template-columns:1fr}}
+/* Compact moving upcoming-research ticker */
+#upcoming-research{margin-top:18px;margin-bottom:18px}
+.upcoming-bar{display:flex;align-items:center;gap:14px;min-height:48px;padding:7px 13px;border:1px solid var(--line);border-radius:11px;background:var(--white);overflow:hidden}
+.upcoming-label{font-size:.73rem;letter-spacing:.08em;font-weight:800;color:var(--accent);white-space:nowrap}
+.upcoming-zone{font-size:.74rem;color:var(--muted);white-space:nowrap}
+.upcoming-window{overflow:hidden;flex:1;min-width:0;mask-image:linear-gradient(to right,transparent,#000 3%,#000 97%,transparent)}
+.upcoming-track{display:flex;align-items:center;gap:32px;width:max-content;max-width:none}
+.upcoming-track.is-moving{animation:upcoming-scroll var(--ticker-duration,24s) linear infinite}
+.upcoming-track:hover,.upcoming-track:focus-within{animation-play-state:paused}
+.upcoming-item{display:inline-flex;align-items:center;gap:9px;white-space:nowrap;font-size:.86rem}
+.upcoming-item strong{font-weight:750}.upcoming-item time{color:var(--muted);font-variant-numeric:tabular-nums}
+.upcoming-item::after{content:"✦";color:var(--accent);margin-left:23px;font-size:.65rem}
+@keyframes upcoming-scroll{to{transform:translateX(-50%)}}
+[data-theme="dark"] .upcoming-bar{background:#142c44;border-color:#34485d}
+@media(max-width:620px){.upcoming-bar{gap:8px;padding:7px 9px}.upcoming-zone{display:none}.upcoming-item{font-size:.8rem}}
+@media(prefers-reduced-motion:reduce){.upcoming-track.is-moving{animation:none}.upcoming-window{overflow-x:auto;mask-image:none}}
 </style>
 <script>
 (function(){
@@ -228,10 +244,7 @@ tbody tr:hover{background:#f0e9dc}
       <div id="featured-studies" class="featured-grid" aria-live="polite"></div>
     </section>
     <section class="section" id="upcoming-research" aria-labelledby="upcoming-heading" hidden>
-      <p class="eyebrow">On the calendar</p>
-      <h2 id="upcoming-heading">Upcoming research</h2>
-      <p class="note">Scheduled studies will appear here before release. Publication times are shown in New York time (ET).</p>
-      <div id="upcoming-studies" class="featured-grid" aria-live="polite"></div>
+      <div class="upcoming-bar"><span class="upcoming-label" id="upcoming-heading">UPCOMING</span><div class="upcoming-window"><div id="upcoming-studies" class="upcoming-track" aria-label="Scheduled research in New York time"></div></div><span class="upcoming-zone">New York · ET</span></div>
     </section>
     <section class="section" id="research">
       <p class="eyebrow" style="color:#347fa7">Browse</p>
@@ -371,14 +384,22 @@ tbody tr:hover{background:#f0e9dc}
         .sort((a,b)=>Date.parse(publicationTimes[a.url])-Date.parse(publicationTimes[b.url]));
       upcomingContainer.replaceChildren();
       upcomingSection.hidden=upcoming.length===0;
-      for(const item of upcoming){
-        const card=document.createElement("article");card.className="featured-card";
-        const meta=document.createElement("div");meta.className="featured-meta";meta.textContent=item.universe+" · Scheduled";
-        const heading=document.createElement("h3");heading.textContent=item.title;
-        const date=document.createElement("p");
-        date.textContent="Publishing "+new Intl.DateTimeFormat("en-GB",{timeZone:"America/New_York",weekday:"short",day:"numeric",month:"short",year:"numeric",hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).format(new Date(publicationTimes[item.url]))+" ET (New York)";
-        card.append(meta,heading,date);upcomingContainer.append(card);
-      }
+      if(!upcoming.length)return;
+      const formatter=new Intl.DateTimeFormat("en-US",{timeZone:"America/New_York",month:"short",day:"numeric",hour:"numeric",minute:"2-digit",hour12:true});
+      const makeItem=item=>{
+        const span=document.createElement("span");span.className="upcoming-item";
+        const name=document.createElement("strong");name.textContent=item.universe;
+        const title=document.createElement("span");title.textContent=item.title;
+        const time=document.createElement("time");time.dateTime=publicationTimes[item.url];time.textContent=formatter.format(new Date(time.dateTime))+" ET";
+        span.append(name,title,time);return span;
+      };
+      for(const item of upcoming)upcomingContainer.append(makeItem(item));
+      // Repeat the sequence only when motion is enabled, producing a seamless loop.
+      if(!window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+        for(const item of upcoming)upcomingContainer.append(makeItem(item));
+        upcomingContainer.classList.add("is-moving");
+        upcomingContainer.style.setProperty("--ticker-duration",Math.max(18,upcoming.length*15)+"s");
+      }else upcomingContainer.classList.remove("is-moving");
     }
     function renderFeatured(){
       const latest=reports.filter(isPublished).sort((a,b)=>b.date.localeCompare(a.date)||a.title.localeCompare(b.title)).slice(0,3);
