@@ -6,7 +6,7 @@ The ASX study (`studies/2026-10-09-asx/index.html`) is the canonical reference f
 2. Show weekly rank, global rank, ticker, company, last close, and 1W, 4W, 3M, YTD percentage returns when available.
 3. Positive returns have green background; negative returns have red/pink background; zero returns are neutral. Display signed percentages consistently.
 4. On narrow mobile screens, show each company as a vertically stacked, labeled card with no horizontal scrolling; retain the same values as desktop.
-5. Include search and sort, total count, and a working download of the source workbook.
+5. Include a working search field and sorting controls on BOTH desktop and mobile, a visible total count, and a working download of the source workbook. Desktop rankings must have a clearly visible search field above the full table; mobile card rankings must have their own accessible search field. Both searches must filter by ticker or company name as the user types, restore all entries when cleared, and remain functional after sorting or dynamic data loading. Never rely solely on the mobile search to satisfy the desktop requirement.
 6. Keep workbook, JSON data (when applicable), and HTML references synchronized; test all rows load before announcing completion.
 7. Never replace an existing working table with an unverified implementation. Use `assets/structural-alpha-ranking.css` for shared ranking presentation.
 8. Before publishing, run `python scripts/validate_research.py`; ensure `reports.json` matches the generated snapshot in `index.html`.
