@@ -6,10 +6,11 @@ A quick reference for scheduled research releases. **The authoritative release t
 
 | Release date | Madrid time (CEST) | New York time (EDT) | Study | Article |
 |---|---|---|---|---|
+| Sun, 11 Oct 2026 | 15:25 | 09:25 AM ET | ENERGY | [ENERGY: Strong Relative Performance, but Market Breadth Has Yet to Recover](studies/2026-10-11-energy/index.html) |
 | Mon, 12 Oct 2026 | **10:30** | **04:30 AM ET** | COPPER | [Copper Miners: Breadth Deteriorates Despite Resilient Three-Month Relative Strength](studies/2026-10-12-copper/index.html) |
 | Mon, 12 Oct 2026 | **16:30** | **10:30 AM ET** | URANIUM | [Uranium Miners: Selling Pressure Eases, but Structural Damage Remains Severe](studies/2026-10-12-uranium/index.html) |
 
-*These are the releases still scheduled as of Sunday, 11 October 2026. Times are converted from UTC and reflect daylight-saving time on the listed dates.*
+*These are the releases still scheduled as of Sunday, 11 October 2026, before the ENERGY release at 15:25 Madrid time. Times are converted from UTC and reflect daylight-saving time on the listed dates.*
 
 ## Earlier scheduled releases
 
@@ -17,7 +18,6 @@ A quick reference for scheduled research releases. **The authoritative release t
 |---|---|---|---|---|
 | Sat, 10 Oct 2026 | 15:25 | 09:25 AM ET | GDX–GDXJ | [GDX–GDXJ: Selling Pressure Eases, but Market Breadth Keeps Deteriorating](studies/2026-10-10-gdx-gdxj/index.html) |
 | Sun, 11 Oct 2026 | 10:25 | 04:25 AM ET | JUNIOR MINERS | [JUNIOR MINERS: Selling Pressure Eases, but Structural Damage Deepens](studies/2026-10-11-junior/index.html) |
-| Sun, 11 Oct 2026 | 15:25 | 09:25 AM ET | ENERGY | [ENERGY: Strong Relative Performance, but Market Breadth Has Yet to Recover](studies/2026-10-11-energy/index.html) |
 
 ## How scheduling works
 
