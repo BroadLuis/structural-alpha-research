@@ -8,7 +8,7 @@ Times are shown in **Madrid** and **New York (ET)**, with daylight-saving change
 
 | Release date | Madrid time | New York time | Study | Article |
 |---|---|---|---|---|
-| Sun 11 Oct 2026 | 15:25 | 09:25 AM ET | ENERGY | [ENERGY | Strong Relative Performance, but Market Breadth Has Yet to Recover](studies/2026-10-11-energy/index.html) |
+| Sun 11 Oct 2026 | 15:25 | 09:25 AM ET | ENERGY | [ENERGY &#124; Strong Relative Performance, but Market Breadth Has Yet to Recover](studies/2026-10-11-energy/index.html) |
 | Mon 12 Oct 2026 | 10:30 | 04:30 AM ET | COPPER | [Copper Miners: Breadth Deteriorates Despite Resilient Three-Month Relative Strength](studies/2026-10-12-copper/index.html) |
 | Mon 12 Oct 2026 | 16:30 | 10:30 AM ET | URANIUM | [Uranium Miners: Selling Pressure Eases, but Structural Damage Remains Severe](studies/2026-10-12-uranium/index.html) |
 
