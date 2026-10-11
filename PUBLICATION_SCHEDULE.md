@@ -2,22 +2,22 @@
 
 This schedule is **generated automatically** from the `publicationTimes` block in [`index.html`](index.html) and the study metadata in [`reports.json`](reports.json). Do not edit the tables manually.
 
-Times are shown in **Madrid** and **New York (ET)**, with daylight-saving changes applied for each release date. **Upcoming studies display titles without clickable article links; links appear after publication.**
+Times are shown in **Madrid** and **New York (ET)**, with daylight-saving changes applied for each release date. **Upcoming studies display titles without clickable article links; links appear in the earlier-releases table after publication.**
 
 ## Upcoming releases
 
 | Release date | Madrid time | New York time | Study | Article |
 |---|---|---|---|---|
-| Sun 11 Oct 2026 | 15:25 | 09:25 AM ET | ENERGY | ENERGY &#124; Strong Relative Performance, but Market Breadth Has Yet to Recover |
-| Mon 12 Oct 2026 | 10:30 | 04:30 AM ET | COPPER | Copper Miners: Breadth Deteriorates Despite Resilient Three-Month Relative Strength |
-| Mon 12 Oct 2026 | 16:30 | 10:30 AM ET | URANIUM | Uranium Miners: Selling Pressure Eases, but Structural Damage Remains Severe |
+| Copper Miners: Breadth Deteriorates Despite Resilient Three-Month Relative Strength |
+| Uranium Miners: Selling Pressure Eases, but Structural Damage Remains Severe |
 
 ## Earlier scheduled releases
 
 | Release date | Madrid time | New York time | Study | Article |
 |---|---|---|---|---|
-| Sat 10 Oct 2026 | 15:25 | 09:25 AM ET | GDX–GDXJ | [GDX–GDXJ: Selling Pressure Eases, but Market Breadth Keeps Deteriorating](studies/2026-10-10-gdx-gdxj/index.html) |
-| Sun 11 Oct 2026 | 10:25 | 04:25 AM ET | JUNIOR | [JUNIOR MINERS: Selling Pressure Eases, but Structural Damage Deepens](studies/2026-10-11-junior/index.html) |
+| Sat, 10 Oct 2026 | 15:25 | 09:25 AM ET | GDX–GDXJ | [GDX–GDXJ: Selling Pressure Eases, but Market Breadth Keeps Deteriorating](studies/2026-10-10-gdx-gdxj/index.html) |
+| Sun, 11 Oct 2026 | 10:25 | 04:25 AM ET | JUNIOR | [JUNIOR MINERS: Selling Pressure Eases, but Structural Damage Deepens](studies/2026-10-11-junior/index.html) |
+| Sun, 11 Oct 2026 | 15:25 | 09:25 AM ET | ENERGY | [ENERGY &#124; Strong Relative Performance, but Market Breadth Has Yet to Recover](studies/2026-10-11-energy/index.html) |
 
 ## How scheduling works
 
