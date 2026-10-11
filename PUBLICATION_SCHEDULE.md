@@ -2,15 +2,15 @@
 
 This schedule is **generated automatically** from the `publicationTimes` block in [`index.html`](index.html) and the study metadata in [`reports.json`](reports.json). Do not edit the tables manually.
 
-Times are shown in **Madrid** and **New York (ET)**, with daylight-saving changes applied for each release date.
+Times are shown in **Madrid** and **New York (ET)**, with daylight-saving changes applied for each release date. **Upcoming studies display titles without clickable article links; links appear after publication.**
 
 ## Upcoming releases
 
 | Release date | Madrid time | New York time | Study | Article |
 |---|---|---|---|---|
-| Sun 11 Oct 2026 | 15:25 | 09:25 AM ET | ENERGY | [ENERGY &#124; Strong Relative Performance, but Market Breadth Has Yet to Recover](studies/2026-10-11-energy/index.html) |
-| Mon 12 Oct 2026 | 10:30 | 04:30 AM ET | COPPER | [Copper Miners: Breadth Deteriorates Despite Resilient Three-Month Relative Strength](studies/2026-10-12-copper/index.html) |
-| Mon 12 Oct 2026 | 16:30 | 10:30 AM ET | URANIUM | [Uranium Miners: Selling Pressure Eases, but Structural Damage Remains Severe](studies/2026-10-12-uranium/index.html) |
+| Sun 11 Oct 2026 | 15:25 | 09:25 AM ET | ENERGY | ENERGY &#124; Strong Relative Performance, but Market Breadth Has Yet to Recover |
+| Mon 12 Oct 2026 | 10:30 | 04:30 AM ET | COPPER | Copper Miners: Breadth Deteriorates Despite Resilient Three-Month Relative Strength |
+| Mon 12 Oct 2026 | 16:30 | 10:30 AM ET | URANIUM | Uranium Miners: Selling Pressure Eases, but Structural Damage Remains Severe |
 
 ## Earlier scheduled releases
 
