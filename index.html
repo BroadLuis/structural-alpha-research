@@ -230,7 +230,7 @@ tbody tr:hover{background:#f0e9dc}
     <section class="section" id="upcoming-research" aria-labelledby="upcoming-heading" hidden>
       <p class="eyebrow">On the calendar</p>
       <h2 id="upcoming-heading">Upcoming research</h2>
-      <p class="note">Scheduled studies will appear here before release. Publication times are shown in Madrid time.</p>
+      <p class="note">Scheduled studies will appear here before release. Publication times are shown in New York time (ET).</p>
       <div id="upcoming-studies" class="featured-grid" aria-live="polite"></div>
     </section>
     <section class="section" id="research">
@@ -376,7 +376,7 @@ tbody tr:hover{background:#f0e9dc}
         const meta=document.createElement("div");meta.className="featured-meta";meta.textContent=item.universe+" · Scheduled";
         const heading=document.createElement("h3");heading.textContent=item.title;
         const date=document.createElement("p");
-        date.textContent="Publishing "+new Intl.DateTimeFormat("en-GB",{timeZone:"Europe/Madrid",weekday:"short",day:"numeric",month:"short",year:"numeric",hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).format(new Date(publicationTimes[item.url]))+" (Madrid time)";
+        date.textContent="Publishing "+new Intl.DateTimeFormat("en-GB",{timeZone:"America/New_York",weekday:"short",day:"numeric",month:"short",year:"numeric",hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).format(new Date(publicationTimes[item.url]))+" ET (New York)";
         card.append(meta,heading,date);upcomingContainer.append(card);
       }
     }
