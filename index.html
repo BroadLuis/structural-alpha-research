@@ -234,7 +234,7 @@ tbody tr:hover{background:#f0e9dc}
         <div class="topic">Quantitative indicators<small>Breadth, strength, drawdowns, volume</small></div>
       </div>
     </section>
-    <p class="note" style="margin-top:24px;font-size:.82rem">Archive page views: <img src="https://hits.sh/broadluis.github.io/structural-alpha-research/index.html.svg?style=flat-square&amp;label=views&amp;color=c3a46a&amp;labelColor=37424b" alt="Archive page view counter" loading="lazy" style="vertical-align:middle;height:20px"></p>
+    
     <p class="disclaimer">For informational and research purposes only. Nothing published here constitutes personalized investment advice. Data may contain omissions or errors; verify original sources before making decisions.</p>
   </main>
   <footer><div class="wrap">© Structural Alpha · Research Archive · Independent research</div></footer>
@@ -345,14 +345,6 @@ tbody tr:hover{background:#f0e9dc}
         const read=document.createElement("a");read.className="report-read";read.href=item.url;read.textContent="Read full study →";actions.append(read);
         if(item.download){const excel=document.createElement("a");excel.href=item.download;excel.textContent="Download Excel ↓";excel.setAttribute("download","");actions.append(excel)}
         const share=document.createElement("button");share.type="button";share.textContent="Copy link";share.setAttribute("aria-label","Copy link to "+item.title);share.addEventListener("click",()=>copyLink(item.url,share));actions.append(share);
-        const views=document.createElement("a");
-        const studyPath=item.url.replace(/^\/+/, "");
-        views.href="https://hits.sh/broadluis.github.io/structural-alpha-research/"+studyPath;
-        views.target="_blank";views.rel="noopener noreferrer";
-        const count=viewCounts[item.url];
-        views.textContent=Number.isSafeInteger(count)?("👁 "+count.toLocaleString("en-US")+" views ↗"):"👁 Views ↗";
-        views.title="View page-view statistics for this study";
-        actions.append(views);
         article.append(meta,title,desc,actions);results.append(article);
       }
     }
