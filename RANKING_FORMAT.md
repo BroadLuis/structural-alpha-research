@@ -22,4 +22,4 @@ Every new HTML page in Structural Alpha Research (homepage, studies, and support
 <!-- End Cloudflare Web Analytics -->
 ```
 
-Preserve the existing study-specific hits.sh page-view counter at the bottom of each study. Before publication verify the beacon exists exactly once, the individual counter is present, and neither rankings nor charts have been altered.
+Do not add visible page-view counters (including hits.sh) to any page or study. Before publication verify the Cloudflare beacon exists exactly once and neither rankings nor charts have been altered.
