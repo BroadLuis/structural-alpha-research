@@ -231,7 +231,7 @@ tbody tr:hover{background:#f0e9dc}
       <p class="eyebrow" style="color:#347fa7">Browse</p>
       <h2>Research library</h2>
       <p class="note">Browse published research by market, or select GLOBAL for studies covering multiple markets.</p>
-      <nav class="market-shortcuts" aria-label="Explore research by market"><button type="button" data-market="GDX–GDXJ">Gold miners</button><button type="button" data-market="SIL–SILJ">Silver miners</button><button type="button" data-market="JUNIOR">Junior miners</button><button type="button" data-market="ENERGY">Energy</button><button type="button" data-market="COPPER">Copper</button><button type="button" data-market="URANIUM">Uranium</button><button type="button" data-market="GLOBAL">Global overview</button><button type="button" data-market="">All studies</button></nav>
+      <nav class="market-shortcuts" aria-label="Explore research by market"><button type="button" data-market="GDX–GDXJ">Gold miners</button><button type="button" data-market="SIL–SILJ">Silver miners</button><button type="button" data-market="JUNIOR_GROUP">Junior</button><button type="button" data-market="ENERGY">Energy</button><button type="button" data-market="COPPER">Copper</button><button type="button" data-market="URANIUM">Uranium</button><button type="button" data-market="GLOBAL">Global overview</button><button type="button" data-market="">All studies</button></nav>
       <div class="controls">
         <input id="search" type="search" placeholder="Search reports, topics or dates…" aria-label="Search research archive">
         <select id="universe" aria-label="Filter by market">
@@ -367,7 +367,7 @@ tbody tr:hover{background:#f0e9dc}
     }));
     function render(){
       const q=input.value.trim().toLocaleLowerCase(),market=filter.value;
-      const filtered=reports.filter(r=>(r.url!=="studies/2026-10-10-gdx-gdxj/index.html"||Date.now()>=Date.parse("2026-10-10T13:25:00Z"))&&(r.url!=="studies/2026-10-11-junior/index.html"||Date.now()>=Date.parse("2026-10-11T08:25:00Z"))&&(r.url!=="studies/2026-10-11-energy/index.html"||Date.now()>=Date.parse("2026-10-11T13:25:00Z"))&&(!market||r.universe===market)&&(!q||[r.title,r.universe,r.date,r.summary].join(" ").toLocaleLowerCase().includes(q)));
+      const filtered=reports.filter(r=>(r.url!=="studies/2026-10-10-gdx-gdxj/index.html"||Date.now()>=Date.parse("2026-10-10T13:25:00Z"))&&(r.url!=="studies/2026-10-11-junior/index.html"||Date.now()>=Date.parse("2026-10-11T08:25:00Z"))&&(r.url!=="studies/2026-10-11-energy/index.html"||Date.now()>=Date.parse("2026-10-11T13:25:00Z"))&&(!market||(market==="JUNIOR_GROUP"?["JUNIOR","JUNIOR COPPER"].includes(r.universe):r.universe===market))&&(!q||[r.title,r.universe,r.date,r.summary].join(" ").toLocaleLowerCase().includes(q)));
       filtered.sort((a,b)=>sort.value==="oldest"?a.date.localeCompare(b.date)||a.universe.localeCompare(b.universe):sort.value==="market"?a.universe.localeCompare(b.universe)||b.date.localeCompare(a.date):b.date.localeCompare(a.date)||a.universe.localeCompare(b.universe));
       count.textContent=filtered.length+" of "+reports.length+" published "+(reports.length===1?"study":"studies");
       results.replaceChildren();
