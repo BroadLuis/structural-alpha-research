@@ -22,7 +22,7 @@ madrid = ZoneInfo("Europe/Madrid")
 new_york = ZoneInfo("America/New_York")
 
 def escape(value):
-    return str(value).replace("|", "\\|").replace("\n", " ")
+    return str(value).replace("|", "&#124;").replace("\n", " ")
 
 def row(item):
     instant, url, report = item
