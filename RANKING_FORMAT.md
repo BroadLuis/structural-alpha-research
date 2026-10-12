@@ -116,6 +116,18 @@ El estudio ASX (`studies/2026-10-09-asx/index.html`) es la referencia canónica 
 6. Confirmar el resultado de la validación y del despliegue; abrir la URL pública y probar buscadores, tabla, fichas, enlaces y descargas.
 7. **No anunciar la publicación como completada hasta verificar el funcionamiento real**. Si una comprobación no se ha podido realizar, indicarlo expresamente.
 
+### Programación de publicaciones — comprobación obligatoria
+
+Cuando un artículo tenga una fecha y hora futuras de publicación:
+
+1. Incorporar el estudio y su enlace de descarga (si existe) a `reports.json` y sincronizar el snapshot de `index.html`.
+2. Añadir la fecha y hora exactas, **convertidas correctamente a UTC desde la hora de Nueva York (ET)** para ese día, al objeto `publicationTimes` de `index.html`. Tener en cuenta los cambios de horario de verano de Nueva York y Madrid.
+3. **Comprobar también `PUBLICATION_SCHEDULE.md`**: el artículo debe figurar en **Upcoming releases**, con fecha, hora de Madrid, hora de Nueva York, universo y título correctos. No basta con actualizar `index.html` y `reports.json`.
+4. El calendario se genera desde `publicationTimes` y `reports.json` mediante `scripts/update_publication_schedule.py`; ejecutar el script o lanzar manualmente el workflow `.github/workflows/update-publication-schedule.yml` (GitHub Actions → Run workflow) cuando deba reflejarse inmediatamente. El workflow también se ejecuta periódicamente, pero puede retrasarse.
+5. Confirmar en GitHub que `PUBLICATION_SCHEDULE.md` refleja efectivamente la nueva publicación y que el artículo pasa a **Earlier scheduled releases** tras la hora programada. Verificar igualmente el comportamiento de la portada pública.
+6. **No afirmar que la publicación está programada y verificada** si no se ha comprobado la entrada en el calendario y su horario; explicar claramente cualquier comprobación pendiente. La ocultación en la portada no impide necesariamente acceder al artículo mediante su URL directa.
+
+
 ## 10. Mantenimiento y control de cambios
 
 - Usar este documento como checklist en todos los estudios futuros.
