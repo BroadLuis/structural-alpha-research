@@ -8,18 +8,18 @@ Times are shown in **Madrid** and **New York (ET)**, with daylight-saving change
 
 | Release date | Madrid time | New York time | Study | Article |
 |---|---|---|---|---|
-| Tue 13 Oct 2026 | 15:30 | 09:30 am ET | AGRIBUSINESS | AGRIBUSINESS &#124; Selling Pressure Eases, but Market Breadth Suffers a Sharp Four-Week Decline |
-| Sun 18 Oct 2026 | 19:00 | 01:00 pm ET | MARKET PERSPECTIVES | Why Gold Miners Can Lag Gold During a Bull Market |
+| Tue, 13 Oct 2026 | 15:30 | 09:30 AM ET | AGRIBUSINESS | AGRIBUSINESS &#124; Selling Pressure Eases, but Market Breadth Suffers a Sharp Four-Week Decline |
+| Sun, 18 Oct 2026 | 19:00 | 01:00 PM ET | MARKET PERSPECTIVES | Why Gold Miners Can Lag Gold During a Bull Market |
 
 ## Earlier scheduled releases
 
 | Release date | Madrid time | New York time | Study | Article |
 |---|---|---|---|---|
-| Sat 10 Oct 2026 | 15:25 | 09:25 am ET | GDX–GDXJ | [GDX–GDXJ: Selling Pressure Eases, but Market Breadth Keeps Deteriorating](studies/2026-10-10-gdx-gdxj/index.html) |
-| Sun 11 Oct 2026 | 10:25 | 04:25 am ET | JUNIOR | [JUNIOR MINERS: Selling Pressure Eases, but Structural Damage Deepens](studies/2026-10-11-junior/index.html) |
-| Sun 11 Oct 2026 | 15:25 | 09:25 am ET | ENERGY | [ENERGY &#124; Strong Relative Performance, but Market Breadth Has Yet to Recover](studies/2026-10-11-energy/index.html) |
-| Mon 12 Oct 2026 | 10:30 | 04:30 am ET | COPPER | [Copper Miners: Breadth Deteriorates Despite Resilient Three-Month Relative Strength](studies/2026-10-12-copper/index.html) |
-| Mon 12 Oct 2026 | 16:30 | 10:30 am ET | URANIUM | [Uranium Miners: Selling Pressure Eases, but Structural Damage Remains Severe](studies/2026-10-12-uranium/index.html) |
+| Sat, 10 Oct 2026 | 15:25 | 09:25 AM ET | GDX–GDXJ | [GDX–GDXJ: Selling Pressure Eases, but Market Breadth Keeps Deteriorating](studies/2026-10-10-gdx-gdxj/index.html) |
+| Sun, 11 Oct 2026 | 10:25 | 04:25 AM ET | JUNIOR | [JUNIOR MINERS: Selling Pressure Eases, but Structural Damage Deepens](studies/2026-10-11-junior/index.html) |
+| Sun, 11 Oct 2026 | 15:25 | 09:25 AM ET | ENERGY | [ENERGY &#124; Strong Relative Performance, but Market Breadth Has Yet to Recover](studies/2026-10-11-energy/index.html) |
+| Mon, 12 Oct 2026 | 10:30 | 04:30 AM ET | COPPER | [Copper Miners: Breadth Deteriorates Despite Resilient Three-Month Relative Strength](studies/2026-10-12-copper/index.html) |
+| Mon, 12 Oct 2026 | 16:30 | 10:30 AM ET | URANIUM | [Uranium Miners: Selling Pressure Eases, but Structural Damage Remains Severe](studies/2026-10-12-uranium/index.html) |
 
 ## How scheduling works
 
