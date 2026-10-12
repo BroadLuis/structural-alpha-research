@@ -8,7 +8,8 @@ Times are shown in **Madrid** and **New York (ET)**, with daylight-saving change
 
 | Release date | Madrid time | New York time | Study | Article |
 |---|---|---|---|---|
-| Uranium Miners: Selling Pressure Eases, but Structural Damage Remains Severe |
+| Mon, 12 Oct 2026 | 16:30 | 10:30 AM ET | URANIUM | Uranium Miners: Selling Pressure Eases, but Structural Damage Remains Severe |
+| Tue, 13 Oct 2026 | 15:30 | 09:30 AM ET | AGRIBUSINESS | AGRIBUSINESS: Selling Pressure Eases, but Market Breadth Suffers a Sharp Four-Week Decline |
 
 ## Earlier scheduled releases
 
