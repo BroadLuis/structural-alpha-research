@@ -76,6 +76,12 @@
 .archive-toolbar select{font:inherit;background:var(--white);border:1px solid var(--line);border-radius:9px;color:var(--ink);padding:10px 12px}
 .archive-count{font-size:.86rem;color:var(--muted);margin-left:auto}
 .report-list{padding:12px 18px!important;display:grid;gap:12px;background:transparent!important;border:0!important;box-shadow:none!important}
+.archive-pagination{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px;margin:18px 0 8px}
+.archive-pagination button{font:inherit;font-size:.9rem;border:1px solid var(--line);background:var(--white);color:var(--ink);border-radius:9px;padding:9px 13px;cursor:pointer;min-width:40px}
+.archive-pagination button[aria-current="page"]{background:#21668d;color:#fff;border-color:#21668d;font-weight:700}
+.archive-pagination button:disabled{opacity:.42;cursor:default}
+.archive-pagination button:focus-visible{outline:3px solid #4aa6d4;outline-offset:2px}
+.archive-pagination .page-summary{font-size:.85rem;color:var(--muted);width:100%;text-align:center;margin:4px 0}
 .report-card{background:var(--white);border:1px solid var(--line);border-radius:13px;padding:21px 23px;box-shadow:0 6px 17px #1427390d}
 .report-card h3{margin:8px 0;font-size:1.12rem;line-height:1.4}
 .report-card .report-meta{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:.82rem;font-weight:600}
@@ -264,6 +270,7 @@ tbody tr:hover{background:#f0e9dc}
       </div>
       <div class="archive-toolbar"><label for="sort">Sort by</label><select id="sort" aria-label="Sort studies"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="market">Market A–Z</option></select><span id="archive-count" class="archive-count" aria-live="polite">Loading studies…</span></div>
       <div class="report-list" id="results" role="status">Loading published studies…</div>
+      <nav id="archive-pagination" class="archive-pagination" aria-label="Research library pages" hidden></nav>
     </section>
     <section class="section">
       <h2>Research coverage</h2>
@@ -280,6 +287,10 @@ tbody tr:hover{background:#f0e9dc}
   <footer><div class="wrap">© Structural Alpha · Research Archive · <a href="methodology.html">Methodology &amp; Interpretation</a> · Independent research</div></footer>
   <script>
     const input=document.getElementById("search"),filter=document.getElementById("universe"),sort=document.getElementById("sort"),results=document.getElementById("results"),count=document.getElementById("archive-count");
+    const archivePagination=document.getElementById("archive-pagination");
+    const pageSize=10;
+    let archivePage=1;
+    function resetArchivePage(){archivePage=1;render()}
     let viewCounts={};
     // Keep a local snapshot so reports remain visible if the catalog request fails.
     // BEGIN GENERATED REPORT SNAPSHOT — keep synchronized with reports.json
@@ -443,16 +454,41 @@ tbody tr:hover{background:#f0e9dc}
       }
     }
     document.querySelectorAll(".market-shortcuts button").forEach(button=>button.addEventListener("click",()=>{
-      filter.value=button.dataset.market;input.value="";render();document.getElementById("research").scrollIntoView({behavior:"smooth",block:"start"});
+      filter.value=button.dataset.market;input.value="";resetArchivePage();document.getElementById("research").scrollIntoView({behavior:"smooth",block:"start"});
     }));
     function render(){
       const q=input.value.trim().toLocaleLowerCase(),market=filter.value;
       const filtered=reports.filter(r=>isPublished(r)&&(!market||(market==="JUNIOR_GROUP"?["JUNIOR","JUNIOR COPPER"].includes(r.universe):market==="COPPER"?["COPPER","JUNIOR COPPER"].includes(r.universe):r.universe===market))&&(!q||[r.title,r.universe,r.date,r.summary].join(" ").toLocaleLowerCase().includes(q)));
       filtered.sort((a,b)=>sort.value==="oldest"?a.date.localeCompare(b.date)||a.universe.localeCompare(b.universe):sort.value==="market"?a.universe.localeCompare(b.universe)||b.date.localeCompare(a.date):b.date.localeCompare(a.date)||a.universe.localeCompare(b.universe));
       count.textContent=filtered.length+" of "+reports.filter(isPublished).length+" published "+(reports.filter(isPublished).length===1?"study":"studies");
+      const totalPages=Math.ceil(filtered.length/pageSize);
+      archivePage=Math.max(1,Math.min(archivePage,totalPages||1));
+      const start=(archivePage-1)*pageSize;
+      const visible=filtered.slice(start,start+pageSize);
+      archivePagination.replaceChildren();
+      archivePagination.hidden=totalPages<=1;
+      if(totalPages>1){
+        const summary=document.createElement("span");summary.className="page-summary";
+        summary.textContent="Showing "+(start+1)+"–"+(start+visible.length)+" of "+filtered.length+" studies";
+        archivePagination.append(summary);
+        const addPageButton=(label,page,disabled,current)=>{
+          const button=document.createElement("button");button.type="button";button.textContent=label;
+          button.disabled=disabled;
+          if(current)button.setAttribute("aria-current","page");
+          button.addEventListener("click",()=>{
+            if(page===archivePage)return;
+            archivePage=page;render();
+            document.getElementById("research").scrollIntoView({behavior:"smooth",block:"start"});
+          });
+          archivePagination.append(button);
+        };
+        addPageButton("← Previous",archivePage-1,archivePage===1,false);
+        for(let page=1;page<=totalPages;page++)addPageButton(String(page),page,false,page===archivePage);
+        addPageButton("Next →",archivePage+1,archivePage===totalPages,false);
+      }
       results.replaceChildren();
       if(!filtered.length){const p=document.createElement("p");p.className="note";p.textContent="No studies match your search.";results.append(p);return}
-      for(const item of filtered){
+      for(const item of visible){
         const article=document.createElement("article");article.className="report-card";
         const meta=document.createElement("div");meta.className="report-meta";
         const m=document.createElement("span");m.textContent=item.universe;const d=document.createElement("time");d.dateTime=item.date;d.textContent=item.date;meta.append(m,d);
@@ -465,7 +501,7 @@ tbody tr:hover{background:#f0e9dc}
         article.append(meta,title,desc,actions);results.append(article);
       }
     }
-    input.addEventListener("input",render);filter.addEventListener("change",render);sort.addEventListener("change",render);
+    input.addEventListener("input",resetArchivePage);filter.addEventListener("change",resetArchivePage);sort.addEventListener("change",resetArchivePage);
     render();renderFeatured();renderUpcoming();
     for(const release of Object.values(publicationTimes)){
       const delay=Date.parse(release)-Date.now();
