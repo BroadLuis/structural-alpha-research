@@ -458,7 +458,14 @@ tbody tr:hover{background:#f0e9dc}
     }));
     function render(){
       const q=input.value.trim().toLocaleLowerCase(),market=filter.value;
-      const filtered=reports.filter(r=>isPublished(r)&&(!market||(market==="JUNIOR_GROUP"?["JUNIOR","JUNIOR COPPER"].includes(r.universe):market==="COPPER"?["COPPER","JUNIOR COPPER"].includes(r.universe):r.universe===market))&&(!q||[r.title,r.universe,r.date,r.summary].join(" ").toLocaleLowerCase().includes(q)));
+      // Market keywords complement literal title/summary matches (e.g. "gold" also finds junior miners).
+      const marketKeywords={
+        "GDX–GDXJ":["gold","gold miners","gold mining"],
+        "JUNIOR":["gold","gold miners","junior gold","junior miners"],
+        "SIL–SILJ":["silver","silver miners"],
+        "JUNIOR COPPER":["copper","junior copper"]
+      };
+      const filtered=reports.filter(r=>isPublished(r)&&(!market||(market==="JUNIOR_GROUP"?["JUNIOR","JUNIOR COPPER"].includes(r.universe):market==="COPPER"?["COPPER","JUNIOR COPPER"].includes(r.universe):r.universe===market))&&(!q||[r.title,r.universe,r.date,r.summary,...(marketKeywords[r.universe]||[])].join(" ").toLocaleLowerCase().includes(q)));
       filtered.sort((a,b)=>sort.value==="oldest"?a.date.localeCompare(b.date)||a.universe.localeCompare(b.universe):sort.value==="market"?a.universe.localeCompare(b.universe)||b.date.localeCompare(a.date):b.date.localeCompare(a.date)||a.universe.localeCompare(b.universe));
       count.textContent=filtered.length+" of "+reports.filter(isPublished).length+" published "+(reports.filter(isPublished).length===1?"study":"studies");
       const totalPages=Math.ceil(filtered.length/pageSize);
