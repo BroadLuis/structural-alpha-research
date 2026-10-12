@@ -1,6 +1,6 @@
 # Structural Alpha Research — Publication Schedule
 
-This schedule is **generated automatically** from the `publicationTimes` block in [`index.html`](index.html) and the study metadata in [`reports.json`](reports.json). Do not edit the tables manually.
+This schedule is **generated automatically** from the `publicationTimes` block in [`index.html`](index.html), the study metadata in [`reports.json`](reports.json), and editorial release metadata in [`scripts/update_publication_schedule.py`](scripts/update_publication_schedule.py). Do not edit the tables manually.
 
 Times are shown in **Madrid** and **New York (ET)**, with daylight-saving changes applied for each release date. **Upcoming studies display titles without clickable article links; links appear in the earlier-releases table after publication.**
 
@@ -8,21 +8,22 @@ Times are shown in **Madrid** and **New York (ET)**, with daylight-saving change
 
 | Release date | Madrid time | New York time | Study | Article |
 |---|---|---|---|---|
-| Mon, 12 Oct 2026 | 16:30 | 10:30 AM ET | URANIUM | Uranium Miners: Selling Pressure Eases, but Structural Damage Remains Severe |
-| Tue, 13 Oct 2026 | 15:30 | 09:30 AM ET | AGRIBUSINESS | AGRIBUSINESS: Selling Pressure Eases, but Market Breadth Suffers a Sharp Four-Week Decline |
+| Tue 13 Oct 2026 | 15:30 | 09:30 am ET | AGRIBUSINESS | AGRIBUSINESS &#124; Selling Pressure Eases, but Market Breadth Suffers a Sharp Four-Week Decline |
+| Sun 18 Oct 2026 | 19:00 | 01:00 pm ET | MARKET PERSPECTIVES | Why Gold Miners Can Lag Gold During a Bull Market |
 
 ## Earlier scheduled releases
 
 | Release date | Madrid time | New York time | Study | Article |
 |---|---|---|---|---|
-| Sat, 10 Oct 2026 | 15:25 | 09:25 AM ET | GDX–GDXJ | [GDX–GDXJ: Selling Pressure Eases, but Market Breadth Keeps Deteriorating](studies/2026-10-10-gdx-gdxj/index.html) |
-| Sun, 11 Oct 2026 | 10:25 | 04:25 AM ET | JUNIOR | [JUNIOR MINERS: Selling Pressure Eases, but Structural Damage Deepens](studies/2026-10-11-junior/index.html) |
-| Sun, 11 Oct 2026 | 15:25 | 09:25 AM ET | ENERGY | [ENERGY &#124; Strong Relative Performance, but Market Breadth Has Yet to Recover](studies/2026-10-11-energy/index.html) |
-| Mon, 12 Oct 2026 | 10:30 | 04:30 AM ET | COPPER | [Copper Miners: Breadth Deteriorates Despite Resilient Three-Month Relative Strength](studies/2026-10-12-copper/index.html) |
+| Sat 10 Oct 2026 | 15:25 | 09:25 am ET | GDX–GDXJ | [GDX–GDXJ: Selling Pressure Eases, but Market Breadth Keeps Deteriorating](studies/2026-10-10-gdx-gdxj/index.html) |
+| Sun 11 Oct 2026 | 10:25 | 04:25 am ET | JUNIOR | [JUNIOR MINERS: Selling Pressure Eases, but Structural Damage Deepens](studies/2026-10-11-junior/index.html) |
+| Sun 11 Oct 2026 | 15:25 | 09:25 am ET | ENERGY | [ENERGY &#124; Strong Relative Performance, but Market Breadth Has Yet to Recover](studies/2026-10-11-energy/index.html) |
+| Mon 12 Oct 2026 | 10:30 | 04:30 am ET | COPPER | [Copper Miners: Breadth Deteriorates Despite Resilient Three-Month Relative Strength](studies/2026-10-12-copper/index.html) |
+| Mon 12 Oct 2026 | 16:30 | 10:30 am ET | URANIUM | [Uranium Miners: Selling Pressure Eases, but Structural Damage Remains Severe](studies/2026-10-12-uranium/index.html) |
 
 ## How scheduling works
 
-- **Source of truth:** [`index.html`](index.html) → `publicationTimes`; titles and links come from [`reports.json`](reports.json).
+- **Source of truth:** [`index.html`](index.html) → `publicationTimes` and [`reports.json`](reports.json) for studies; editorial dates and titles are registered in [`scripts/update_publication_schedule.py`](scripts/update_publication_schedule.py).
 - **Automatic refresh:** [Publication schedule workflow](.github/workflows/update-publication-schedule.yml) checks hourly and commits changes **only when the displayed schedule changes**. GitHub may delay scheduled workflows, so status can lag behind the exact release time.
 - **Manual refresh:** open [GitHub Actions](https://github.com/BroadLuis/structural-alpha-research/actions/workflows/update-publication-schedule.yml) and choose **Run workflow**.
 - **Homepage behavior:** articles move automatically from Upcoming to published sections at their scheduled time in the visitor's browser, independently of this Markdown file. Direct article URLs may be accessible earlier; this is not a hard embargo.
