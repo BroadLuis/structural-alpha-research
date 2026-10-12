@@ -14,6 +14,17 @@ if not MATCH:
     raise SystemExit("Cannot find publicationTimes in index.html")
 TIMES = json.loads(MATCH.group(1))
 CATALOG = {item["url"]: item for item in REPORTS}
+# Editorial releases remain separate from quantitative reports, but share the calendar.
+EDITORIAL_RELEASES = {
+    "perspectives/2026-10-18-gold-miners-vs-gold/index.html": {
+        "title": "Why Gold Miners Can Lag Gold During a Bull Market",
+        "universe": "MARKET PERSPECTIVES",
+        "release": "2026-10-18T17:00:00Z",
+    }
+}
+for url, item in EDITORIAL_RELEASES.items():
+    CATALOG[url] = item
+    TIMES[url] = item["release"]
 MISSING = set(TIMES) - set(CATALOG)
 if MISSING:
     raise SystemExit("Scheduled articles missing from reports.json: " + ", ".join(sorted(MISSING)))
@@ -27,10 +38,11 @@ def escape(value):
 def row(item, published):
     instant, url, report = item
     es, us = instant.astimezone(madrid), instant.astimezone(new_york)
+    article = f"[{escape(report['title'])}]({url})" if published else escape(report["title"])
     return (
         f"| {es.strftime('%a, %d %b %Y')} | {es.strftime('%H:%M')} "
         f"| {us.strftime('%I:%M %p')} ET | {escape(report['universe'])} "
-        f"| [{escape(report['title'])}]({url}) |" if published else f"| {escape(report['title'])} |"
+        f"| {article} |"
     )
 
 items = []
@@ -47,7 +59,7 @@ def table(items, published):
     return header + "\n" + ("\n".join(row(item, published) for item in items) if items else "| — | — | — | No scheduled studies | — |")
 content = f"""# Structural Alpha Research — Publication Schedule
 
-This schedule is **generated automatically** from the `publicationTimes` block in [`index.html`](index.html) and the study metadata in [`reports.json`](reports.json). Do not edit the tables manually.
+This schedule is **generated automatically** from the `publicationTimes` block in [`index.html`](index.html), the study metadata in [`reports.json`](reports.json), and editorial release metadata in [`scripts/update_publication_schedule.py`](scripts/update_publication_schedule.py). Do not edit the tables manually.
 
 Times are shown in **Madrid** and **New York (ET)**, with daylight-saving changes applied for each release date. **Upcoming studies display titles without clickable article links; links appear in the earlier-releases table after publication.**
 
@@ -61,7 +73,7 @@ Times are shown in **Madrid** and **New York (ET)**, with daylight-saving change
 
 ## How scheduling works
 
-- **Source of truth:** [`index.html`](index.html) → `publicationTimes`; titles and links come from [`reports.json`](reports.json).
+- **Source of truth:** [`index.html`](index.html) → `publicationTimes` and [`reports.json`](reports.json) for studies; editorial dates and titles are registered in [`scripts/update_publication_schedule.py`](scripts/update_publication_schedule.py).
 - **Automatic refresh:** [Publication schedule workflow](.github/workflows/update-publication-schedule.yml) checks hourly and commits changes **only when the displayed schedule changes**. GitHub may delay scheduled workflows, so status can lag behind the exact release time.
 - **Manual refresh:** open [GitHub Actions](https://github.com/BroadLuis/structural-alpha-research/actions/workflows/update-publication-schedule.yml) and choose **Run workflow**.
 - **Homepage behavior:** articles move automatically from Upcoming to published sections at their scheduled time in the visitor's browser, independently of this Markdown file. Direct article URLs may be accessible earlier; this is not a hard embargo.
