@@ -1,17 +1,17 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ASX Miners: Selling Pressure Intensifies as Market Breadth Deteriorates | Structural Alpha</title>
-<link rel="canonical" href="https://broadluis.github.io/structural-alpha-research/studies/2026-10-16-asx/index.html">
+<link rel="canonical" href="https://structuralalpharesearch.net/studies/2026-10-16-asx/index.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Structural Alpha">
 <meta property="og:title" content="ASX Miners: Selling Pressure Intensifies as Market Breadth Deteriorates">
 <meta property="og:description" content="90 ASX mining companies analyzed: 32.2% above the 200-day moving average, −35.5% median drawdown, full company rankings and original Excel workbook.">
-<meta property="og:url" content="https://broadluis.github.io/structural-alpha-research/studies/2026-10-16-asx/index.html">
-<meta property="og:image" content="https://broadluis.github.io/structural-alpha-research/assets/images/LBroad%20Structural%20Alpha%20Nuevo.png">
+<meta property="og:url" content="https://structuralalpharesearch.net/studies/2026-10-16-asx/index.html">
+<meta property="og:image" content="https://structuralalpharesearch.net/assets/images/LBroad%20Structural%20Alpha%20Nuevo.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="ASX Miners: Selling Pressure Intensifies as Market Breadth Deteriorates">
 <meta name="twitter:description" content="90 ASX mining companies analyzed: 32.2% above the 200-day moving average, −35.5% median drawdown, full company rankings and original Excel workbook.">
-<meta name="twitter:image" content="https://broadluis.github.io/structural-alpha-research/assets/images/LBroad%20Structural%20Alpha%20Nuevo.png">
+<meta name="twitter:image" content="https://structuralalpharesearch.net/assets/images/LBroad%20Structural%20Alpha%20Nuevo.png">
 
 <meta name="description" content="90 ASX miners through October 16, 2026: weakening breadth, deep drawdowns, and unusually negative 20-session volume balance. Full searchable ranking and Excel.">
 <style>
@@ -200,4 +200,4 @@ const cls=(v,i)=>i>=5&&typeof v==='number'?(v>0?'pos':v<0?'neg':'zero'):'';
 function render(){let a=allRows.filter(r=>(String(r[2])+' '+String(r[3])).toLowerCase().includes(query.toLowerCase()));a.sort((x,y)=>order==='company'?String(x[3]).localeCompare(String(y[3])):order==='global'?(x[1]??9999)-(y[1]??9999):x[0]-y[0]);document.getElementById('rank-count').textContent=a.length+' of '+allRows.length+' companies';const tb=document.getElementById('ranking-body'),cards=document.getElementById('mobile-cards');tb.replaceChildren();cards.replaceChildren();for(const r of a){let tr=document.createElement('tr'),card=document.createElement('div');card.className='rank-mobile-card';let heading=document.createElement('strong');heading.textContent=r[3]+' ('+r[2]+')';card.append(heading);let grid=document.createElement('div');grid.className='rank-mobile-grid';r.forEach((v,i)=>{let td=document.createElement('td');td.textContent=fmt(v,i);td.className=cls(v,i);tr.append(td);let label=document.createElement('span');label.textContent=cols[i];let val=document.createElement('b');val.textContent=fmt(v,i);val.className=cls(v,i);grid.append(label,val)});card.append(grid);tb.append(tr);cards.append(card)}}
 for(const [id,kind] of [['rank-search','q'],['mobile-search','q'],['rank-sort','s'],['mobile-sort','s']])document.getElementById(id).addEventListener(kind==='q'?'input':'change',e=>{if(kind==='q'){query=e.target.value;document.getElementById(id==='rank-search'?'mobile-search':'rank-search').value=query}else{order=e.target.value;document.getElementById(id==='rank-sort'?'mobile-sort':'rank-sort').value=order}render()});
 fetch('../../assets/Weekly_Analysis_ASX_20261016.xlsx').then(r=>{if(!r.ok)throw Error('Excel not available');return r.arrayBuffer()}).then(b=>{if(!window.XLSX)throw Error('Spreadsheet reader unavailable');const w=XLSX.read(b,{type:'array'}),sheet=w.Sheets['ALL_COMPANIES'];if(!sheet)throw Error('ALL_COMPANIES missing');allRows=XLSX.utils.sheet_to_json(sheet,{header:1,defval:null}).slice(2).filter(r=>r[2]).map(r=>r.slice(0,9));if(allRows.length!==90)throw Error('Expected 90 companies, got '+allRows.length);render()}).catch(e=>{document.getElementById('rank-count').textContent='Ranking unavailable: '+e.message});
-</script></body></html>
+</script><nav aria-label="Market research hub" style="max-width:1100px;margin:18px auto;padding:14px 20px;font:inherit"><a href="../../asx/">Explore all ASX mining research →</a></nav></body></html>
