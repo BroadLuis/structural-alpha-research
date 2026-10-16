@@ -23,7 +23,7 @@ Adaptar las secciones a la naturaleza del estudio; no introducir apartados vací
 5. **Gráficos:** visualizaciones relevantes, explicadas y vinculadas a afirmaciones concretas del texto.
 6. **Ranking completo de compañías**, cuando el estudio sea por valores, conforme a la sección 4.
 7. **Interpretación, escenarios y limitaciones:** diferenciar señales preliminares de confirmaciones.
-8. **Descargas y metodología:** Excel revisado y otros materiales públicos cuando proceda, con enlaces comprobados.
+8. **Datos del ranking y metodología:** tabla interactiva basada en JSON, copia completa del ranking y otros materiales públicos cuando proceda, con enlaces comprobados.
 
 No es obligatorio que todos los estudios incluyan los mismos indicadores; sí es obligatorio que la narrativa refleje fielmente los datos disponibles.
 
@@ -37,7 +37,7 @@ No es obligatorio que todos los estudios incluyan los mismos indicadores; sí es
 
 ## 4. Rankings completos — reglas obligatorias
 
-El estudio ASX (`studies/2026-10-09-asx/index.html`) es la referencia canónica del formato de rankings.
+El estudio ASX del 16/10/2026 (`studies/2026-10-16-asx/index.html`) es la referencia del nuevo formato JSON de rankings; los estudios anteriores conservan su formato histórico.
 
 1. Publicar **todos** los valores del universo, nunca solo una selección de mejores o peores.
 2. Mostrar, cuando estén disponibles, **Weekly Rank, Global Rank, Ticker, Company, Last Close, 1W, 4W, 3M y YTD**.
@@ -45,9 +45,10 @@ El estudio ASX (`studies/2026-10-09-asx/index.html`) es la referencia canónica 
 4. **Ordenador:** tabla completa, legible, con búsqueda visible encima de la tabla y ordenación funcional.
 5. **Móvil:** fichas verticales etiquetadas, con los mismos datos y sin desplazamiento horizontal; buscador propio y ordenación funcional.
 6. **Ambos buscadores** deben filtrar por ticker o nombre de empresa mientras se escribe, recuperar todos los valores al borrar el texto y seguir funcionando después de ordenar o cargar datos dinámicamente. El buscador móvil **no sustituye** al de escritorio.
-7. Mostrar recuento total de empresas y proporcionar descarga operativa del Excel original revisado.
-8. Mantener sincronizados Excel, JSON (si procede) y referencias HTML; verificar que se cargan **todas las filas** y que el número coincide con el universo.
-9. Utilizar `assets/structural-alpha-ranking.css` para la presentación compartida. No sustituir una tabla que funciona por otra implementación sin verificarla.
+7. Mostrar recuento total de empresas y un botón funcional **Copy complete ranking** que copie las nueve columnas y todas las filas, con encabezados, separadas por tabuladores y filas por saltos de línea, aptas para pegar en Excel. No es obligatorio ofrecer Excel público en estudios nuevos.
+8. En los nuevos estudios, publicar el JSON generado por Weekly Analysis y mantenerlo sincronizado con el Excel privado de trabajo, el HTML y el tamaño real del universo. Verificar **todas las filas**, las nueve columnas, el orden, los nulos y las rentabilidades.
+9. Mantener los estilos compartidos cuando corresponda, especialmente `assets/structural-alpha-ranking.css`. No sustituir una tabla que funciona por otra implementación sin verificarla.
+10. Cargar el JSON directamente con `fetch` y comprobar `schema_version`, `universe`, `columns` y `rows`; no depender de XLSX.js para las nuevas tablas. Conservar buscadores y ordenación independientes en escritorio y móvil.
 
 ## 5. Organización de archivos y catálogo
 
@@ -57,7 +58,7 @@ El estudio ASX (`studies/2026-10-09-asx/index.html`) es la referencia canónica 
 4. El campo `universe` debe coincidir **exactamente** con una opción del filtro de la portada (por ejemplo, `ENERGY`).
 5. El resumen del catálogo debe ser breve y basado en datos: objetivo editorial de **30–65 palabras**; el validador actual rechaza más de **85 palabras**.
 6. Sincronizar el bloque `// BEGIN GENERATED REPORT SNAPSHOT` / `// END GENERATED REPORT SNAPSHOT` de `index.html` con `reports.json`, conservando contenido y orden.
-7. Verificar rutas relativas, enlaces a recursos, descarga de Excel y acceso público sin autenticación.
+7. Verificar rutas relativas, acceso público sin autenticación, lectura JSON, botón de copia y descargas únicamente cuando existan.
 8. Usar GitHub Releases para archivos ZIP de gran tamaño cuando corresponda; no subir archivos innecesarios o privados al repositorio.
 
 ## 6. Metadatos y presentación web
@@ -88,19 +89,19 @@ El estudio ASX (`studies/2026-10-09-asx/index.html`) es la referencia canónica 
 - [ ] Título, tesis, fechas, tamaño del universo y cifras cotejados con los originales.
 - [ ] Observaciones, interpretación y escenarios claramente diferenciados; limitaciones incluidas.
 - [ ] Gráficos legibles, con leyendas y unidades correctas.
-- [ ] Excel público revisado; sin datos privados, claves, señales propietarias o información personal.
+- [ ] JSON público contrastado con el Excel local; sin datos privados, claves, señales propietarias o información personal.
 
 **Revisión del ranking (si existe):**
 - [ ] Número de filas igual al universo completo; columnas y rentabilidades correctas.
 - [ ] Colores positivos/negativos/neutros y signos verificados.
 - [ ] Buscador y ordenación probados **por separado** en escritorio y móvil.
-- [ ] Fichas móviles legibles, sin scroll horizontal, y Excel descargable.
+- [ ] Fichas móviles legibles, sin scroll horizontal, y botón «Copy complete ranking» probado.
 - [ ] Carga dinámica, borrado del filtro y reordenación probados.
 
 **Revisión técnica:**
 - [ ] Entrada de `reports.json` completa, filtro `universe` correcto y snapshot de portada idéntico.
 - [ ] Ejecutado `python scripts/validate_research.py` **sin errores**.
-- [ ] Todos los enlaces, imágenes, descargas y metadatos revisados.
+- [ ] Todos los enlaces, imágenes, archivos JSON, botones de copia, descargas existentes y metadatos revisados.
 - [ ] Beacon de Cloudflare exactamente una vez; ningún contador público.
 - [ ] Verificado el despliegue de GitHub Pages y la página real desde navegador de escritorio y móvil.
 
@@ -202,3 +203,16 @@ Cuando un artículo tenga una fecha y hora futuras de publicación:
 - [ ] Estudio publicado y accesible; no incluido anticipadamente en el sitemap.
 - [ ] `reports.json`, portada, URL pública y sitemap sincronizados; workflow comprobado.
 - [ ] Tras el despliegue, verificar la URL real y, posteriormente, su estado en Search Console.
+
+
+## 12. Formato JSON obligatorio para nuevos rankings (desde 16/10/2026)
+
+1. **Producción local:** Weekly Analysis genera el Excel completo para el autor y un JSON de publicación. El Excel local no se elimina ni es necesario subirlo a GitHub.
+2. **Ruta recomendada:** guardar el archivo público como `studies/AAAA-MM-DD-mercado/assets/ranking.json`, con una ruta relativa comprobada desde el HTML del artículo. El ejemplo validado es `studies/2026-10-16-asx/assets/ranking.json`.
+3. **Esquema v1:** objeto con `schema_version: 1`, `universe`, `start_date`, `as_of_date`, `columns` y `rows`. Orden exacto de columnas: `rank_weekly`, `rank_global`, `ticker`, `name`, `last_close`, `return_week_pct`, `return_4w_pct`, `return_3m_pct`, `return_ytd_pct`. Las filas son arrays de nueve elementos, y los campos sin dato se representan mediante `null`.
+4. **Formato numérico:** las rentabilidades del JSON son porcentajes numéricos (por ejemplo, `9.5` significa `+9.50%`), no fracciones ni cadenas formateadas. Los decimales se redondean únicamente al presentarlos en pantalla. No cambiar ni recalcular rankings al exportar.
+5. **Interfaz:** conservar buscadores, ordenación, colores y tarjetas móviles; el botón `Copy complete ranking` debe copiar todas las filas, incluso si hay un filtro activo, con encabezados y tabuladores para pegar en hojas de cálculo. Deshabilitar la copia o informar claramente cuando el JSON aún no se haya cargado.
+6. **Publicación:** para nuevos estudios, subir el JSON y no el Excel. No incluir un botón de descarga Excel ni un campo `download` en `reports.json` cuando no exista descarga pública. Evitar frases que prometan un Excel en el título, resumen o metadatos.
+7. **Histórico:** no borrar Excel ni romper enlaces de estudios antiguos. La migración de un artículo existente debe validarse antes de cambiarlo, manteniendo su URL, canonical y contenido editorial.
+8. **Verificación:** comprobar el recuento exacto del universo, los nueve campos, valores nulos, búsquedas de escritorio/móvil, ordenaciones, signos/colores, copia y navegación. Probar el HTML desplegado, no solo el JSON local.
+9. **SEO:** mantener el texto analítico y enlaces en HTML inicial; la tabla JSON dinámica no debe ser el único contenido útil para los buscadores.
