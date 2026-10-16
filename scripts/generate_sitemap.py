@@ -9,7 +9,7 @@ from xml.etree.ElementTree import Element, SubElement, ElementTree, indent
 ROOT = Path(__file__).resolve().parents[1]
 BASE = 'https://structuralalpharesearch.net/'
 today = date.today()
-paths = ['', 'methodology.html', 'legal.html', 'privacy.html']
+paths = ['', 'methodology.html', 'legal.html', 'privacy.html', 'asx/index.html', 'gdx-gdxj/index.html']
 reports = json.loads((ROOT / 'reports.json').read_text(encoding='utf-8'))
 for report in reports:
     path = str(report.get('url', '')).lstrip('/')
