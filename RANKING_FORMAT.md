@@ -42,13 +42,14 @@ El estudio ASX del 16/10/2026 (`studies/2026-10-16-asx/index.html`) es la refere
 1. Publicar **todos** los valores del universo, nunca solo una selección de mejores o peores.
 2. Mostrar, cuando estén disponibles, **Weekly Rank, Global Rank, Ticker, Company, Last Close, 1W, 4W, 3M y YTD**.
 3. Rentabilidades positivas: fondo verde; negativas: rojo/rosa; cero: neutro. Usar porcentajes con signo de manera consistente.
-4. **Ordenador:** tabla completa, legible, con búsqueda visible encima de la tabla y ordenación funcional.
+4. **Ordenador:** tabla completa, legible, con búsqueda visible encima de la tabla y ordenación funcional. **Cada encabezado de las nueve columnas debe ser pulsable**, mostrar flechas y alternar entre orden ascendente y descendente; los valores numéricos se ordenan numéricamente y los textos alfabéticamente.
 5. **Móvil:** fichas verticales etiquetadas, con los mismos datos y sin desplazamiento horizontal; buscador propio y ordenación funcional.
 6. **Ambos buscadores** deben filtrar por ticker o nombre de empresa mientras se escribe, recuperar todos los valores al borrar el texto y seguir funcionando después de ordenar o cargar datos dinámicamente. El buscador móvil **no sustituye** al de escritorio.
 7. Mostrar recuento total de empresas y un botón funcional **Copy complete ranking** que copie las nueve columnas y todas las filas, con encabezados, separadas por tabuladores y filas por saltos de línea, aptas para pegar en Excel. No es obligatorio ofrecer Excel público en estudios nuevos.
 8. En los nuevos estudios, publicar el JSON generado por Weekly Analysis y mantenerlo sincronizado con el Excel privado de trabajo, el HTML y el tamaño real del universo. Verificar **todas las filas**, las nueve columnas, el orden, los nulos y las rentabilidades.
 9. Mantener los estilos compartidos cuando corresponda, especialmente `assets/structural-alpha-ranking.css`. No sustituir una tabla que funciona por otra implementación sin verificarla.
-10. Cargar el JSON directamente con `fetch` y comprobar `schema_version`, `universe`, `columns` y `rows`; no depender de XLSX.js para las nuevas tablas. Conservar buscadores y ordenación independientes en escritorio y móvil.
+10. Al ordenar desde los encabezados, actualizar la indicación visual de dirección y el atributo accesible `aria-sort`, manteniendo búsqueda y tarjetas móviles sincronizadas.
+11. Cargar el JSON directamente con `fetch` y comprobar `schema_version`, `universe`, `columns` y `rows`; no depender de XLSX.js para las nuevas tablas. Conservar buscadores y ordenación independientes en escritorio y móvil.
 
 ## 5. Organización de archivos y catálogo
 
@@ -94,7 +95,7 @@ El estudio ASX del 16/10/2026 (`studies/2026-10-16-asx/index.html`) es la refere
 **Revisión del ranking (si existe):**
 - [ ] Número de filas igual al universo completo; columnas y rentabilidades correctas.
 - [ ] Colores positivos/negativos/neutros y signos verificados.
-- [ ] Buscador y ordenación probados **por separado** en escritorio y móvil.
+- [ ] Buscador y ordenación probados **por separado** en escritorio y móvil; flechas de **todas** las columnas probadas en ambos sentidos.
 - [ ] Fichas móviles legibles, sin scroll horizontal, y botón «Copy complete ranking» probado.
 - [ ] Carga dinámica, borrado del filtro y reordenación probados.
 
@@ -214,5 +215,5 @@ Cuando un artículo tenga una fecha y hora futuras de publicación:
 5. **Interfaz:** conservar buscadores, ordenación, colores y tarjetas móviles; el botón `Copy complete ranking` debe copiar todas las filas, incluso si hay un filtro activo, con encabezados y tabuladores para pegar en hojas de cálculo. Deshabilitar la copia o informar claramente cuando el JSON aún no se haya cargado.
 6. **Publicación:** para nuevos estudios, subir el JSON y no el Excel. No incluir un botón de descarga Excel ni un campo `download` en `reports.json` cuando no exista descarga pública. Evitar frases que prometan un Excel en el título, resumen o metadatos.
 7. **Histórico:** no borrar Excel ni romper enlaces de estudios antiguos. La migración de un artículo existente debe validarse antes de cambiarlo, manteniendo su URL, canonical y contenido editorial.
-8. **Verificación:** comprobar el recuento exacto del universo, los nueve campos, valores nulos, búsquedas de escritorio/móvil, ordenaciones, signos/colores, copia y navegación. Probar el HTML desplegado, no solo el JSON local.
+8. **Verificación:** comprobar la ordenación ascendente y descendente de cada encabezado, además del recuento exacto del universo, los nueve campos, valores nulos, búsquedas de escritorio/móvil, ordenaciones, signos/colores, copia y navegación. Probar el HTML desplegado, no solo el JSON local.
 9. **SEO:** mantener el texto analítico y enlaces en HTML inicial; la tabla JSON dinámica no debe ser el único contenido útil para los buscadores.
