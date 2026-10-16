@@ -13,6 +13,18 @@
     <loc>https://structuralalpharesearch.net/privacy.html</loc>
   </url>
   <url>
+    <loc>https://structuralalpharesearch.net/asx/index.html</loc>
+  </url>
+  <url>
+    <loc>https://structuralalpharesearch.net/gdx-gdxj/index.html</loc>
+  </url>
+  <url>
+    <loc>https://structuralalpharesearch.net/junior/index.html</loc>
+  </url>
+  <url>
+    <loc>https://structuralalpharesearch.net/sil-silj/index.html</loc>
+  </url>
+  <url>
     <loc>https://structuralalpharesearch.net/studies/2026-10-16-asx/index.html</loc>
   </url>
   <url>
@@ -54,8 +66,4 @@
   <url>
     <loc>https://structuralalpharesearch.net/studies/2026-10-08-sil-silj/index.html</loc>
   </url>
-  <url><loc>https://structuralalpharesearch.net/asx/</loc></url>
-  <url><loc>https://structuralalpharesearch.net/gdx-gdxj/</loc></url>
-  <url><loc>https://structuralalpharesearch.net/junior/</loc></url>
-  <url><loc>https://structuralalpharesearch.net/sil-silj/</loc></url>
 </urlset>
