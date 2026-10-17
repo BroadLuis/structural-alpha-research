@@ -1,17 +1,17 @@
 [
   {
-    "title": "Global Market Structure: Equities Diverge as Mining Breadth Breaks Down",
-    "date": "2026-10-18",
-    "universe": "GLOBAL",
-    "summary": "Across 12 market universes through October 16, broad equities advanced while mining breadth and directional volume weakened. Energy retains 65.09% above MA200, compared with 3.70% in lithium and 11.11% in uranium. Explore a complete cross-universe comparison of returns, breadth, drawdowns and volume.",
-    "url": "studies/2026-10-18-global/index.html"
-  },
-  {
     "title": "Silver Miners SIL–SILJ: Broad Selling Pressure and Deepening Drawdowns",
     "date": "2026-10-18",
     "universe": "SIL–SILJ",
     "summary": "Across 98 SIL–SILJ securities, 92.86% declined this week, only 26.80% remain above MA200, and 59.38% are more than 30% below 52-week highs. The median 20-session signed volume balance deteriorated to −21.26%. Full searchable 98-security ranking.",
     "url": "studies/2026-10-18-sil-silj/index.html"
+  },
+  {
+    "title": "Global Market Structure: Equities Diverge as Mining Breadth Breaks Down",
+    "date": "2026-10-17",
+    "universe": "GLOBAL",
+    "summary": "Across 12 market universes through October 16, broad equities advanced while mining breadth and directional volume weakened. Energy retains 65.09% above MA200, compared with 3.70% in lithium and 11.11% in uranium. Explore a complete cross-universe comparison of returns, breadth, drawdowns and volume.",
+    "url": "studies/2026-10-18-global/index.html"
   },
   {
     "title": "Junior Gold Miners: Deep Drawdowns and Weak Breadth Across 482 Securities",
@@ -60,14 +60,6 @@
     "download": "studies/2026-10-12-copper/assets/Weekly_Analysis_COPPER_20261009.xlsx"
   },
   {
-    "title": "JUNIOR COPPER: Structural Damage Deepens as Participation Remains Weak",
-    "date": "2026-10-10",
-    "universe": "JUNIOR COPPER",
-    "summary": "186 junior copper securities: MA200 breadth falls to 37.7%, 65% are over 30% below 52-week highs, and volume participation remains weak.",
-    "url": "studies/2026-10-10-junior-copper/index.html",
-    "download": "studies/2026-10-10-junior-copper/assets/Weekly_Analysis_JUNIOR_COPPER_20261009.xlsx"
-  },
-  {
     "title": "ENERGY | Strong Relative Performance, but Market Breadth Has Yet to Recover",
     "date": "2026-10-11",
     "universe": "ENERGY",
@@ -82,6 +74,14 @@
     "summary": "483 junior mining securities through October 9: only 30.3% above MA200, median 52-week drawdown −40.9%, and tentative improvement in high-volume advances. Complete sortable ranking and original Excel workbook.",
     "url": "studies/2026-10-11-junior/index.html",
     "download": "studies/2026-10-11-junior/assets/Weekly_Analysis_JUNIOR_20261009.xlsx"
+  },
+  {
+    "title": "JUNIOR COPPER: Structural Damage Deepens as Participation Remains Weak",
+    "date": "2026-10-10",
+    "universe": "JUNIOR COPPER",
+    "summary": "186 junior copper securities: MA200 breadth falls to 37.7%, 65% are over 30% below 52-week highs, and volume participation remains weak.",
+    "url": "studies/2026-10-10-junior-copper/index.html",
+    "download": "studies/2026-10-10-junior-copper/assets/Weekly_Analysis_JUNIOR_COPPER_20261009.xlsx"
   },
   {
     "title": "GDX–GDXJ: Selling Pressure Eases, but Market Breadth Keeps Deteriorating",
