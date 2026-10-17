@@ -16,6 +16,11 @@ TIMES = json.loads(MATCH.group(1))
 CATALOG = {item["url"]: item for item in REPORTS}
 # Editorial releases remain separate from quantitative reports, but share the calendar.
 EDITORIAL_RELEASES = {
+    "perspectives/2026-10-18-mining-breadth-recovery/index.html": {
+        "title": "Mining Breadth: What Happens When the Market Starts to Recover?",
+        "universe": "MARKET PERSPECTIVES",
+        "release": "2026-10-18T14:30:00Z",
+    },
     "perspectives/2026-10-18-gold-miners-vs-gold/index.html": {
         "title": "Why Gold Miners Can Lag Gold During a Bull Market",
         "universe": "MARKET PERSPECTIVES",
