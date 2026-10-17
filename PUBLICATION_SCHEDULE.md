@@ -8,6 +8,7 @@ Times are shown in **Madrid** and **New York (ET)**, with daylight-saving change
 
 | Release date | Madrid time | New York time | Study | Article |
 |---|---|---|---|---|
+| Sat, 17 Oct 2026 | 16:30 | 10:30 AM ET | JUNIOR | Junior Gold Miners: Deep Drawdowns and Weak Breadth Across 482 Securities |
 | Sun, 18 Oct 2026 | 19:00 | 01:00 PM ET | MARKET PERSPECTIVES | Why Gold Miners Can Lag Gold During a Bull Market |
 
 ## Earlier scheduled releases
