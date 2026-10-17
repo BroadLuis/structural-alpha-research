@@ -243,7 +243,7 @@ tbody tr:hover{background:#f0e9dc}
       <p>We study what is happening beneath index and sector prices: how many securities are participating, where strength and weakness are concentrated, and whether price movements are supported by volume. Conclusions are based on observed data; scenarios are distinguished from confirmed signals.</p>
       <p class="note">Free access · No subscription required · Supporting materials included where available · <a href="methodology.html">How to interpret our indicators →</a></p>
     </section>
-    <section class="section" id="market-perspectives" aria-labelledby="perspectives-heading"><p class="eyebrow" style="color:#347fa7">Editorial</p><h2 id="perspectives-heading">Market Perspectives</h2><p class="note">Independent essays on market cycles, investor behavior, and the forces shaping precious metals and mining.</p><div class="panel" id="gold-miners-perspective" hidden style="padding:24px 28px;border-left:4px solid #347fa7"><p class="eyebrow" style="color:#347fa7">Gold miners · October 18, 2026</p><h3 style="margin:7px 0;font-size:1.45rem"><a href="perspectives/2026-10-18-gold-miners-vs-gold/index.html">Why Gold Miners Can Lag Gold During a Bull Market →</a></h3><p style="margin:9px 0">Why miners can fall behind a rising gold price—and whether a decades-long divergence may be changing.</p><a href="perspectives/2026-10-18-gold-miners-vs-gold/index.html">Read the perspective →</a></div><div class="panel" style="padding:24px 28px;border-left:4px solid #347fa7"><p class="eyebrow" style="color:#347fa7">Silver · October 12, 2026</p><h3 style="margin:7px 0;font-size:1.45rem"><a href="studies/2026-10-12-silver-bull-market/index.html">Silver's Bull Market Is Not a Straight Line →</a></h3><p style="margin:9px 0">Why sharp corrections, frustrating consolidations, and failed breakouts can be part of a much larger advance.</p><a href="studies/2026-10-12-silver-bull-market/index.html">Read the perspective →</a></div></section>
+    <section class="section" id="market-perspectives" aria-labelledby="perspectives-heading"><p class="eyebrow" style="color:#347fa7">Editorial</p><h2 id="perspectives-heading">Market Perspectives</h2><p class="note">Independent essays on market cycles, investor behavior, and the forces shaping precious metals and mining.</p><div class="panel" id="mining-breadth-perspective" hidden style="padding:24px 28px;border-left:4px solid #a58147"><p class="eyebrow" style="color:#a58147">Mining breadth · October 18, 2026</p><h3 style="margin:7px 0;font-size:1.45rem"><a href="perspectives/2026-10-18-mining-breadth-recovery/index.html">Mining Breadth: What Happens When the Market Starts to Recover? →</a></h3><p style="margin:9px 0">36 historical XAU episodes reveal how breadth can improve before price confirms a trend reversal—and why the apparent edge is not consistent.</p><a href="perspectives/2026-10-18-mining-breadth-recovery/index.html">Read the perspective →</a></div><div class="panel" id="gold-miners-perspective" hidden style="padding:24px 28px;border-left:4px solid #347fa7"><p class="eyebrow" style="color:#347fa7">Gold miners · October 18, 2026</p><h3 style="margin:7px 0;font-size:1.45rem"><a href="perspectives/2026-10-18-gold-miners-vs-gold/index.html">Why Gold Miners Can Lag Gold During a Bull Market →</a></h3><p style="margin:9px 0">Why miners can fall behind a rising gold price—and whether a decades-long divergence may be changing.</p><a href="perspectives/2026-10-18-gold-miners-vs-gold/index.html">Read the perspective →</a></div><div class="panel" style="padding:24px 28px;border-left:4px solid #347fa7"><p class="eyebrow" style="color:#347fa7">Silver · October 12, 2026</p><h3 style="margin:7px 0;font-size:1.45rem"><a href="studies/2026-10-12-silver-bull-market/index.html">Silver's Bull Market Is Not a Straight Line →</a></h3><p style="margin:9px 0">Why sharp corrections, frustrating consolidations, and failed breakouts can be part of a much larger advance.</p><a href="studies/2026-10-12-silver-bull-market/index.html">Read the perspective →</a></div></section>
     <section class="section" id="latest-research" aria-labelledby="latest-heading">
       <p class="eyebrow">Recently published</p>
       <h2 id="latest-heading">Latest research</h2>
@@ -296,6 +296,13 @@ tbody tr:hover{background:#f0e9dc}
     // Keep a local snapshot so reports remain visible if the catalog request fails.
     // BEGIN GENERATED REPORT SNAPSHOT — keep synchronized with reports.json
     let reports=[
+    {
+        "title": "Mining Breadth: What Happens When the Market Starts to Recover?",
+        "date": "2026-10-18",
+        "universe": "MARKET PERSPECTIVES",
+        "summary": "Historical XAU breadth analysis: 36 signals, 81% recovered MA200 within 120 sessions, but only 54% outperformed matched market conditions.",
+        "url": "perspectives/2026-10-18-mining-breadth-recovery/index.html"
+    },
     {
         "title": "Silver Miners SIL–SILJ: Broad Selling Pressure and Deepening Drawdowns",
         "date": "2026-10-18",
@@ -445,6 +452,7 @@ tbody tr:hover{background:#f0e9dc}
     const featured=document.getElementById("featured-studies");
     // Scheduled publication times (UTC). Shared by the archive and Latest research.
     const publicationTimes={
+      "perspectives/2026-10-18-mining-breadth-recovery/index.html":"2026-10-18T14:30:00Z",
       "studies/2026-10-18-global/index.html":"2026-10-17T12:30:00Z",
       "studies/2026-10-18-sil-silj/index.html":"2026-10-18T08:30:00Z",
       "studies/2026-10-17-junior/index.html":"2026-10-17T16:30:00Z",
@@ -564,5 +572,5 @@ tbody tr:hover{background:#f0e9dc}
      .catch(()=>{ /* The built-in snapshot remains visible. */ });
   </script>
 <div style="max-width:1100px;margin:24px auto;padding:12px 20px;text-align:center;font:13px/1.5 system-ui,sans-serif"><a href="legal.html" style="color:inherit;text-decoration:underline">Legal Notice</a> · <a href="privacy.html" style="color:inherit;text-decoration:underline">Privacy &amp; Cookies</a> · Free research · No subscription required</div>
-<script>(function(){const card=document.getElementById("gold-miners-perspective");if(!card)return;const release=Date.parse("2026-10-18T17:00:00Z");function show(){if(Date.now()>=release)card.hidden=false;}show();if(Date.now()<release)setTimeout(show,Math.max(0,release-Date.now()+1000));})();</script></body>
+<script>(function(){const card=document.getElementById("gold-miners-perspective");if(!card)return;const release=Date.parse("2026-10-18T17:00:00Z");function show(){if(Date.now()>=release)card.hidden=false;}show();if(Date.now()<release)setTimeout(show,Math.max(0,release-Date.now()+1000));})();</script><script>(function(){const card=document.getElementById("mining-breadth-perspective");if(!card)return;const release=Date.parse("2026-10-18T14:30:00Z");function show(){if(Date.now()>=release)card.hidden=false;}show();if(Date.now()<release)setTimeout(show,Math.max(0,release-Date.now()+1000));})();</script></body>
 </html>
