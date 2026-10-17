@@ -8,7 +8,6 @@ Times are shown in **Madrid** and **New York (ET)**, with daylight-saving change
 
 | Release date | Madrid time | New York time | Study | Article |
 |---|---|---|---|---|
-| Sat, 17 Oct 2026 | 14:30 | 08:30 AM ET | GLOBAL | Global Market Structure: Equities Diverge as Mining Breadth Breaks Down |
 | Sat, 17 Oct 2026 | 18:30 | 12:30 PM ET | JUNIOR | Junior Gold Miners: Deep Drawdowns and Weak Breadth Across 482 Securities |
 | Sun, 18 Oct 2026 | 10:30 | 04:30 AM ET | SIL–SILJ | Silver Miners SIL–SILJ: Broad Selling Pressure and Deepening Drawdowns |
 | Sun, 18 Oct 2026 | 16:30 | 10:30 AM ET | MARKET PERSPECTIVES | Mining Breadth: What Happens When the Market Starts to Recover? |
@@ -18,6 +17,7 @@ Times are shown in **Madrid** and **New York (ET)**, with daylight-saving change
 
 | Release date | Madrid time | New York time | Study | Article |
 |---|---|---|---|---|
+| Sat, 17 Oct 2026 | 14:30 | 08:30 AM ET | GLOBAL | [Global Market Structure: Equities Diverge as Mining Breadth Breaks Down](studies/2026-10-18-global/index.html) |
 | Sat, 10 Oct 2026 | 15:25 | 09:25 AM ET | GDX–GDXJ | [GDX–GDXJ: Selling Pressure Eases, but Market Breadth Keeps Deteriorating](studies/2026-10-10-gdx-gdxj/index.html) |
 | Sun, 11 Oct 2026 | 10:25 | 04:25 AM ET | JUNIOR | [JUNIOR MINERS: Selling Pressure Eases, but Structural Damage Deepens](studies/2026-10-11-junior/index.html) |
 | Sun, 11 Oct 2026 | 15:25 | 09:25 AM ET | ENERGY | [ENERGY &#124; Strong Relative Performance, but Market Breadth Has Yet to Recover](studies/2026-10-11-energy/index.html) |
