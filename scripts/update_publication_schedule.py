@@ -24,7 +24,7 @@ EDITORIAL_RELEASES = {
     "perspectives/2026-10-18-gold-miners-vs-gold/index.html": {
         "title": "Why Gold Miners Can Lag Gold During a Bull Market",
         "universe": "MARKET PERSPECTIVES",
-        "release": "2026-10-18T17:00:00Z",
+        "release": "2026-10-25T18:00:00Z",
     }
 }
 for url, item in EDITORIAL_RELEASES.items():
