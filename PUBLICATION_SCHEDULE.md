@@ -8,7 +8,7 @@ Times are shown in **Madrid** and **New York (ET)**, with daylight-saving change
 
 | Release date | Madrid time | New York time | Study | Article |
 |---|---|---|---|---|
-| Sat, 17 Oct 2026 | 18:30 | 12:30 PM ET | JUNIOR | Junior Gold Miners: Deep Drawdowns and Weak Breadth Across 482 Securities |
+| Sat, 17 Oct 2026 | 20:30 | 02:30 PM ET | JUNIOR | Junior Gold Miners: Deep Drawdowns and Weak Breadth Across 482 Securities |
 | Sun, 18 Oct 2026 | 10:30 | 04:30 AM ET | SIL–SILJ | Silver Miners SIL–SILJ: Broad Selling Pressure and Deepening Drawdowns |
 | Sun, 18 Oct 2026 | 16:30 | 10:30 AM ET | MARKET PERSPECTIVES | Mining Breadth: What Happens When the Market Starts to Recover? |
 | Sun, 25 Oct 2026 | 19:00 | 02:00 PM ET | MARKET PERSPECTIVES | Why Gold Miners Can Lag Gold During a Bull Market |
