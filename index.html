@@ -531,11 +531,14 @@ tbody tr:hover{background:#f0e9dc}
         card.append(meta,heading,description,read);featured.append(card);
       }
     }
+    let shortcutMarket="";
     document.querySelectorAll(".market-shortcuts button").forEach(button=>button.addEventListener("click",()=>{
-      filter.value=button.dataset.market;input.value="";resetArchivePage();document.getElementById("research").scrollIntoView({behavior:"smooth",block:"start"});
+      shortcutMarket=button.dataset.market==="JUNIOR_GROUP"?"JUNIOR_GROUP":"";
+      filter.value=shortcutMarket?"":button.dataset.market;
+      input.value="";resetArchivePage();document.getElementById("research").scrollIntoView({behavior:"smooth",block:"start"});
     }));
     function render(){
-      const q=input.value.trim().toLocaleLowerCase(),market=filter.value;
+      const q=input.value.trim().toLocaleLowerCase(),market=shortcutMarket||filter.value;
       // Market keywords complement literal title/summary matches (e.g. "gold" also finds junior miners).
       const marketKeywords={
         "GDX–GDXJ":["gold","gold miners","gold mining"],
@@ -586,7 +589,7 @@ tbody tr:hover{background:#f0e9dc}
         article.append(meta,title,desc,actions);results.append(article);
       }
     }
-    input.addEventListener("input",resetArchivePage);filter.addEventListener("change",resetArchivePage);sort.addEventListener("change",resetArchivePage);
+    input.addEventListener("input",resetArchivePage);filter.addEventListener("change",()=>{shortcutMarket="";resetArchivePage();});sort.addEventListener("change",resetArchivePage);
     render();renderFeatured();renderUpcoming();
     for(const release of Object.values(publicationTimes)){
       const delay=Date.parse(release)-Date.now();
