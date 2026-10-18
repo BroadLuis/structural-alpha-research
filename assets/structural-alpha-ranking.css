@@ -2,3 +2,32 @@
 #ranking td.pos,#ranking td.positive{background:#d8e8e2!important;color:#245c4d!important}#ranking td.neg,#ranking td.negative{background:#efd9db!important;color:#8e3946!important}#ranking td.zero{background:transparent!important}#ranking td{font-variant-numeric:tabular-nums}#ranking tbody tr:nth-child(even){background:#f7f5f1}
 .rank-mobile-grid .pos,.rank-grid .positive{color:#167553!important;font-weight:700}.rank-mobile-grid .neg,.rank-grid .negative{color:#b24653!important;font-weight:700}
 @media(max-width:700px){#full-ranking{max-width:100%;min-width:0}#full-ranking .rankwrap,#full-ranking .rank-desktop{display:none!important}#full-ranking .rank-mobile-tools,#full-ranking .rank-tools{display:grid!important;grid-template-columns:minmax(0,1fr)!important}#full-ranking .rank-mobile-cards,#full-ranking .rank-cards{display:block!important}#full-ranking .rank-mobile-card,#full-ranking .rank-card{max-width:100%;min-width:0;overflow-wrap:anywhere}#full-ranking .rank-mobile-head,#full-ranking .rank-head{flex-wrap:wrap}#full-ranking .rank-mobile-grid,#full-ranking .rank-grid{min-width:0;grid-template-columns:minmax(0,1fr) auto}}
+
+/* Mobile ranking: keep field labels readable, and wrap long company names in the value column. */
+@media(max-width:700px){
+  #full-ranking .rank-mobile-grid,
+  #full-ranking .rank-grid{
+    display:grid;
+    grid-template-columns:minmax(100px,36%) minmax(0,1fr)!important;
+    column-gap:12px;
+    min-width:0;
+  }
+  #full-ranking .rank-mobile-grid > :nth-child(odd),
+  #full-ranking .rank-grid > :nth-child(odd){
+    min-width:0;
+    white-space:nowrap;
+    overflow-wrap:normal;
+    word-break:normal;
+  }
+  #full-ranking .rank-mobile-grid > :nth-child(even),
+  #full-ranking .rank-grid > :nth-child(even){
+    min-width:0;
+    overflow-wrap:break-word;
+    word-break:normal;
+    text-align:right;
+  }
+  #full-ranking .rank-mobile-head,
+  #full-ranking .rank-head{min-width:0}
+  #full-ranking .rank-mobile-name,
+  #full-ranking .rank-name{min-width:0;overflow-wrap:break-word;word-break:normal}
+}
