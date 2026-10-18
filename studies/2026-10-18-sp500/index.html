@@ -201,4 +201,22 @@ for(const [id,kind] of [['rank-search','q'],['mobile-search','q'],['rank-sort','
 document.querySelectorAll('.rank-head-sort').forEach(b=>b.addEventListener('click',()=>{const col=Number(b.dataset.col);sortDir=sortCol===col?-sortDir:1;sortCol=col;render()}));
 fetch('assets/ranking.json').then(r=>{if(!r.ok)throw Error('JSON not available');return r.json()}).then(data=>{if(data.schema_version!==1||data.universe!=='SP500'||!Array.isArray(data.rows)||data.rows.length!==500||data.columns.join('|')!=='rank_weekly|rank_global|ticker|name|last_close|return_week_pct|return_4w_pct|return_3m_pct|return_ytd_pct')throw Error('Invalid S&P 500 ranking JSON');allRows=data.rows;render()}).catch(e=>{document.getElementById('rank-count').textContent='Ranking unavailable: '+e.message});
 document.getElementById('copy-ranking').addEventListener('click',async()=>{const text=[cols.join('\t'),...allRows.map(row=>row.map(v=>v==null?'':String(v)).join('\t'))].join('\n');const status=document.getElementById('copy-status');try{await navigator.clipboard.writeText(text);status.textContent='500 companies copied';}catch(e){status.textContent='Copy failed; select the table instead';}});
-</script><nav aria-label="Market research hub" style="max-width:1100px;margin:18px auto;padding:14px 20px"><a href="../../sp500/">Explore all S&amp;P 500 research →</a></nav></body></html>
+</script><nav aria-label="Market research hub" style="max-width:1100px;margin:18px auto;padding:14px 20px"><a href="../../sp500/">Explore all S&amp;P 500 research →</a></nav><style>
+/* S&P 500 mobile ranking layout: single card per security, no horizontal scrolling. */
+@media(max-width:700px){
+  #full-ranking{min-width:0;overflow-wrap:anywhere}
+  #full-ranking .rank-desktop,#full-ranking .rank-tools{display:none!important}
+  #full-ranking .rank-mobile-tools{display:grid!important;grid-template-columns:minmax(0,1fr);gap:8px;width:100%;margin:18px 0}
+  #full-ranking .rank-mobile-tools label{display:block;font-weight:600}
+  #full-ranking .rank-mobile-tools input,#full-ranking .rank-mobile-tools select{display:block;width:100%;min-width:0;max-width:100%;box-sizing:border-box;font-size:16px;padding:12px}
+  #full-ranking .rank-mobile-cards{display:block!important;min-width:0;width:100%}
+  #full-ranking .rank-mobile-card{min-width:0;max-width:100%;box-sizing:border-box;padding:13px 12px;margin:12px 0;overflow:hidden}
+  #full-ranking .rank-mobile-card strong{font-size:1rem;line-height:1.4;overflow-wrap:anywhere;margin-bottom:10px}
+  #full-ranking .rank-mobile-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,auto);gap:0 10px;align-items:baseline}
+  #full-ranking .rank-mobile-grid span,#full-ranking .rank-mobile-grid b{min-width:0;padding:7px 0;border-bottom:1px solid var(--line);font-size:.88rem;line-height:1.35}
+  #full-ranking .rank-mobile-grid span{overflow-wrap:anywhere}
+  #full-ranking .rank-mobile-grid b{white-space:nowrap;text-align:right;font-variant-numeric:tabular-nums}
+  #full-ranking .rank-mobile-grid .pos{color:#167553}
+  #full-ranking .rank-mobile-grid .neg{color:#b24653}
+}
+</style></body></html>
