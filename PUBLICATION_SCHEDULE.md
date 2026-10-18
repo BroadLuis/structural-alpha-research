@@ -8,7 +8,6 @@ Times are shown in **Madrid** and **New York (ET)**, with daylight-saving change
 
 | Release date | Madrid time | New York time | Study | Article |
 |---|---|---|---|---|
-| Sun, 18 Oct 2026 | 16:30 | 10:30 AM ET | MARKET PERSPECTIVES | Mining Breadth: What Happens When the Market Starts to Recover? |
 | Sun, 25 Oct 2026 | 19:00 | 02:00 PM ET | MARKET PERSPECTIVES | Why Gold Miners Can Lag Gold During a Bull Market |
 
 ## Earlier scheduled releases
@@ -24,6 +23,7 @@ Times are shown in **Madrid** and **New York (ET)**, with daylight-saving change
 | Sat, 17 Oct 2026 | 14:30 | 08:30 AM ET | GLOBAL | [Global Market Structure: Equities Diverge as Mining Breadth Breaks Down](studies/2026-10-18-global/index.html) |
 | Sat, 17 Oct 2026 | 20:30 | 02:30 PM ET | JUNIOR | [Junior Gold Miners: Deep Drawdowns and Weak Breadth Across 482 Securities](studies/2026-10-17-junior/index.html) |
 | Sun, 18 Oct 2026 | 10:30 | 04:30 AM ET | SIL–SILJ | [Silver Miners SIL–SILJ: Broad Selling Pressure and Deepening Drawdowns](studies/2026-10-18-sil-silj/index.html) |
+| Sun, 18 Oct 2026 | 16:30 | 10:30 AM ET | MARKET PERSPECTIVES | [Mining Breadth: What Happens When the Market Starts to Recover?](perspectives/2026-10-18-mining-breadth-recovery/index.html) |
 
 ## How scheduling works
 
