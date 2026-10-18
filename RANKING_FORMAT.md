@@ -217,3 +217,13 @@ Cuando un artículo tenga una fecha y hora futuras de publicación:
 7. **Histórico:** no borrar Excel ni romper enlaces de estudios antiguos. La migración de un artículo existente debe validarse antes de cambiarlo, manteniendo su URL, canonical y contenido editorial.
 8. **Verificación:** comprobar la ordenación ascendente y descendente de cada encabezado, además del recuento exacto del universo, los nueve campos, valores nulos, búsquedas de escritorio/móvil, ordenaciones, signos/colores, copia y navegación. Probar el HTML desplegado, no solo el JSON local.
 9. **SEO:** mantener el texto analítico y enlaces en HTML inicial; la tabla JSON dinámica no debe ser el único contenido útil para los buscadores.
+
+## 13. Legibilidad de rankings en móviles (18/10/2026)
+
+- Aplicar el CSS compartido `assets/structural-alpha-ranking.css` en las páginas con rankings.
+- En las fichas móviles, reservar una columna estable para las etiquetas y otra para los valores. Referencia: `grid-template-columns:minmax(100px,36%) minmax(0,1fr)`.
+- No dividir palabras de etiquetas como Weekly rank, Global rank, Ticker, Company o Last close. Evitar `overflow-wrap:anywhere` en las etiquetas.
+- Permitir que los nombres largos de empresas se ajusten entre palabras, sin desplazar las etiquetas ni provocar scroll horizontal.
+- Mantener los números y porcentajes alineados a la derecha y los colores de rentabilidades.
+- Verificar una ficha con nombre largo, por ejemplo Brown Forman Ord Shs Class B, en pantallas de 320 a 390 px y en temas claro y oscuro.
+- Probar después del despliegue un ranking histórico con Excel y otro nuevo con JSON, sin alterar la experiencia de escritorio. No considerar validado el cambio hasta comprobar la web publicada.
