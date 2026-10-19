@@ -200,6 +200,23 @@ tbody tr:hover{background:#f0e9dc}
 [data-theme="dark"] .upcoming-bar{background:#142c44;border-color:#34485d}
 @media(max-width:620px){.upcoming-bar{gap:8px;padding:7px 9px}.upcoming-zone{display:none}.upcoming-item{font-size:.8rem}}
 @media(prefers-reduced-motion:reduce){.upcoming-track.is-moving{animation:none}.upcoming-window{overflow-x:auto;mask-image:none}}
+
+/* Research-first homepage: compact hero, clear shortcuts, earlier editorial content */
+header{padding:18px 0 28px!important}
+.hero-frame{margin-top:18px;overflow:hidden;border-radius:13px}
+.hero-banner{height:clamp(180px,18vw,250px);width:100%;max-height:250px;object-fit:cover;object-position:center 48%;border-radius:13px}
+.hero-copy h1{font-size:clamp(1.8rem,3.3vw,2.75rem);margin:19px 0 7px;line-height:1.15}
+.hero-copy .intro{margin:0;max-width:900px;font-size:1rem;line-height:1.55}
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:17px}
+.hero-actions a{display:inline-flex;align-items:center;padding:9px 15px;border:1px solid #b79a68;border-radius:8px;color:#f2e6d1;text-decoration:none;font-size:.89rem;font-weight:650}
+.hero-actions a.hero-primary{background:#a27b43;color:#fff;border-color:#a27b43}
+.hero-actions a:hover,.hero-actions a:focus-visible{background:#4d4436;color:#fff;outline-offset:3px}
+main.wrap{padding-top:0}
+.compact-perspectives{margin-top:23px}
+#latest-research{margin-top:27px}
+#research{margin-top:28px}
+.lead{margin-top:32px;padding:19px 23px}
+@media(max-width:650px){header{padding:13px 0 22px!important}.hero-frame{margin-top:13px}.hero-banner{height:125px;max-height:125px;object-fit:cover;object-position:center}.hero-copy h1{margin-top:16px;font-size:1.65rem}.hero-copy .intro{font-size:.92rem}.hero-actions{gap:8px}.hero-actions a{font-size:.82rem;padding:8px 11px}.compact-perspectives{margin-top:20px}}
 </style>
 <script>
 (function(){
@@ -231,18 +248,13 @@ tbody tr:hover{background:#f0e9dc}
   <header>
     <div class="wrap">
       <nav class="top" aria-label="Site navigation"><a class="brand brand-with-icon" href="index.html" style="color:#fff"><img class="brand-mark" src="assets/images/Emblema%20de%20pico%20minero%20ne%C3%B3n%20cromado.png" alt="" width="38" height="38">Structural Alpha</a><div class="header-menu"><details class="nav-group"><summary>Mining markets</summary><div class="nav-dropdown"><a href="gdx-gdxj/">Gold miners</a><a href="sil-silj/">Silver miners</a><a href="junior/">Junior</a><a href="asx/">ASX</a><a href="energy/">Energy</a><a href="uranium/">Uranium</a><a href="copper/">Copper &amp; Junior Copper</a></div></details><details class="nav-group"><summary>Equity markets</summary><div class="nav-dropdown"><a href="sp500/">S&amp;P 500</a><a href="stoxx600/">STOXX 600</a></div></details><a href="#market-perspectives">Market Perspectives</a><a href="#research">Research archive ↓</a><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">☾ Dark</button></div></nav>
-      <div style="margin-top:26px"><img class="hero-banner" src="assets/images/LBroad%20Structural%20Alpha%20Nuevo.png" alt="Structural Alpha — Quantitative Research Terminal: Relative Strength, Regime Detection, Systematic Signals" width="2048" height="682" fetchpriority="high"></div>
-      <h1 style="margin-top:24px;font-size:clamp(1.75rem,3.5vw,2.75rem)">Independent Quantitative Market Research</h1>
-      
-      <p class="intro">A public library of data-driven research covering market structure, breadth, relative strength, drawdowns, and trading volume. Explore our studies and download the original Excel workbooks, free of charge.</p>
+      <div class="hero-frame"><img class="hero-banner" src="assets/images/LBroad%20Structural%20Alpha%20Nuevo.png" alt="Structural Alpha — Quantitative Research Terminal: Relative Strength, Regime Detection, Systematic Signals" width="2048" height="682" fetchpriority="high"></div>
+      <div class="hero-copy"><h1>Independent Quantitative Market Research</h1>
+      <p class="intro">Data-driven research into market structure, relative strength, breadth, drawdowns, and volume. Independent analysis, transparent data, and free access to original Excel workbooks.</p>
+      <nav class="hero-actions" aria-label="Start exploring"><a class="hero-primary" href="#research">Explore Research Archive →</a><a href="#market-perspectives">Read Market Perspectives →</a></nav></div>
     </div>
   </header>
   <main class="wrap">
-    <section class="panel lead" aria-labelledby="approach">
-      <h2 id="approach">Our approach</h2>
-      <p>We study what is happening beneath index and sector prices: how many securities are participating, where strength and weakness are concentrated, and whether price movements are supported by volume. Conclusions are based on observed data; scenarios are distinguished from confirmed signals.</p>
-      <p class="note">Free access · No subscription required · Supporting materials included where available · <a href="methodology.html">How to interpret our indicators →</a></p>
-    </section>
     <section class="section compact-perspectives" id="market-perspectives" aria-labelledby="perspectives-heading"><div class="perspectives-heading"><div><p class="eyebrow" style="color:#a58147">Editorial</p><h2 id="perspectives-heading">Market Perspectives</h2></div><span class="perspectives-intro">Independent essays on markets and mining</span></div><div class="perspectives-list"><article class="perspective-row"><div class="perspective-copy"><span class="perspective-date">Gold &amp; silver miners · October 19, 2026</span><h3><a href="perspectives/2026-10-19-gold-silver-miners-leadership/index.html">Gold &amp; Silver Miners: The Leadership Divergence →</a></h3><p>Only 19.7% of gold miners outperformed GLD over four weeks, compared with 47.9% of silver miners beating SLV. What the divergence tells us about market participation.</p></div><a class="perspective-arrow" href="perspectives/2026-10-19-gold-silver-miners-leadership/index.html" aria-label="Read article">↗</a></article><article class="perspective-row" id="mining-breadth-perspective" hidden><div class="perspective-copy"><span class="perspective-date">Mining breadth · October 18, 2026</span><h3><a href="perspectives/2026-10-18-mining-breadth-recovery/index.html">Mining Breadth: What Happens When the Market Starts to Recover? →</a></h3><p>36 historical XAU episodes reveal how breadth can improve before price confirms a trend reversal—and why the apparent edge is not consistent.</p></div><a class="perspective-arrow" href="perspectives/2026-10-18-mining-breadth-recovery/index.html" aria-label="Read article">↗</a></article><article class="perspective-row" id="gold-miners-perspective" hidden><div class="perspective-copy"><span class="perspective-date">Gold miners · October 25, 2026</span><h3><a href="perspectives/2026-10-18-gold-miners-vs-gold/index.html">Why Gold Miners Can Lag Gold During a Bull Market →</a></h3><p>Why miners can fall behind a rising gold price—and whether a decades-long divergence may be changing.</p></div><a class="perspective-arrow" href="perspectives/2026-10-18-gold-miners-vs-gold/index.html" aria-label="Read article">↗</a></article><article class="perspective-row"><div class="perspective-copy"><span class="perspective-date">Silver · October 12, 2026</span><h3><a href="studies/2026-10-12-silver-bull-market/index.html">Silver's Bull Market Is Not a Straight Line →</a></h3><p>Why sharp corrections, frustrating consolidations, and failed breakouts can be part of a much larger advance.</p></div><a class="perspective-arrow" href="studies/2026-10-12-silver-bull-market/index.html" aria-label="Read article">↗</a></article></div></section>
     <section class="section" id="latest-research" aria-labelledby="latest-heading">
       <p class="eyebrow">Recently published</p>
@@ -281,6 +293,11 @@ tbody tr:hover{background:#f0e9dc}
       <div class="archive-toolbar"><label for="sort">Sort by</label><select id="sort" aria-label="Sort studies"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="market">Market A–Z</option></select><span id="archive-count" class="archive-count" aria-live="polite">Loading studies…</span></div>
       <div class="report-list" id="results" role="status">Loading published studies…</div>
       <nav id="archive-pagination" class="archive-pagination" aria-label="Research library pages" hidden></nav>
+    </section>
+    <section class="panel lead" aria-labelledby="approach">
+      <h2 id="approach">Our approach</h2>
+      <p>We study what is happening beneath index and sector prices: how many securities are participating, where strength and weakness are concentrated, and whether price movements are supported by volume. Conclusions are based on observed data; scenarios are distinguished from confirmed signals.</p>
+      <p class="note">Free access · No subscription required · Supporting materials included where available · <a href="methodology.html">How to interpret our indicators →</a></p>
     </section>
     <section class="section">
       <h2>Research coverage</h2>
