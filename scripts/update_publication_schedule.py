@@ -21,10 +21,15 @@ EDITORIAL_RELEASES = {
         "universe": "MARKET PERSPECTIVES",
         "release": "2026-10-18T14:30:00Z",
     },
+    "perspectives/2026-10-20-hidden-cost-confirmation/index.html": {
+        "title": "The Hidden Cost of Waiting for Confirmation",
+        "universe": "MARKET PERSPECTIVES",
+        "release": "2026-10-24T16:00:00Z",
+    },
     "perspectives/2026-10-18-gold-miners-vs-gold/index.html": {
         "title": "Why Gold Miners Can Lag Gold During a Bull Market",
         "universe": "MARKET PERSPECTIVES",
-        "release": "2026-10-25T18:00:00Z",
+        "release": "2026-11-01T18:00:00Z",
     }
 }
 for url, item in EDITORIAL_RELEASES.items():
