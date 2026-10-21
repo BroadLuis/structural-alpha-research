@@ -66,7 +66,7 @@ El estudio ASX del 16/10/2026 (`studies/2026-10-16-asx/index.html`) es la refere
 
 1. Mantener la identidad visual del sitio y la navegación coherente con el resto de estudios.
 2. Cada página debe tener título HTML, descripción y metadatos para compartir en redes (Open Graph y Twitter/X) acordes con el artículo. Revisar sus enlaces e imagen de vista previa.
-3. Verificar visualización en escritorio y móvil, incluidos tema claro/oscuro cuando la página lo implemente.
+3. **Obligatorio en todas las páginas publicadas:** tema claro y oscuro funcionales, con cambio y persistencia coherentes entre páginas; verificar escritorio y móvil. No basta con que el CSS contenga reglas de tema oscuro: el documento debe activarlas realmente y el contenido debe resultar legible.
 4. Comprobar que no hay texto provisional, mensajes de «archivo pendiente», enlaces rotos ni controles sin función una vez publicada la página.
 5. Mantener la accesibilidad básica: jerarquía de encabezados, texto alternativo para imágenes informativas, etiquetas de buscadores y controles utilizables.
 
@@ -104,6 +104,7 @@ El estudio ASX del 16/10/2026 (`studies/2026-10-16-asx/index.html`) es la refere
 - [ ] Ejecutado `python scripts/validate_research.py` **sin errores**.
 - [ ] Todos los enlaces, imágenes, archivos JSON, botones de copia, descargas existentes y metadatos revisados.
 - [ ] Beacon de Cloudflare exactamente una vez; ningún contador público.
+- [ ] Modo claro y oscuro comprobados en cabecera, cuerpo, tarjetas KPI, tablas completas, celdas positivas/negativas, filtros, fichas móviles y navegación; preferencia persistente al abrir otro estudio.
 - [ ] Verificado el despliegue de GitHub Pages y la página real desde navegador de escritorio y móvil.
 
 **Importante:** `scripts/validate_research.py` valida actualmente catálogo, filtros, enlaces locales y snapshot de portada. **No certifica** por sí solo buscadores, renderizado, recuentos de filas cargadas, gráficos, analítica o funcionamiento móvil; esas pruebas requieren revisión adicional.
@@ -227,3 +228,19 @@ Cuando un artículo tenga una fecha y hora futuras de publicación:
 - Mantener los números y porcentajes alineados a la derecha y los colores de rentabilidades.
 - Verificar una ficha con nombre largo, por ejemplo Brown Forman Ord Shs Class B, en pantallas de 320 a 390 px y en temas claro y oscuro.
 - Probar después del despliegue un ranking histórico con Excel y otro nuevo con JSON, sin alterar la experiencia de escritorio. No considerar validado el cambio hasta comprobar la web publicada.
+
+
+## 14. Identidad visual y modo claro/oscuro — obligatorio (21/10/2026)
+
+1. **Identidad gráfica unificada:** todos los artículos y estudios, incluidos los históricos, deben mantener la paleta grafito y dorado de Structural Alpha Research, cabeceras proporcionadas, tipografía legible y una jerarquía visual sobria. Evitar encabezados gigantes o bloques que ocupen una pantalla sin aportar información. No alterar cifras ni gráficos al corregir estilos.
+2. **Ambos temas son obligatorios:** el modo claro y el modo oscuro deben funcionar en todo el documento, no solo en el encabezado. La cabecera, el fondo exterior, el contenedor principal, los paneles de análisis, las tarjetas KPI, notas, enlaces, gráficos, tablas y rankings deben conservar contraste suficiente.
+3. **Inicialización real del tema:** establecer `data-theme="light"` o `data-theme="dark"` en `document.documentElement` antes de renderizar el contenido. Respetar primero `localStorage.getItem("structural-alpha-theme")` si contiene `light` o `dark`; en su defecto, usar `prefers-color-scheme`. `document.documentElement.dataset.theme` es equivalente. **No considerar que una página soporta modo oscuro por el simple hecho de contener selectores CSS `[data-theme="dark"]`.** Comprobar que el valor se asigna y que los selectores se aplican efectivamente.
+4. **Estilos compartidos:** las páginas con ranking deben cargar `assets/structural-alpha-ranking.css` y las páginas de investigación deben cargar `assets/structural-alpha-dark-legibility.css` con la ruta relativa correcta. La hoja compartida es un refuerzo, **no sustituye** la adaptación de clases específicas del artículo. Revisar la cascada CSS, la especificidad, el orden de carga, los estilos `inline` y las reglas con `!important`; evitar parches indiscriminados que perjudiquen otras páginas.
+5. **Referencias cromáticas para temas:** en oscuro, fondo exterior aproximado `#171b1e`, paneles `#242a2e`, texto principal `#f0eae0`, cabeceras de tabla `#37424b`. En claro, fondo general `#f5f3ef`, paneles blancos y texto `#20272d`. Mantener acentos dorados discretos. Los valores son referencias: el criterio decisivo es la legibilidad de todos los elementos.
+6. **Rankings en ambos temas:** las filas alternas y celdas no coloreadas deben tener contraste entre texto y fondo. Positivos: verde con texto legible; negativos: rojo/rosa con texto legible; neutros o nulos, claramente visibles. Conservar búsqueda, ordenación, encabezados clicables, copia íntegra y diseño de fichas móviles. No confiar en que la tabla se vea bien solo por comprobar la cabecera.
+7. **Gráficos y componentes especiales:** revisar fondos propios, títulos, ejes, leyendas y textos que utilicen colores codificados, así como `<canvas>`, SVG y estilos `inline` cuando existan. Los gráficos con fondo claro intencionado deben mantener texto oscuro y contraste suficiente dentro de su propia superficie; nunca imponer texto claro sobre fondo blanco.
+8. **Prueba funcional y visual antes de publicar:** abrir el HTML **desplegado**, establecer explícitamente modo claro y modo oscuro, recargar, cambiar de artículo y confirmar que se conserva la elección. Revisar comienzo, mitad y final de la página; en un ranking, comprobar filas pares/impares, las nueve columnas, colores y buscadores. Repetir en escritorio y móvil (incluyendo 320–390 px). Hacer capturas o una inspección visual equivalente: una revisión estática del CSS no acredita que la página se vea correctamente.
+9. **Control de cambios y caché:** cuando cambie una hoja CSS compartida, revisar todas las páginas dependientes y actualizar su referencia de versión si es necesario para evitar una copia antigua en caché. No afirmar «corregido visualmente» hasta probar el resultado público; distinguir confirmación del commit en GitHub, despliegue y verificación de interfaz.
+10. **Enlaces de continuidad editorial:** al final de cada artículo publicado, incluir cuando proceda un bloque discreto «Continue exploring» con 2–3 estudios relacionados ya disponibles y enlace al archivo o página permanente del universo. No recomendar estudios bajo embargo ni romper el calendario de publicación. Usar títulos descriptivos, enlaces reales y diseño adaptable; no introducir seguimiento adicional sin autorización.
+
+**Incidencia histórica de referencia:** en octubre de 2026, algunas publicaciones antiguas incluían estilos `[data-theme="dark"]` pero no activaban el atributo del tema; en otras, las filas alternas del ranking mostraban fondo claro con texto claro. Es obligatorio comprobar tanto la **activación** como el **contraste efectivo** para evitar reproducir esos fallos.
