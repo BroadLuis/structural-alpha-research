@@ -1,0 +1,25 @@
+/* Structural Alpha Research — consistent dark-mode legibility, 2026-10-21. */
+[data-theme="dark"]{color-scheme:dark;--bg:#171b1e;--ink:#f0eae0;--muted:#c7beb2;--panel:#242a2e;--white:#242a2e;--line:#444b4d}
+[data-theme="dark"] body{background:#171b1e!important;color:#f0eae0!important}
+[data-theme="dark"] main,[data-theme="dark"] article{color:#f0eae0}
+[data-theme="dark"] main>.panel,[data-theme="dark"] .panel:not(.silver):not(.gold),[data-theme="dark"] main .article-card,[data-theme="dark"] main article,[data-theme="dark"] main>.card,[data-theme="dark"] main>.section{background:#242a2e;color:#f0eae0;border-color:#434b4d}
+[data-theme="dark"] main p,[data-theme="dark"] main li,[data-theme="dark"] main .meta,[data-theme="dark"] main .muted,[data-theme="dark"] main .note{color:#ddd4c8}
+[data-theme="dark"] main h1,[data-theme="dark"] main h2,[data-theme="dark"] main h3,[data-theme="dark"] main h4,[data-theme="dark"] main strong,[data-theme="dark"] main b{color:#f0eae0}
+[data-theme="dark"] main a{color:#e5c892}
+[data-theme="dark"] .kpi,[data-theme="dark"] .stat,[data-theme="dark"] .stats .stat,[data-theme="dark"] .summary-card{background:#303431!important;border-color:#50534e!important;color:#f0eae0!important}
+[data-theme="dark"] .kpi span,[data-theme="dark"] .kpi small,[data-theme="dark"] .stat small{color:#cfc5b6!important}
+[data-theme="dark"] .kpi strong,[data-theme="dark"] .kpi b,[data-theme="dark"] .stat b{color:#f1e1c7!important}
+[data-theme="dark"] .tablewrap,[data-theme="dark"] .rankwrap,[data-theme="dark"] table{background:#242a2e;color:#eee8df;border-color:#434b4d}
+[data-theme="dark"] table thead th,[data-theme="dark"] #ranking thead th{background:#37424b!important;color:#fff!important}
+[data-theme="dark"] table tbody tr,[data-theme="dark"] #ranking tbody tr{background:#242a2e!important;color:#f0eae0!important}
+[data-theme="dark"] table tbody tr:nth-child(even),[data-theme="dark"] #ranking tbody tr:nth-child(even){background:#303638!important}
+[data-theme="dark"] table tbody td:not(.pos):not(.neg):not(.positive):not(.negative),[data-theme="dark"] #ranking tbody td:not(.pos):not(.neg):not(.positive):not(.negative){color:#f0eae0!important;border-color:#455055}
+[data-theme="dark"] table td.pos,[data-theme="dark"] table td.positive,[data-theme="dark"] #ranking td.pos{background:#274b40!important;color:#bcebd8!important}
+[data-theme="dark"] table td.neg,[data-theme="dark"] table td.negative,[data-theme="dark"] #ranking td.neg{background:#56363e!important;color:#ffc2c5!important}
+[data-theme="dark"] input,[data-theme="dark"] select,[data-theme="dark"] textarea{background:#242a2e;color:#f0eae0;border-color:#697174}
+[data-theme="dark"] input::placeholder{color:#c2bbb2}
+[data-theme="dark"] details,[data-theme="dark"] .rank-mobile-card,[data-theme="dark"] .rank-card{background:#242a2e!important;color:#f0eae0;border-color:#434b4d}
+[data-theme="dark"] .rank-mobile-grid span,[data-theme="dark"] .rank-grid span{color:#c9c4bd}
+[data-theme="dark"] .chart:not(.dark),[data-theme="dark"] .mini-chart{border-color:#434b4d}
+[data-theme="dark"] footer{background:#202426;color:#d5cbbd;border-color:#44433f}
+@media(max-width:700px){[data-theme="dark"] .rank-mobile-card,[data-theme="dark"] .rank-card{background:#242a2e!important}}
