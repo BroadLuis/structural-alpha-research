@@ -160,6 +160,25 @@ tbody tr:hover{background:#f0e9dc}
 [data-theme="dark"] footer{background:#202426;color:#d5cbbd;border-color:#44433f}
 [data-theme="dark"] .chart .track{background:#393a38}
 
+
+/* Uranium editorial layout: compact graphite & gold presentation */
+header{padding:13px 0 38px!important;background:linear-gradient(125deg,#20272d,#30383e)!important}
+header .wrap{max-width:1100px}
+header .top{font-size:.82rem;color:#e6ddd0}
+header .hero{max-width:1020px;margin-top:22px}
+header .eyebrow{font-size:.7rem;letter-spacing:.12em;color:#d8bb83}
+header h1{font-size:clamp(1.75rem,3.15vw,2.65rem);line-height:1.2;letter-spacing:-.025em;max-width:960px;margin:10px 0}
+header .deck{font-size:1rem;line-height:1.55;color:#e0d8cc;max-width:930px;margin:8px 0}
+main{padding-bottom:38px}
+main>.panel.lead{margin-top:-17px;padding:18px 22px;border-color:var(--line)}
+main>.panel.lead .kpis{gap:10px}
+main>.panel.lead .kpi{background:#f1eae0;border:1px solid #e4d9c9;padding:13px 15px}
+main>.panel.lead .kpi strong{color:#40372a;font-size:1.5rem}
+main>.panel.lead .kpi span{color:#645c50}
+[data-theme="dark"] main>.panel.lead .kpi{background:#30302d!important;border-color:#50493c!important}
+[data-theme="dark"] main>.panel.lead .kpi strong{color:#f1ece3!important}
+[data-theme="dark"] main>.panel.lead .kpi span{color:#cfc1aa!important}
+@media(max-width:700px){header{padding:12px 0 30px!important}header .hero{margin-top:17px}header h1{font-size:clamp(1.55rem,6.5vw,2.15rem)}header .deck{font-size:.94rem}main>.panel.lead{margin-top:-13px;padding:14px}main>.panel.lead .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}main>.panel.lead .kpi{padding:12px}main>.panel.lead .kpi strong{font-size:1.35rem}}
 </style><script>
 (function(){
   const storageKey="structural-alpha-theme";
