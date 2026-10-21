@@ -31,3 +31,13 @@
   #full-ranking .rank-mobile-name,
   #full-ranking .rank-name{min-width:0;overflow-wrap:break-word;word-break:normal}
 }
+
+/* Ensure ranking text stays legible in both themes, including alternating rows. */
+#ranking tbody tr{background:#fff;color:#20272d}
+#ranking tbody tr:nth-child(even){background:#f7f5f1!important}
+#ranking tbody td:not(.pos):not(.neg):not(.positive):not(.negative){color:#20272d!important}
+[data-theme="dark"] #ranking tbody tr{background:#242a2e!important;color:#f0eae0!important}
+[data-theme="dark"] #ranking tbody tr:nth-child(even){background:#303431!important}
+[data-theme="dark"] #ranking tbody td:not(.pos):not(.neg):not(.positive):not(.negative){color:#f0eae0!important}
+[data-theme="dark"] #ranking tbody td.pos,[data-theme="dark"] #ranking tbody td.positive{background:#274b40!important;color:#b9ead4!important}
+[data-theme="dark"] #ranking tbody td.neg,[data-theme="dark"] #ranking tbody td.negative{background:#56363e!important;color:#ffc2c5!important}
