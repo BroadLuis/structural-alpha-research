@@ -8,8 +8,9 @@ Times are shown in **Madrid** and **New York (ET)**, with daylight-saving change
 
 | Release date | Madrid time | New York time | Study | Article |
 |---|---|---|---|---|
-| Sat, 24 Oct 2026 | 18:00 | 12:00 PM ET | MARKET PERSPECTIVES | The Hidden Cost of Waiting for Confirmation |
+| Sat, 24 Oct 2026 | 18:15 | 12:15 PM ET | MARKET PERSPECTIVES | The Hidden Cost of Waiting for Confirmation |
 | Sun, 25 Oct 2026 | 14:30 | 09:30 AM ET | JUNIOR | Junior Miners: Record-Low Market Breadth Across 482 Securities |
+| Sun, 25 Oct 2026 | 18:00 | 01:00 PM ET | MARKET PERSPECTIVES | Buy the Bottom or Wait for Confirmation? The Real Cost of Both Strategies |
 | Sun, 01 Nov 2026 | 19:00 | 01:00 PM ET | MARKET PERSPECTIVES | Why Gold Miners Can Lag Gold During a Bull Market |
 
 ## Earlier scheduled releases
