@@ -564,9 +564,21 @@ main.wrap{padding-top:0}
     function refreshPublishedStudies(){render();renderFeatured();renderUpcoming()}
     const upcomingSection=document.getElementById("upcoming-research");
     const upcomingContainer=document.getElementById("upcoming-studies");
+    // Include near-term editorial releases in the same ticker as scheduled studies.
+    // The November 1 essay is intentionally excluded until a later announcement.
+    const tickerEditorial=[
+      {universe:"MARKET PERSPECTIVES",title:"The Hidden Cost of Waiting for Confirmation",url:"perspectives/2026-10-20-hidden-cost-confirmation/index.html"},
+      {universe:"MARKET PERSPECTIVES",title:"Buy the Bottom or Wait for Confirmation? The Real Cost of Both Strategies",url:"perspectives/2026-10-25-buy-early-or-wait-for-confirmation/index.html"}
+    ];
+    const tickerReleaseTimes={
+      "perspectives/2026-10-20-hidden-cost-confirmation/index.html":"2026-10-24T16:15:00Z",
+      "perspectives/2026-10-25-buy-early-or-wait-for-confirmation/index.html":"2026-10-25T17:00:00Z"
+    };
     function renderUpcoming(){
-      const upcoming=reports.filter(r=>publicationTimes[r.url]&&!isPublished(r))
-        .sort((a,b)=>Date.parse(publicationTimes[a.url])-Date.parse(publicationTimes[b.url]));
+      const releaseOf=item=>tickerReleaseTimes[item.url]||publicationTimes[item.url];
+      const upcoming=[...reports.filter(r=>publicationTimes[r.url]&&!isPublished(r)),
+        ...tickerEditorial.filter(r=>Date.now()<Date.parse(tickerReleaseTimes[r.url]))]
+        .sort((a,b)=>Date.parse(releaseOf(a))-Date.parse(releaseOf(b)));
       upcomingContainer.replaceChildren();
       upcomingSection.hidden=upcoming.length===0;
       if(!upcoming.length)return;
@@ -575,7 +587,7 @@ main.wrap{padding-top:0}
         const span=document.createElement("span");span.className="upcoming-item";
         const name=document.createElement("strong");name.textContent=item.universe;
         const title=document.createElement("span");title.textContent=item.title;
-        const time=document.createElement("time");time.dateTime=publicationTimes[item.url];time.textContent=formatter.format(new Date(time.dateTime))+" ET";
+        const time=document.createElement("time");time.dateTime=releaseOf(item);time.textContent=formatter.format(new Date(time.dateTime))+" ET";
         span.append(name,title,time);return span;
       };
       for(const item of upcoming)upcomingContainer.append(makeItem(item));
@@ -658,7 +670,7 @@ main.wrap{padding-top:0}
     }
     input.addEventListener("input",resetArchivePage);filter.addEventListener("change",()=>{shortcutMarket="";resetArchivePage();});sort.addEventListener("change",resetArchivePage);
     render();renderFeatured();renderUpcoming();
-    for(const release of Object.values(publicationTimes)){
+    for(const release of [...Object.values(publicationTimes),...Object.values(tickerReleaseTimes)]){
       const delay=Date.parse(release)-Date.now();
       if(delay>0)setTimeout(refreshPublishedStudies,delay+1000);
     }
