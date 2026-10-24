@@ -24,7 +24,12 @@ EDITORIAL_RELEASES = {
     "perspectives/2026-10-20-hidden-cost-confirmation/index.html": {
         "title": "The Hidden Cost of Waiting for Confirmation",
         "universe": "MARKET PERSPECTIVES",
-        "release": "2026-10-24T16:00:00Z",
+        "release": "2026-10-24T16:15:00Z",
+    },
+    "perspectives/2026-10-25-buy-early-or-wait-for-confirmation/index.html": {
+        "title": "Buy the Bottom or Wait for Confirmation? The Real Cost of Both Strategies",
+        "universe": "MARKET PERSPECTIVES",
+        "release": "2026-10-25T17:00:00Z",
     },
     "perspectives/2026-10-18-gold-miners-vs-gold/index.html": {
         "title": "Why Gold Miners Can Lag Gold During a Bull Market",
