@@ -27,6 +27,7 @@ Times are shown in **Madrid** and **New York (ET)**, with daylight-saving change
 | Sat, 24 Oct 2026 | 18:15 | 12:15 PM ET | MARKET PERSPECTIVES | [The Hidden Cost of Waiting for Confirmation](perspectives/2026-10-20-hidden-cost-confirmation/index.html) |
 | Sun, 25 Oct 2026 | 14:30 | 09:30 AM ET | JUNIOR | [Junior Miners: Record-Low Market Breadth Across 482 Securities](studies/2026-10-25-junior/index.html) |
 | Sun, 25 Oct 2026 | 18:00 | 01:00 PM ET | MARKET PERSPECTIVES | [Buy the Bottom or Wait for Confirmation? The Real Cost of Both Strategies](perspectives/2026-10-25-buy-early-or-wait-for-confirmation/index.html) |
+| Tue, 27 Oct 2026 | 11:00 | 06:00 AM ET | MARKET PERSPECTIVES | [Junior Mining Stocks: A Powerful Rally Meets a Severe Breadth Breakdown](perspectives/2026-10-27-junior-miners-long-cycle/index.html) |
 
 ## How scheduling works
 
