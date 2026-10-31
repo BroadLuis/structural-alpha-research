@@ -8,7 +8,7 @@ Times are shown in **Madrid** and **New York (ET)**, with daylight-saving change
 
 | Release date | Madrid time | New York time | Study | Article |
 |---|---|---|---|---|
-| Sun, 01 Nov 2026 | 19:00 | 01:00 PM ET | MARKET PERSPECTIVES | Why Gold Miners Can Lag Gold During a Bull Market |
+| Sun, 08 Nov 2026 | 19:00 | 01:00 PM ET | MARKET PERSPECTIVES | Why Gold Miners Can Lag Gold During a Bull Market |
 
 ## Earlier scheduled releases
 
