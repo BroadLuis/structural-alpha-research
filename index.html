@@ -247,7 +247,7 @@ main.wrap{padding-top:0}
 <body>
   <header>
     <div class="wrap">
-      <nav class="top" aria-label="Site navigation"><a class="brand brand-with-icon" href="index.html" style="color:#fff"><img class="brand-mark" src="assets/images/Emblema%20de%20pico%20minero%20ne%C3%B3n%20cromado.png" alt="" width="38" height="38">Structural Alpha</a><div class="header-menu"><details class="nav-group"><summary>Mining markets</summary><div class="nav-dropdown"><a href="gdx-gdxj/">Gold miners</a><a href="sil-silj/">Silver miners</a><a href="junior/">Junior</a><a href="asx/">ASX</a><a href="energy/">Energy</a><a href="uranium/">Uranium</a><a href="copper/">Copper &amp; Junior Copper</a></div></details><details class="nav-group"><summary>Equity markets</summary><div class="nav-dropdown"><a href="sp500/">S&amp;P 500</a><a href="stoxx600/">STOXX 600</a></div></details><a href="#market-perspectives">Market Perspectives</a><a href="#research">Research archive ↓</a><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">☾ Dark</button></div></nav>
+      <nav class="top" aria-label="Site navigation"><a class="brand brand-with-icon" href="index.html" style="color:#fff"><img class="brand-mark" src="assets/images/Emblema%20de%20pico%20minero%20ne%C3%B3n%20cromado.png" alt="" width="38" height="38">Structural Alpha</a><div class="header-menu"><details class="nav-group"><summary>Mining markets</summary><div class="nav-dropdown"><a href="gdx-gdxj/">Gold miners</a><a href="sil-silj/">Silver miners</a><a href="junior/">Junior</a><a href="asx/">ASX</a><a href="energy/">Energy</a><a href="uranium/">Uranium</a><a href="copper/">Copper &amp; Junior Copper</a></div></details><details class="nav-group"><summary>Equity markets</summary><div class="nav-dropdown"><a href="sp500/">S&amp;P 500</a><a href="stoxx600/">STOXX 600</a><a href="#research" data-equity-market="NASDAQ100">NASDAQ 100</a></div></details><a href="#market-perspectives">Market Perspectives</a><a href="#research">Research archive ↓</a><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">☾ Dark</button></div></nav>
       <div class="hero-frame"><img class="hero-banner" src="https://raw.githubusercontent.com/BroadLuis/structural-alpha-research/main/assets/images/LBroad%20Structural%20Alpha%20Nuevo.png?v=20261108" alt="Structural Alpha Research — Independent Quantitative Market Research: Relative Strength, Market Breadth, Regime Detection, Systematic Rankings" width="2048" height="682" fetchpriority="high"></div>
       <div class="hero-copy"><h1>Independent Quantitative Market Research</h1>
       <p class="intro">Data-driven research into market structure, relative strength, breadth, drawdowns, and volume. Independent analysis, transparent methodology, and free access to comprehensive research and interactive rankings.</p>
@@ -284,6 +284,7 @@ main.wrap{padding-top:0}
           <option>JUNIOR COPPER</option>
           <option>LITHIUM</option>
           <option>S&amp;P 500</option>
+          <option value="NASDAQ100">NASDAQ 100</option>
           <option>SIL–SILJ</option>
           <option>STOXX 600</option>
           <option>URANIUM</option>
@@ -453,6 +454,9 @@ main.wrap{padding-top:0}
         article.append(meta,title,desc,actions);results.append(article);
       }
     }
+    document.querySelectorAll('[data-equity-market="NASDAQ100"]').forEach(link=>link.addEventListener("click",()=>{
+      shortcutMarket="";filter.value="NASDAQ100";input.value="";resetArchivePage();
+    }));
     input.addEventListener("input",resetArchivePage);filter.addEventListener("change",()=>{shortcutMarket="";resetArchivePage();});sort.addEventListener("change",resetArchivePage);
     render();renderFeatured();renderUpcoming();
     for(const release of [...Object.values(publicationTimes),...Object.values(tickerReleaseTimes)]){
