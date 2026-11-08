@@ -8,7 +8,7 @@ Times are shown in **Madrid** and **New York (ET)**, with daylight-saving change
 
 | Release date | Madrid time | New York time | Study | Article |
 |---|---|---|---|---|
-| Sun, 08 Nov 2026 | 19:00 | 01:00 PM ET | MARKET PERSPECTIVES | Why Gold Miners Can Lag Gold During a Bull Market |
+| — | — | — | No scheduled studies | — |
 
 ## Earlier scheduled releases
 
@@ -29,6 +29,7 @@ Times are shown in **Madrid** and **New York (ET)**, with daylight-saving change
 | Sun, 25 Oct 2026 | 18:00 | 01:00 PM ET | MARKET PERSPECTIVES | [Buy the Bottom or Wait for Confirmation? The Real Cost of Both Strategies](perspectives/2026-10-25-buy-early-or-wait-for-confirmation/index.html) |
 | Tue, 27 Oct 2026 | 11:00 | 06:00 AM ET | MARKET PERSPECTIVES | [Junior Mining Stocks: A Powerful Rally Meets a Severe Breadth Breakdown](perspectives/2026-10-27-junior-miners-long-cycle/index.html) |
 | Sat, 07 Nov 2026 | 21:00 | 03:00 PM ET | JUNIOR | [Junior Gold and Silver Miners: A Strong Rebound from Record-Low Market Breadth](studies/2026-11-07-junior/index.html) |
+| Sun, 08 Nov 2026 | 19:00 | 01:00 PM ET | MARKET PERSPECTIVES | [Why Gold Miners Can Lag Gold During a Bull Market](perspectives/2026-10-18-gold-miners-vs-gold/index.html) |
 
 ## How scheduling works
 
