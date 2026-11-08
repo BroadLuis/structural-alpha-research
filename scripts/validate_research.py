@@ -21,8 +21,15 @@ else:
     except json.JSONDecodeError as exc:
         errors.append(f"Invalid fallback JSON: {exc}")
 
-options = set(re.findall(r'<option(?:\s+[^>]*)?>(.*?)</option>', html))
-options = {re.sub(r'&amp;', '&', value) for value in options}
+# The market filter may use a canonical value distinct from the visible label.
+# Validate the submitted value when supplied; otherwise use the option text.
+options = set()
+market_select = re.search(r'<select\b[^>]*\bid=["\']universe["\'][^>]*>(.*?)</select>', html, re.S)
+if market_select:
+    for attrs, label in re.findall(r'<option([^>]*)>(.*?)</option>', market_select.group(1), re.S):
+        value_match = re.search(r'\bvalue=["\']([^"\']*)["\']', attrs)
+        value = value_match.group(1) if value_match else label.strip()
+        options.add(value.replace('&amp;', '&'))
 seen = set()
 for i, item in enumerate(catalog, 1):
     for field in ("title", "date", "universe", "summary", "url"):
