@@ -64,6 +64,6 @@
  byId('copyDesktop').onclick=copyRanking;byId('copyMobile').onclick=copyRanking;
  byId('copyDesktop').disabled=true;byId('copyMobile').disabled=true;
  byId('themeBtn').onclick=()=>{const n=document.documentElement.dataset.theme==='dark'?'light':'dark';document.documentElement.dataset.theme=n;try{localStorage.setItem('structural-alpha-theme',n)}catch(e){}};
- fetch('assets/ranking.json').then(r=>{if(!r.ok)throw Error('ranking fetch failed');return r.json()}).then(d=>{if(d.schema_version!==1||d.universe!=='COPPER'||d.as_of_date!=='2026-11-06'||JSON.stringify(d.columns)!==JSON.stringify(keys)||!Array.isArray(d.rows)||d.rows.length!==76||d.rows.some(r=>!Array.isArray(r)||r.length!==9))throw Error('ranking format mismatch');rows=d.rows;byId('copyDesktop').disabled=byId('copyMobile').disabled=false;render()}).catch(e=>{byId('rankCount').textContent='Ranking could not load. Check the JSON path and refresh.';console.error(e)});
+ fetch('assets/ranking.json').then(r=>{if(!r.ok)throw Error('ranking fetch failed');return r.json()}).then(d=>{if(d.schema_version!==1||d.universe!=='COPPER'||d.as_of_date!=='2026-11-06'||JSON.stringify(d.columns)!==JSON.stringify(keys)||!Array.isArray(d.rows)||d.rows.length!==101||d.rows.some(r=>!Array.isArray(r)||r.length!==9))throw Error('ranking format mismatch');rows=d.rows;byId('copyDesktop').disabled=byId('copyMobile').disabled=false;render()}).catch(e=>{byId('rankCount').textContent='Ranking could not load. Check the JSON path and refresh.';console.error(e)});
 })();
 </script></body></html>
