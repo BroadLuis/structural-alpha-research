@@ -1,12 +1,5 @@
 [
   {
-    "title": "US Bank Stocks: Market Breadth Improves as 85% Outperform BKX Over Four Weeks",
-    "date": "2026-11-10",
-    "universe": "US BANKS",
-    "summary": "Weekly analysis of 180 US banking stocks through November 6. MA200 breadth reached 76.67%, and 85% of the basket outperformed BKX over four weeks, while the median weekly return was flat. Explores breadth, benchmark divergence, volume and drawdowns, with a complete interactive ranking.",
-    "url": "studies/2026-11-10-us-banks/index.html"
-  },
-  {
     "title": "Semiconductor Stocks: Market Breadth Collapses as Heavy Selling Accelerates",
     "date": "2026-11-10",
     "universe": "SEMICONDUCTORS",
